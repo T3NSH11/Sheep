@@ -6,10 +6,12 @@ public class FSM : MonoBehaviour
 {
     enum State
     {
-        State1,
-        State2,
+        Idle,
+        Wander,
         State3
     }
-    State currentState = State.State1;
+    State currentState = State.Idle;
+
+    
 
 }
