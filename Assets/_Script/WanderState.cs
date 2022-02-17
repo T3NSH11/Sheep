@@ -33,8 +33,8 @@ public class WanderState : State
     void Start()
     {
         rb = AI.gameObject.GetComponent<Rigidbody>();
-        //float initalAngle = Random.Range(0.0f, Mathf.PI * 2); // we use PI * 2 because we are dealing with cos, sin, we are dealing with angles in the radiant format, not in the degree format.
-        //rb.velocity = new Vector3(Mathf.Cos(initalAngle) * speed, 0, Mathf.Sin(initalAngle) * speed);
+      //  float initalAngle = Random.Range(0.0f, Mathf.PI * 2); // we use PI * 2 because we are dealing with cos, sin, we are dealing with angles in the radiant format, not in the degree format.
+       // rb.velocity = new Vector3(Mathf.Cos(initalAngle) * speed, 0, Mathf.Sin(initalAngle) * speed);
     }
 
     // Update is called once per frame

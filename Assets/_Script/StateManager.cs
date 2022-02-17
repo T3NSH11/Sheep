@@ -15,7 +15,6 @@ public class StateManager : MonoBehaviour
 
         if(nextState != null)
         {
-            
             //switch to the next state
             SwitchToTheNextState(nextState);
         }
