@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SheepState
+public abstract class SheepState
 {
-    public virtual void SheepUpdate(SheepManager manager)
-    {
 
-    }
+    public abstract void EnterState(SheepManager manager);
+    public abstract void UpdateState(SheepManager manager);
+    //public abstract void OnCollisionEnter(SheepManager manager);
 
 }

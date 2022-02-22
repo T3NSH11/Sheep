@@ -5,34 +5,29 @@ using UnityEngine;
 public class SheepManager : MonoBehaviour
 {
     SheepState currentState;
-    wanderState wanderState = new wanderState();
-    public float speed = 2f;
-    public float wanderStrength;                // basically the radius
-    public float wanderAngleDisplacement;       //going to be the thing that changes time to time
-    public bool isWandering;
+    public IdleTestScript idleTestScript = new IdleTestScript();
+    public wanderState wanderState = new wanderState();
     public Transform AI;
-
-    public Rigidbody rb;
-    public float wanderAngle;
-    public bool isDone = false;
     public Transform player;
 
     void Start()
     {
-        float initalAngle = Random.Range(0.0f, Mathf.PI * 2);
-        rb.velocity = new Vector3(Mathf.Cos(initalAngle) * speed, 0, Mathf.Sin(initalAngle) * speed);      // we use PI * 2 because we are dealing with cos, sin, we are dealing with angles in the radiant format, not in the degree format.
-        currentState = new wanderState();
-        rb = AI.gameObject.GetComponent<Rigidbody>();
+        wanderState.wanderAngleDisplacement = 0.2f;
+        wanderState.wanderStrength = 0.60f;
+        wanderState.speed = 1f;
+        //starting the state 
+        currentState = idleTestScript;
+        //"this" is a reference to the context (this exact script)
+        currentState.EnterState(this);
     }
     void Update()
     {
-        // float dist = Vector3.Distance(player.position, AI.position);
-        currentState.SheepUpdate(this);
-        Debug.Log(currentState);
+        currentState.UpdateState(this);
     }
 
-    public void SwitchState(SheepState nextState)
+    public void SwitchState(SheepState state)
     {
-        currentState = nextState;
+        currentState = state;
+        state.EnterState(this);
     }
 }

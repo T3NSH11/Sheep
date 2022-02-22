@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class FleeState : SheepState
 {
-    public override void SheepUpdate(SheepManager manager)
+    public override void EnterState(SheepManager manager)
     {
+
+    }
+    public override void UpdateState(SheepManager manager)
+    {
+
     }
 }
