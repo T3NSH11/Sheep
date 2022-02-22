@@ -12,9 +12,12 @@ public class SheepManager : MonoBehaviour
 
     void Start()
     {
+        #region Wander State
         wanderState.wanderAngleDisplacement = 0.2f;
         wanderState.wanderStrength = 0.60f;
         wanderState.speed = 1f;
+        #endregion
+
         //starting the state 
         currentState = idleTestScript;
         //"this" is a reference to the context (this exact script)
