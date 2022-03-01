@@ -6,8 +6,13 @@ public class SheepManager : MonoBehaviour
 {
     SheepState currentState;
     public IdleTestScript idleTestScript = new IdleTestScript();
+
     public wanderState wanderState = new wanderState();
+
+    public JumpTowards jumpTowards = new JumpTowards();
+
     public Transform AI;
+
     public Transform player;
 
     void Start()
