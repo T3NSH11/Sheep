@@ -4,14 +4,33 @@ using UnityEngine;
 
 public class FollowPath : WolfState
 {
-    
-    public override void EnterState(SheepManager manager)
-    {
-        
-    }
-    public override void UpdateState(SheepManager manager)
+    public AIPath currentPath = GameObject.FindGameObjectWithTag("WolfPath").GetComponent<AIPath>();
+    public int currentNodeID = 0;
+    public float Speed = 5f;
+    public float RotationSpeed = 5f;
+    public float WayPointSize = 1f;
+
+    public override void EnterState(WolfManager manager)
     {
        
+    }
+    public override void UpdateState(WolfManager manager)
+    {
+       float node_Distance = Vector3.Distance(currentPath.pathNodes[currentNodeID].position, manager.AI.position);
+       manager.AI.position = Vector3.MoveTowards(manager.AI.position, currentPath.pathNodes[currentNodeID].position, Time.deltaTime * Speed);
+
+       var object_Rotation = Quaternion.LookRotation(currentPath.pathNodes[currentNodeID].position - manager.AI.position);
+       manager.AI.rotation = Quaternion.Slerp(manager.AI.rotation, object_Rotation, Time.deltaTime * RotationSpeed);
+
+        if (node_Distance <= WayPointSize)
+        {
+            currentNodeID++;
+        }
+
+        if (currentNodeID >= currentPath.pathNodes.Count)
+        {
+            currentNodeID = 0;
+        }
     }
 
 

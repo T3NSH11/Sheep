@@ -10,6 +10,8 @@ public class WolfManager : MonoBehaviour
 
     void Start()
     {
+        currentState = new FollowPath();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         currentState.EnterState(this);
     }
     void Update()

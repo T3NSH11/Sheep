@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class BasicAction : WolfState
 {
-    public override void EnterState(SheepManager manager)
+    public override void EnterState(WolfManager manager)
     {
 
     }
-    public override void UpdateState(SheepManager manager)
+    public override void UpdateState(WolfManager manager)
     {
 
     }
