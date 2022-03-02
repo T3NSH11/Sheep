@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FollowPath : WolfState
 {
-    public AIPath currentPath = GameObject.FindGameObjectWithTag("WolfPath").GetComponent<AIPath>();
+    public AIPath currentPath = GameObject.FindGameObjectWithTag("WolfPath").GetComponent<AIPath>(); // Path AI follows
     public int currentNodeID = 0;
     public float Speed = 5f;
     public float RotationSpeed = 5f;
