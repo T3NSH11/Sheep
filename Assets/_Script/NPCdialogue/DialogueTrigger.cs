@@ -14,11 +14,13 @@ public class DialogueTrigger : MonoBehaviour
     private bool playerIsNear;
 
     DialogueManager dialogueManager;
+    PlayerMovement playerMovement;
 
 
     private void Awake()
     {
         visualCue.SetActive(false);
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     private void Update()

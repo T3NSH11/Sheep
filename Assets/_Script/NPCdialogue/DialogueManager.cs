@@ -18,6 +18,7 @@ public class DialogueManager : MonoBehaviour
     public bool dialoguePlaying { get; private set; } //makes it so only the other scripts can fetch values
 
     PlayerMovement playerMovement;
+    public Transform Player;
 
     private void Awake()
     {
@@ -58,12 +59,12 @@ public class DialogueManager : MonoBehaviour
 
     }
 
-    public void EnterDialogueMode (TextAsset InkJSON)
+    public void EnterDialogueMode(TextAsset InkJSON)
     {
         currentStory = new Story(InkJSON.text); //initializes the json file 
         dialoguePlaying = true;
         dialoguePanel.SetActive(true);
-
+        Player.GetComponent<PlayerMovement>().enabled = false;
         ContinueStory();
     }
 
@@ -72,6 +73,7 @@ public class DialogueManager : MonoBehaviour
         dialoguePlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
+        Player.GetComponent<PlayerMovement>().enabled = true;
     }
 
     private void ContinueStory()
