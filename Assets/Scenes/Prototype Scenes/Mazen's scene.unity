@@ -980,7 +980,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa290fc04869e7d4cbe03851fa9854f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalTurnAngle: 0
 --- !u!114 &1310073821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -993,18 +992,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6124249fe2e406a41911e42efcc93f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topDownMode: 0
-  player: {fileID: 1310073820}
-  farClipTopView: 100
-  farClipBehindView: 150
-  layerExtraTerrestrial: 0
-  farClipExtraTerrestrial: 400
-  distanceAbove: 2
-  turnSpeed: 0
-  startAngle: 0
-  rotSmoothSpeed: 0
-  offset: {x: 0, y: 0, z: 0}
-  lookAheadOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1316364762
 GameObject:
   m_ObjectHideFlags: 0

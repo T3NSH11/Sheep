@@ -17,6 +17,8 @@ public class DialogueManager : MonoBehaviour
 
     public bool dialoguePlaying { get; private set; } //makes it so only the other scripts can fetch values
 
+    PlayerMovement playerMovement;
+
     private void Awake()
     {
         if (instance != null)
@@ -34,7 +36,7 @@ public class DialogueManager : MonoBehaviour
 
 
 
-    private void Start()
+    public void Start()
     {
         dialoguePlaying = false;
         dialoguePanel.SetActive(false);
@@ -45,13 +47,11 @@ public class DialogueManager : MonoBehaviour
         //reutnrs if there is no dialogue playing
         if (!dialoguePlaying)
         {
-
             return;
         }
         //continues next line of dialogue
         if (Input.GetKeyDown(KeyCode.Space))
         {
-
             ContinueStory();
         }
 
@@ -65,13 +65,10 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(true);
 
         ContinueStory();
-
-       
     }
 
-    private void ExitDialogueMode()
+    public void ExitDialogueMode()
     {
-
         dialoguePlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
@@ -82,13 +79,11 @@ public class DialogueManager : MonoBehaviour
 
         if (currentStory.canContinue) // checks if theres more lines to progress
         {
-
             dialogueText.text = currentStory.Continue();
         }
         else
         {
             ExitDialogueMode();
-
         }
 
     }

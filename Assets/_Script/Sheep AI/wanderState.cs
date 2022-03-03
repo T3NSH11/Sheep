@@ -25,18 +25,21 @@ public class wanderState : SheepState
     {
         Debug.Log("started wandering");
         StartWandering();
+
+        //Gizmos.color = Color.blue;
+        //Gizmos.DrawWireSphere(manager.AI.transform.position, wanderStrength);
     }
 
 
-     void StartWandering()
-     {
-         wanderAngle += Random.Range(-wanderAngleDisplacement, wanderAngleDisplacement);
+    void StartWandering()
+    {
+        wanderAngle += Random.Range(-wanderAngleDisplacement, wanderAngleDisplacement);
 
-         Vector3 displacementForce = new Vector3(Mathf.Cos(wanderAngle) * wanderStrength, 0, Mathf.Sin(wanderAngle) * wanderStrength);
+        Vector3 displacementForce = new Vector3(Mathf.Cos(wanderAngle) * wanderStrength, 0, Mathf.Sin(wanderAngle) * wanderStrength);
 
-         Vector3 newVelocity = (rb.velocity + displacementForce).normalized * speed;
-         rb.velocity = newVelocity;
-         Debug.Log(wanderAngleDisplacement);
+        Vector3 newVelocity = (rb.velocity + displacementForce).normalized * speed;
+        rb.velocity = newVelocity;
+        Debug.Log(wanderAngleDisplacement);
 
-     }
+    }
 }
