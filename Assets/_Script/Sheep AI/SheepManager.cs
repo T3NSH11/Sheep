@@ -5,6 +5,7 @@ using UnityEngine;
 public class SheepManager : MonoBehaviour
 {
     SheepState currentState;
+    
     public IdleTestScript idleTestScript = new IdleTestScript();
 
     public wanderState wanderState = new wanderState();
@@ -15,6 +16,12 @@ public class SheepManager : MonoBehaviour
 
     public Transform player;
 
+    public Rigidbody AiRb;
+
+    public LayerMask SheepMask;
+
+    public float Speed;
+
     void Start()
     {
         #region Wander State
@@ -24,18 +31,40 @@ public class SheepManager : MonoBehaviour
         #endregion
 
         //starting the state 
-        currentState = idleTestScript;
+        currentState = new GoToDefault();
         //"this" is a reference to the context (this exact script)
         currentState.EnterState(this);
+        AI = transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        AiRb = gameObject.GetComponent<Rigidbody>();
     }
     void Update()
     {
         currentState.UpdateState(this);
+        Flock();
     }
 
     public void SwitchState(SheepState state)
     {
         currentState = state;
         state.EnterState(this);
+    }
+
+    void Flock()
+    {
+        float FlockRadius = 100000;
+        //LayerMask SheepMask = LayerMask.NameToLayer("Sheep");
+
+        //Choosing what sheep to follow
+        Collider[] NearbySheep = Physics.OverlapSphere(transform.position, FlockRadius, SheepMask);
+        Debug.Log(NearbySheep.Length);
+        int random = Random.Range(0, NearbySheep.Length);
+        Collider FollowingSheep = NearbySheep[random];
+
+        Vector3 DirectionToSheep = FollowingSheep.transform.position - AI.position;
+
+        //Following sheep
+        AiRb.AddForce(DirectionToSheep * Speed);
+
     }
 }

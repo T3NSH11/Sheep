@@ -2,16 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoToDefault : MonoBehaviour
+public class GoToDefault : SheepState
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void EnterState(SheepManager manager)
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    }
+    public override void UpdateState(SheepManager manager)
     {
         
     }
