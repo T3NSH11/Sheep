@@ -20,8 +20,6 @@ public class SheepManager : MonoBehaviour
 
     public LayerMask SheepMask;
 
-    public float Speed;
-
     void Start()
     {
         #region Wander State
@@ -29,6 +27,8 @@ public class SheepManager : MonoBehaviour
         wanderState.wanderStrength = 0.60f;
         wanderState.speed = 0.7f;
         #endregion
+
+
 
         //starting the state 
         currentState = new IdleTestScript();
@@ -65,7 +65,7 @@ public class SheepManager : MonoBehaviour
         Vector3 DirectionToSheep = FollowingSheep.transform.position - AI.position;
 
         //Following sheep
-        AiRb.AddForce(DirectionToSheep * Speed);
+        AiRb.AddForce(DirectionToSheep.normalized * 0.2f);
 
     } */
 }

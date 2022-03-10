@@ -12,6 +12,10 @@ public class FleeState : SheepState
     public override void UpdateState(SheepManager manager)
     {
         DirectionAway = manager.AI.position - manager.player.position;
-        manager.AiRb.AddForce(DirectionAway * manager.Speed);
+
+        if (Vector3.Distance(manager.AI.position, manager.player.position) < 200)
+        {
+            manager.AiRb.AddForce(DirectionAway.normalized);
+        }
     }
 }
