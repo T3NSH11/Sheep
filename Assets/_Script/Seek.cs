@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SeekAndFlee : MonoBehaviour
+public class Seek : MonoBehaviour
 {
     public Transform target;
     public float speed;
     public float seekStrength;
-    public bool isFlee;
+    //public bool isFlee;
     private Rigidbody rb;
 
     void OnDrawGizmos() 
@@ -29,11 +29,13 @@ public class SeekAndFlee : MonoBehaviour
         if (target != null)
         {
             Vector3 desiredVelocity = (target.transform.position - transform.position).normalized * speed;
+            /*
             if(isFlee)
             {
                 desiredVelocity *= -1;
                 transform.rotation = Quaternion.LookRotation(transform.position - target.position);
             }
+            */
             Vector3 currentVelocity = rb.velocity;
 
             Vector3 seekForce = (desiredVelocity - currentVelocity).normalized * seekStrength;

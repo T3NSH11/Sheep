@@ -27,7 +27,7 @@ public class SheepManager : MonoBehaviour
         #region Wander State
         wanderState.wanderAngleDisplacement = 0.2f;
         wanderState.wanderStrength = 0.60f;
-        wanderState.speed = 1f;
+        wanderState.speed = 0.7f;
         #endregion
 
         //starting the state 
