@@ -35,6 +35,7 @@ public class SheepManager : MonoBehaviour
         //"this" is a reference to the context (this exact script)
         currentState.EnterState(this);
         
+        
         AI = transform;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         AiRb = gameObject.GetComponent<Rigidbody>();

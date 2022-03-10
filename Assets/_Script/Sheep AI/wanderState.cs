@@ -12,6 +12,7 @@ public class wanderState : SheepState
     Rigidbody rb;
     private float wanderAngle;
 
+
     public override void EnterState(SheepManager manager)
     {
         Debug.Log("Wander State Initiated");
@@ -23,14 +24,11 @@ public class wanderState : SheepState
     public override void UpdateState(SheepManager manager)
     {
         Debug.Log("started wandering");
-        StartWandering();
-
-        //Gizmos.color = Color.blue;
-        //Gizmos.DrawWireSphere(manager.AI.transform.position, wanderStrength);
+        StartWandering(manager.AI);
     }
 
 
-    void StartWandering()
+    void StartWandering(Transform AI)
     {
         wanderAngle += Random.Range(-wanderAngleDisplacement, wanderAngleDisplacement);
 
@@ -38,7 +36,9 @@ public class wanderState : SheepState
 
         Vector3 newVelocity = (rb.velocity + displacementForce).normalized * speed;
         rb.velocity = newVelocity;
-        Debug.Log(wanderAngleDisplacement);
 
+
+        Quaternion desiredRotation = Quaternion.LookRotation(rb.velocity);
+        AI.transform.rotation = Quaternion.Slerp(AI.transform.rotation, desiredRotation, Time.deltaTime);
     }
 }

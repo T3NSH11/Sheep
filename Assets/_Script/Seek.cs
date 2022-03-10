@@ -43,6 +43,11 @@ public class Seek : MonoBehaviour
                     float multiplier = distance / arrivalRadius;
                     rb.velocity = rb.velocity.normalized * multiplier;
                 }
+
+                if(distance < 3)
+                {
+                    rb.velocity =  Vector3.zero;
+                }
             }
         }
     }
