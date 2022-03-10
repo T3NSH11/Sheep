@@ -25,15 +25,16 @@ public class SheepManager : MonoBehaviour
     void Start()
     {
         #region Wander State
-        wanderState.wanderAngleDisplacement = 0.2f;
+        wanderState.wanderAngleDisplacement = 0.09f;
         wanderState.wanderStrength = 0.60f;
         wanderState.speed = 0.7f;
         #endregion
 
         //starting the state 
-        currentState = new GoToDefault();
+        currentState = new IdleTestScript();
         //"this" is a reference to the context (this exact script)
         currentState.EnterState(this);
+        
         AI = transform;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         AiRb = gameObject.GetComponent<Rigidbody>();
@@ -41,7 +42,7 @@ public class SheepManager : MonoBehaviour
     void Update()
     {
         currentState.UpdateState(this);
-        Flock();
+        //Flock();
     }
 
     public void SwitchState(SheepState state)
@@ -49,7 +50,7 @@ public class SheepManager : MonoBehaviour
         currentState = state;
         state.EnterState(this);
     }
-
+/*
     void Flock()
     {
         float FlockRadius = 100000;
@@ -66,5 +67,5 @@ public class SheepManager : MonoBehaviour
         //Following sheep
         AiRb.AddForce(DirectionToSheep * Speed);
 
-    }
+    } */
 }

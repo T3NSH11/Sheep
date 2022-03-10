@@ -23,7 +23,7 @@ public class Flee : MonoBehaviour
     {
         var dis = Vector3.Distance (AI.position, target.position);
 
-        Debug.Log(dis);
+        //Debug.Log(dis);
 
         if (dis < 10)
         {
