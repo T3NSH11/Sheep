@@ -28,6 +28,7 @@ public class Flee : MonoBehaviour
         if (dis < 10)
         {
             Vector3 desiredVelocity = (transform.position - target.transform.position).normalized * speed;
+            transform.rotation = Quaternion.LookRotation(transform.position - target.position);
             desiredVelocity.y = 0;
             
             Vector3 currentVelocity = rb.velocity;
@@ -39,11 +40,6 @@ public class Flee : MonoBehaviour
             desiredVelocity.y -= gravity * Time.deltaTime;
             
             transform.LookAt(transform.position - target.position);
-        }
-        else
-        {
-            //speed = 0;
-            //seekStrength = 0;
         }
     }
 }

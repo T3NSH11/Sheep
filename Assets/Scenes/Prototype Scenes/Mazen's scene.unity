@@ -756,8 +756,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1310073817}
-  speed: 1
+  speed: 5
   seekStrength: 1
+  arrivalRadius: 2
+  gravity: 100
 --- !u!54 &1085037237
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -772,7 +774,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 32
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &1085037238
 BoxCollider:
