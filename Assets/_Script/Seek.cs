@@ -11,11 +11,15 @@ public class Seek : MonoBehaviour
     public float arrivalRadius;
     public float gravity = 30f;
 
+    Sensor sensor;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody> ();
         rb.velocity = new Vector3(speed, 0, speed);
+
+        sensor = GetComponent<Sensor>();
     }
 
     // Update is called once per frame
@@ -50,5 +54,6 @@ public class Seek : MonoBehaviour
                 }
             }
         }
+        sensor.Check();
     }
 }
