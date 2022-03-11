@@ -9,6 +9,7 @@ public class FollowPath : WolfState
     public float Speed = 5f;
     public float RotationSpeed = 5f;
     public float WayPointSize = 1f;
+    float testtimer;
 
     public override void EnterState(WolfManager manager)
     {
@@ -31,11 +32,12 @@ public class FollowPath : WolfState
         {
             currentNodeID = 0;
         }
+
+        testtimer += Time.deltaTime;
+        if (testtimer > 4)
+        {
+            manager._followpath = this;
+            manager.SwitchState(new Injure());
+        }
     }
-
-
-     void StartWandering()
-     {
-         
-     }
 }
