@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed;
     public bool canMove;
+    public float movementSpeed = 10f;
     Rigidbody rb;
 
     void Start()
@@ -37,9 +37,9 @@ public class PlayerMovement : MonoBehaviour
     {
         float hor = Input.GetAxis("Horizontal");
         float ver = Input.GetAxis("Vertical");
-        Vector3 playerMovement = new Vector3(hor, 0f, ver) * speed * Time.deltaTime;
+        Vector3 playerMovement = new Vector3(hor, 0f, ver) * movementSpeed * Time.deltaTime;
 
-        transform.Translate(playerMovement, Space.Self);
+        transform.Translate(playerMovement);
 
     }
 

@@ -15,20 +15,18 @@ public class IdleTestScript : SheepState
     }
     public override void UpdateState(SheepManager manager)
     {
-        if (manager.player)
+        if(switchState == false)
         {
-            float dist = Vector3.Distance(manager.player.position, manager.AI.position);
-            Debug.Log("Distance is : " + dist);
-            if (dist < 20)
-            {
-                Debug.Log("i should be switching states now");
-                manager.SwitchState(manager.wanderState);
-            }
+            CheckPlayer(manager.player, manager.AI);
+        }
+        else
+        {
+            manager.SwitchState(manager.wanderState);
         }
     }
 
 
-  /*  public void CheckPlayer(Transform check)
+    public void CheckPlayer(Transform player, Transform AI)
     {
         if (player)
         {
@@ -41,5 +39,5 @@ public class IdleTestScript : SheepState
             }
         }
 
-    }*/
+    }
 }
