@@ -7,6 +7,7 @@ public class WolfManager : MonoBehaviour
     WolfState currentState;
     public Rigidbody rb;
     public GameObject player;
+    public Transform AI;
     public float speed;
 
     #region ReturnToPath

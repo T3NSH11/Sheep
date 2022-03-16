@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Sensor : MonoBehaviour
 {
-    const float sensorLength = 5;   //max distance
+    const float sensorLength = 2;   //max distance
     const float frontSensor = 1;    //starting point of the front sensor
     const float frontSideSensor = 0.5f;
-    const float frontSensorAngle = 30;
+    const float frontSensorAngle = 25;
 
 
-    public void Check()
+    public float Check()
     {
 
         RaycastHit hit;     //checks if we hit something, and the angle since there are multiple sensors
@@ -18,7 +18,7 @@ public class Sensor : MonoBehaviour
 
 
         Vector3 frontPosition = transform.position + (transform.forward * frontSensor);
-        if (DrawSensors(frontPosition, Vector3.forward, sensorLength, out hit))
+        if (DrawSensors(frontPosition, Vector3.forward, sensorLength * 2, out hit))
         {
             if (hit.normal.x < 0)
             {
@@ -32,6 +32,7 @@ public class Sensor : MonoBehaviour
         avoidDirection -= FrontSideSensors(frontPosition, out hit, 1);  //basically the frontposition, 1, and -1 determining the left and right neded to go.
         avoidDirection += FrontSideSensors(frontPosition, out hit, -1);
 
+        return avoidDirection; // changed the Check method to float, so I needed to to return this
     }
     bool DrawSensors(Vector3 sensorPosition, Vector3 direction, float length, out RaycastHit hit)   //doesnt just draws, but detects
     {
