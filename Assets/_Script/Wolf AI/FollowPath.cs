@@ -36,7 +36,7 @@ public class FollowPath : WolfState
         testtimer += Time.deltaTime;
         if (testtimer > 4)
         {
-            manager._followpath = this;
+           // manager._followpath = this;
             manager.SwitchState(new Injure());
         }
     }

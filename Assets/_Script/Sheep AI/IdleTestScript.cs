@@ -31,7 +31,7 @@ public class IdleTestScript : SheepState
         if (player)
         {
             float dist = Vector3.Distance(player.position, AI.position);
-            Debug.Log("Distance is : " + dist);
+            //Debug.Log("Distance is : " + dist);
             if (dist < 20)
             {
                 Debug.Log("i should be switching states now");
