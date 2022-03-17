@@ -12,26 +12,14 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         
-
     }
 
     // Update is called once per frame
     void Update()
     {
         Movement();
-        if (!DialogueManager.GetInstance().dialoguePlaying)
-        {
-            DisableMovement();
-        }   
     }
 
-    public void DisableMovement()
-    {
-        if (!canMove)
-        {
-            rb.velocity = Vector3.zero;
-        }
-    }
 
     void Movement()
     {

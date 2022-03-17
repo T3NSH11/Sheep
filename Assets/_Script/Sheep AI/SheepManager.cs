@@ -5,7 +5,7 @@ using UnityEngine;
 public class SheepManager : MonoBehaviour
 {
     SheepState currentState;
-    
+
     public IdleTestScript idleTestScript = new IdleTestScript();
 
     public wanderState wanderState = new wanderState();
@@ -19,6 +19,7 @@ public class SheepManager : MonoBehaviour
     public Rigidbody AiRb;
 
     public LayerMask SheepMask;
+    public float FlockRadius = 10f;
 
     void Start()
     {
@@ -34,8 +35,8 @@ public class SheepManager : MonoBehaviour
         currentState = new IdleTestScript();
         //"this" is a reference to the context (this exact script)
         currentState.EnterState(this);
-        
-        
+
+
         AI = transform;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         AiRb = gameObject.GetComponent<Rigidbody>();
@@ -43,7 +44,8 @@ public class SheepManager : MonoBehaviour
     void Update()
     {
         currentState.UpdateState(this);
-        //Flock();
+        Flock();
+        OnDrawGizmos();
     }
 
     public void SwitchState(SheepState state)
@@ -51,12 +53,9 @@ public class SheepManager : MonoBehaviour
         currentState = state;
         state.EnterState(this);
     }
-/*
+
     void Flock()
     {
-        float FlockRadius = 100000;
-        //LayerMask SheepMask = LayerMask.NameToLayer("Sheep");
-
         //Choosing what sheep to follow
         Collider[] NearbySheep = Physics.OverlapSphere(transform.position, FlockRadius, SheepMask);
         Debug.Log(NearbySheep.Length);
@@ -68,5 +67,11 @@ public class SheepManager : MonoBehaviour
         //Following sheep
         AiRb.AddForce(DirectionToSheep.normalized * 0.2f);
 
-    } */
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, FlockRadius);
+    }
+
 }
