@@ -32,12 +32,12 @@ public class SheepManager : MonoBehaviour
 
 
         //starting the state 
-        currentState = new IdleTestScript();
+        currentState = new SheepBarkAction();
         //"this" is a reference to the context (this exact script)
         currentState.EnterState(this);
 
 
-        AI = transform;
+        AI = gameObject.transform;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         AiRb = gameObject.GetComponent<Rigidbody>();
     }
