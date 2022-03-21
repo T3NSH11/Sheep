@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerDog
   - WolfPath
+  - Sheep
   layers:
   - Default
   - TransparentFX
