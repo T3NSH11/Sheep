@@ -21,6 +21,11 @@ public class Acorn : MonoBehaviour
         {
             DestroyAcorn();
         }
+
+        if (gameObject != null)
+        {
+
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -33,7 +38,8 @@ public class Acorn : MonoBehaviour
 
     void DestroyAcorn()
     {
-
+        
         Destroy(gameObject);
     }
+    
 }
