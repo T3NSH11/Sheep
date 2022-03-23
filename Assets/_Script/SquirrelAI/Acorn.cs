@@ -33,6 +33,12 @@ public class Acorn : MonoBehaviour
         if (other.CompareTag("Sheep"))
         {
             DestroyAcorn();
+
+        }
+        if (other.CompareTag(" GreenSheep"))
+        {
+            //disable / slow down greensheep movement here.
+            DestroyAcorn();
         }
     }
 

@@ -38,12 +38,12 @@ public class SquirrelMonoAI : MonoBehaviour
         else if (Vector3.Distance(transform.position, sheep.position) > stoppingDistance && Vector3.Distance(transform.position, sheep.position) > scurryDistance) //if near enough the stop distance it will stop moving
         {
 
-            transform.position = this.transform.position;
+            transform.position = this.transform.position; //resseting squirrel pos to make it stop moving at a certain distance 
         }
         else if (Vector3.Distance(transform.position, sheep.position) < scurryDistance) //back away
         {
 
-            transform.position = Vector3.MoveTowards(transform.position, sheep.position, -speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, sheep.position, -speed * Time.deltaTime); //makes squirrel back away if too close
 
         }
 
