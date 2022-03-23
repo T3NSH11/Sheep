@@ -37,8 +37,8 @@ public class Flee : MonoBehaviour
             Vector3 newVelocity = (currentVelocity + seekForce).normalized * speed;
             rb.velocity = newVelocity;
 
+
             desiredVelocity.y -= gravity * Time.deltaTime;
-            
             transform.LookAt(transform.position - target.position);
         }
     }

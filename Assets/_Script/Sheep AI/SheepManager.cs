@@ -30,16 +30,16 @@ public class SheepManager : MonoBehaviour
         #endregion
 
 
+        AI = this.gameObject.transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        AiRb = this.gameObject.GetComponent<Rigidbody>();
+
 
         //starting the state 
         currentState = new SheepBarkAction();
         //"this" is a reference to the context (this exact script)
         currentState.EnterState(this);
 
-
-        AI = gameObject.transform;
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        AiRb = gameObject.GetComponent<Rigidbody>();
     }
     void Update()
     {

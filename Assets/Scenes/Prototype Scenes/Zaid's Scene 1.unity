@@ -5154,6 +5154,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: White Sheep
       objectReference: {fileID: 0}
+    - target: {fileID: 1625676322243893045, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2144910433799900559, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -5556,7 +5560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4967464e5bacbf14c81a051887449572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotationSpeed: 30
+  RotationSpeed: 500
   Camera: {fileID: 682204745}
 --- !u!4 &773304225
 Transform:

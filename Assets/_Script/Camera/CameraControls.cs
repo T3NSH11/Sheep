@@ -8,6 +8,7 @@ public class CameraControls : MonoBehaviour
     public GameObject Camera;
 
     float xRotation = 0f;
+    float yRotation = 0f;
 
     void Start()
     {
@@ -27,8 +28,14 @@ public class CameraControls : MonoBehaviour
             xRotation -= mouseY;
 
             xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-            transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-            transform.Rotate(Vector3.up * mouseX);
+            //transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            //transform.Rotate(Vector3.right * mouseX);
+
+            yRotation -= mouseX;
+
+            //yRotation = Mathf.Clamp(yRotation, 0F, 180F);
+            transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+            //transform.Rotate(Vector3.up * mouseY);
 
         }
         else
@@ -38,5 +45,6 @@ public class CameraControls : MonoBehaviour
         }
 
         Camera.transform.position += new Vector3(0, -Input.mouseScrollDelta.y * 35 * Time.deltaTime, 0);
+
     }
 }

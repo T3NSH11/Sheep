@@ -2305,7 +2305,6 @@ GameObject:
   - component: {fileID: 508758582}
   - component: {fileID: 508758581}
   - component: {fileID: 508758580}
-  - component: {fileID: 508758579}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -2313,19 +2312,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!135 &508758579
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 508758578}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &508758580
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2383,8 +2369,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508758578}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 424.68, y: 6.078, z: 272.46}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: 424.68, y: 4.02, z: 272.46}
+  m_LocalScale: {x: 1.0246905, y: 0.1, z: 1.4173886}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -4358,7 +4344,7 @@ GameObject:
   - component: {fileID: 935854663}
   - component: {fileID: 935854668}
   m_Layer: 0
-  m_Name: ok
+  m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4389,7 +4375,7 @@ SphereCollider:
   m_GameObject: {fileID: 935854662}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -10392,18 +10378,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 935854667}
-    - target: {fileID: 1895727171881757280, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
-      propertyPath: FlockRadius
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1895727171881757286, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1895727171881757286, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2144910433799900559, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: m_RootOrder
       value: 2

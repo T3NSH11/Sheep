@@ -14,6 +14,7 @@ public class SquirrelMonoAI : MonoBehaviour
     public float startCoolDownTimer;
     public GameObject acorn;
     private Transform sheep;
+    int acornAmount = 1;
 
 
     // Start is called before the first frame update
@@ -48,7 +49,7 @@ public class SquirrelMonoAI : MonoBehaviour
         }
 
 
-        if (coolDownTimer <= 0)
+        if (coolDownTimer <= 0 && GameObject.FindGameObjectWithTag("Acorn") == null)
         {
             Instantiate(acorn, transform.position, Quaternion.identity);
             coolDownTimer = startCoolDownTimer;
