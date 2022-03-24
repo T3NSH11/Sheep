@@ -17,13 +17,15 @@ public class SheepBarkAction : SheepState
 
     public override void UpdateState(SheepManager manager)
     {
-
+        OnParticleTrigger();
     }
 
     void OnParticleTrigger()
     {
+        
         int numEnter = m_ParticleSystem.GetTriggerParticles(ParticleSystemTriggerEventType.Enter, enter);
         Vector3 ParticlePos = enter[0].position;
         AiRb.velocity = (ParticlePos - AiPos).normalized * MoveSpeed;
+        Debug.Log("trigger");
     }
 }
