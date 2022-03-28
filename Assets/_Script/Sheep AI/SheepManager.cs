@@ -21,6 +21,12 @@ public class SheepManager : MonoBehaviour
     public LayerMask SheepMask;
     public float FlockRadius = 10f;
 
+    #region Bark Action
+            ParticleSystem m_ParticleSystem;
+            List<ParticleSystem.Particle> enter = new List<ParticleSystem.Particle>();
+            Vector3 AiPos;
+            float MoveSpeed = 5;
+            #endregion
     void Start()
     {
         #region Wander State
@@ -29,6 +35,7 @@ public class SheepManager : MonoBehaviour
         wanderState.speed = 0.7f;
         #endregion
 
+        
 
         AI = this.gameObject.transform;
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -74,4 +81,11 @@ public class SheepManager : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, FlockRadius);
     }
 
+    void OnParticleTrigger()
+    {
+        int numEnter = m_ParticleSystem.GetTriggerParticles(ParticleSystemTriggerEventType.Enter, enter);
+        Vector3 ParticlePos = enter[0].position;
+        AiRb.velocity = (ParticlePos - AiPos).normalized * MoveSpeed;
+        Debug.Log("trigger");
+    }
 }

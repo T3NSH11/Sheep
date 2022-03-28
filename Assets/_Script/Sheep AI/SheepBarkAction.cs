@@ -21,8 +21,7 @@ public class SheepBarkAction : SheepState
     }
 
     void OnParticleTrigger()
-    {
-        
+    {   
         int numEnter = m_ParticleSystem.GetTriggerParticles(ParticleSystemTriggerEventType.Enter, enter);
         Vector3 ParticlePos = enter[0].position;
         AiRb.velocity = (ParticlePos - AiPos).normalized * MoveSpeed;

@@ -7,13 +7,13 @@ public class ClickToMove : MonoBehaviour
     // Start is called before the first frame update
     public Camera cam;
     Collider planecollider;
-    Rigidbody rb;
+    public Rigidbody rb;
     public GameObject visualCue;
-
-    public Collider[] groundColliders;
+    //public LayerMask groundLayer;
+    public Collider GroundCollider;
     public float speed;
     Vector3 targetPosition;
-
+    public GameObject bark;
 
     private void Start()
     {
@@ -36,19 +36,16 @@ public class ClickToMove : MonoBehaviour
             Ray ray;
 
             ray = cam.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit) && hit.collider == GroundCollider)
             {
-
                 visualCue.SetActive(true);
                 targetPosition = hit.point;
-
 
             }
 
 
             if (visualCue.transform.position == targetPosition)
             {
-
 
                 visualCue.SetActive(false);
             }
@@ -59,13 +56,18 @@ public class ClickToMove : MonoBehaviour
 
         }
 
-        transform.LookAt(targetPosition);
-        this.gameObject.transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
+        if (Vector3.Distance(targetPosition, transform.position) > 3)
+        {
+            transform.LookAt(targetPosition);
+        }
+
+        rb.velocity = (targetPosition - transform.position).normalized * speed * Time.deltaTime;
+        //this.gameObject.transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
         //bruh
+    }
 
-        
-
-
-
+    private void LateUpdate()
+    {
+        transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
     }
 }
