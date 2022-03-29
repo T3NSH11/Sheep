@@ -1757,6 +1757,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1720216167}
     - target: {fileID: 3018947322977741141, guid: f337ad04ec46474488d14837feb787c2, type: 3}
+      propertyPath: Barkinstance
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018947322977741141, guid: f337ad04ec46474488d14837feb787c2, type: 3}
       propertyPath: TriggerSpeed
       value: 8
       objectReference: {fileID: 0}

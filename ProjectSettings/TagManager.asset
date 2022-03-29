@@ -8,6 +8,7 @@ TagManager:
   - WolfPath
   - Sheep
   - Acorn
+  - BarkTrigger
   layers:
   - Default
   - TransparentFX
