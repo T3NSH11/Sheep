@@ -27,7 +27,10 @@ public class Bark : MonoBehaviour
         {
             triggertimer += Time.deltaTime;
         }
-
-        Barkinstance.transform.position += transform.right * TriggerSpeed * Time.deltaTime;
+        if(Barkinstance != null) 
+        {
+            Barkinstance.transform.position += transform.right * TriggerSpeed * Time.deltaTime;
+        }
+        
     }
 }

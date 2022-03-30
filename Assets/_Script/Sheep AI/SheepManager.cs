@@ -15,6 +15,7 @@ public class SheepManager : MonoBehaviour
     public LayerMask SheepMask;
     public float FlockRadius = 10f;
     public bool BarkedAt;
+    public float movetimer;
 
 
     #region Bark Action
@@ -36,14 +37,8 @@ public class SheepManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         AiRb = this.gameObject.GetComponent<Rigidbody>();
 
-
-        //starting the state 
-<<<<<<< Updated upstream
-        currentState = new wanderState();
-=======
         currentState = wanderState;
->>>>>>> Stashed changes
-        //"this" is a reference to the context (this exact script)
+
         currentState.EnterState(this);
     }
     void Update()
@@ -51,6 +46,21 @@ public class SheepManager : MonoBehaviour
         currentState.UpdateState(this);
         Flock();
         //OnDrawGizmos();
+
+        #region movetimer
+        if (movetimer > 0)
+        {
+            if (BarkedAt == true)
+            {
+                movetimer -= Time.deltaTime;
+
+                if (movetimer <= 0)
+                {
+                    BarkedAt = false;
+                }
+            }
+        }
+        #endregion
     }
 
     public void SwitchState(SheepState state)

@@ -5,10 +5,8 @@ using UnityEngine;
 public class SheepBarkAction : MonoBehaviour
 {
     GameObject Sheep;
-    float MoveSpeed = 3;
-    bool movesheep = false;
+    float MoveSpeed = 5;
     Vector3 triggerpos;
-    float movetimer;
     void Start()
     {
 
@@ -16,20 +14,6 @@ public class SheepBarkAction : MonoBehaviour
 
     void Update()
     {
-        if (movesheep)
-        {
-            Sheep.GetComponent<Rigidbody>().velocity += (triggerpos + Sheep.transform.position).normalized * MoveSpeed;
-            movesheep = false;
-        }
-        if(Sheep.GetComponent<SheepManager>().BarkedAt == true)
-        {
-            movetimer += Time.deltaTime;
-        }
-
-        if (movetimer > 3)
-        {
-            Sheep.GetComponent<SheepManager>().BarkedAt = false;
-        }
         
     }
 
@@ -37,11 +21,13 @@ public class SheepBarkAction : MonoBehaviour
     {
         if (collision.tag == "Sheep")
         {
-            Sheep.GetComponent<SheepManager>().BarkedAt = true;
             Sheep = collision.gameObject;
-            movesheep = true;
+            Sheep.GetComponent<SheepManager>().BarkedAt = true;
+            Sheep.GetComponent<SheepManager>().movetimer = 2.1f;
             triggerpos = transform.position;
             Debug.Log("trigger");
+            Sheep.GetComponent<Rigidbody>().velocity += (triggerpos + Sheep.transform.position).normalized * MoveSpeed;
+            Debug.Log("moved");
         }
     }
 }
