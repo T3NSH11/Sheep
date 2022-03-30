@@ -23,6 +23,11 @@ public class wanderState : SheepState
     {
         Debug.Log("started wandering");
         StartWandering(manager.AI);
+
+        if (manager.BarkedAt)
+        {
+            manager.SwitchState(new IdleTestScript());
+        }
     }
 
 

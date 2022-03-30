@@ -14,6 +14,7 @@ public class SheepManager : MonoBehaviour
     public Rigidbody AiRb;
     public LayerMask SheepMask;
     public float FlockRadius = 10f;
+    public bool BarkedAt;
 
 
     #region Bark Action
@@ -37,7 +38,11 @@ public class SheepManager : MonoBehaviour
 
 
         //starting the state 
+<<<<<<< Updated upstream
         currentState = new wanderState();
+=======
+        currentState = wanderState;
+>>>>>>> Stashed changes
         //"this" is a reference to the context (this exact script)
         currentState.EnterState(this);
     }
