@@ -9,10 +9,6 @@ public class Bark : MonoBehaviour
     public GameObject Barkinstance;
     public float TriggerSpeed;
     float triggertimer;
-    void Start()
-    {
-        BarkParticle = gameObject.GetComponent<ParticleSystem>();
-    }
 
     void Update()
     {

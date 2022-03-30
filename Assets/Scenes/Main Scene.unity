@@ -6175,8 +6175,8 @@ GameObject:
   - component: {fileID: 1132048200}
   - component: {fileID: 1132048201}
   m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
+  m_Name: Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6198,7 +6198,6 @@ MonoBehaviour:
   visualCue: {fileID: 508758578}
   GroundCollider: {fileID: 821986190}
   speed: 1000
-  bark: {fileID: 0}
 --- !u!65 &1132048196
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6305,6 +6304,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BarkParticle: {fileID: 1750810138}
+  BarkTrigger: {fileID: 75670588397130445, guid: 1482aeb634b52b24c97395b9ad8544c4, type: 3}
+  Barkinstance: {fileID: 0}
+  TriggerSpeed: 9
 --- !u!1001 &1134213800
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6493,6 +6495,86 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 416096, guid: 2394d7d557201f048b00c84246231eb0, type: 3}
   m_PrefabInstance: {fileID: 1151191511}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1155106695
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 282719101736193193, guid: a7330b2c4e825bc4cb3df3331d89b461, type: 3}
+      propertyPath: m_Name
+      value: SheepPen
+      objectReference: {fileID: 0}
+    - target: {fileID: 493509993688266007, guid: a7330b2c4e825bc4cb3df3331d89b461, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449220940813630753, guid: a7330b2c4e825bc4cb3df3331d89b461, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449220940813630753, guid: a7330b2c4e825bc4cb3df3331d89b461, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -180.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449220940813630753, guid: a7330b2c4e825bc4cb3df3331d89b461, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -94.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449220940813630753, guid: a7330b2c4e825bc4cb3df3331d89b461, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 139.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449220940813630753, guid: a7330b2c4e825bc4cb3df3331d89b461, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449220940813630753, guid: a7330b2c4e825bc4cb3df3331d89b461, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449220940813630753, guid: a7330b2c4e825bc4cb3df3331d89b461, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449220940813630753, guid: a7330b2c4e825bc4cb3df3331d89b461, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449220940813630753, guid: a7330b2c4e825bc4cb3df3331d89b461, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449220940813630753, guid: a7330b2c4e825bc4cb3df3331d89b461, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449220940813630753, guid: a7330b2c4e825bc4cb3df3331d89b461, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a7330b2c4e825bc4cb3df3331d89b461, type: 3}
+--- !u!1 &1155106696 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3677232163790644596, guid: a7330b2c4e825bc4cb3df3331d89b461, type: 3}
+  m_PrefabInstance: {fileID: 1155106695}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1155106697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155106696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d44fc84600d9206449a5c4353574b011, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnteredSheep: []
+  NumOfSheepLeft: 0
 --- !u!1 &1158131046
 GameObject:
   m_ObjectHideFlags: 0
@@ -11892,7 +11974,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bark
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3018947322977741141, guid: f337ad04ec46474488d14837feb787c2, type: 3}
+      propertyPath: BarkTrigger
+      value: 
+      objectReference: {fileID: 75670588397130445, guid: 1482aeb634b52b24c97395b9ad8544c4, type: 3}
+    - target: {fileID: 3018947322977741141, guid: f337ad04ec46474488d14837feb787c2, type: 3}
+      propertyPath: BarkParticle
+      value: 
+      objectReference: {fileID: 1750810138}
+    - target: {fileID: 3018947322977741141, guid: f337ad04ec46474488d14837feb787c2, type: 3}
+      propertyPath: TriggerSpeed
+      value: 9
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3018947322977741141, guid: f337ad04ec46474488d14837feb787c2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f337ad04ec46474488d14837feb787c2, type: 3}
 --- !u!1 &2090251495
 GameObject:
@@ -12187,6 +12282,10 @@ PrefabInstance:
     - target: {fileID: 1625676322243893045, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: m_Name
       value: White Sheep (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625676322243893045, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
+      propertyPath: m_TagString
+      value: Sheep
       objectReference: {fileID: 0}
     - target: {fileID: 1895727171881757280, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: player

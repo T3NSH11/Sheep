@@ -13,7 +13,6 @@ public class ClickToMove : MonoBehaviour
     public Collider GroundCollider;
     public float speed;
     Vector3 targetPosition;
-    public GameObject bark;
 
     private void Start()
     {
@@ -49,11 +48,6 @@ public class ClickToMove : MonoBehaviour
 
                 visualCue.SetActive(false);
             }
-
-
-
-
-
         }
 
         if (Vector3.Distance(targetPosition, transform.position) > 3)

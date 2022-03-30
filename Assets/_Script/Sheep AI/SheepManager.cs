@@ -7,26 +7,22 @@ public class SheepManager : MonoBehaviour
     SheepState currentState;
 
     public IdleTestScript idleTestScript = new IdleTestScript();
-
     public wanderState wanderState = new wanderState();
-
     public JumpTowards jumpTowards = new JumpTowards();
-
     public Transform AI;
-
     public Transform player;
-
     public Rigidbody AiRb;
-
     public LayerMask SheepMask;
     public float FlockRadius = 10f;
 
+
     #region Bark Action
-            ParticleSystem m_ParticleSystem;
-            List<ParticleSystem.Particle> enter = new List<ParticleSystem.Particle>();
-            Vector3 AiPos;
-            float MoveSpeed = 5;
-            #endregion
+    ParticleSystem m_ParticleSystem;
+    List<ParticleSystem.Particle> enter = new List<ParticleSystem.Particle>();
+    Vector3 AiPos;
+    float MoveSpeed = 5;
+    #endregion
+
     void Start()
     {
         #region Wander State
@@ -35,24 +31,21 @@ public class SheepManager : MonoBehaviour
         wanderState.speed = 0.7f;
         #endregion
 
-        
-
-        AI = this.gameObject.transform;
+        AI = transform;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         AiRb = this.gameObject.GetComponent<Rigidbody>();
 
 
         //starting the state 
-        currentState = new SheepBarkAction();
+        currentState = new wanderState();
         //"this" is a reference to the context (this exact script)
         currentState.EnterState(this);
-
     }
     void Update()
     {
         currentState.UpdateState(this);
         Flock();
-        OnDrawGizmos();
+        //OnDrawGizmos();
     }
 
     public void SwitchState(SheepState state)
@@ -75,17 +68,11 @@ public class SheepManager : MonoBehaviour
         AiRb.AddForce(DirectionToSheep.normalized * 0.2f);
 
     }
+    /*
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, FlockRadius);
     }
-
-    void OnParticleTrigger()
-    {
-        int numEnter = m_ParticleSystem.GetTriggerParticles(ParticleSystemTriggerEventType.Enter, enter);
-        Vector3 ParticlePos = enter[0].position;
-        AiRb.velocity = (ParticlePos - AiPos).normalized * MoveSpeed;
-        Debug.Log("trigger");
-    }
+    */
 }

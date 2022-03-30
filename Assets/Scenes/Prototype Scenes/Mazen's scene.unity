@@ -667,6 +667,7 @@ MonoBehaviour:
   SheepMask:
     serializedVersion: 2
     m_Bits: 0
+  FlockRadius: 10
 --- !u!54 &824306980
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -833,6 +834,7 @@ MonoBehaviour:
   SheepMask:
     serializedVersion: 2
     m_Bits: 0
+  FlockRadius: 10
 --- !u!65 &849819458
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1531,6 +1533,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 23.638, y: 0, z: 0}
+--- !u!54 &1679039044 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
+  m_PrefabInstance: {fileID: 1895727171598411892}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1679039045 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2144910433799900559, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
+  m_PrefabInstance: {fileID: 1895727171598411892}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1789960567
 GameObject:
   m_ObjectHideFlags: 0
@@ -1755,9 +1767,25 @@ PrefabInstance:
       value: White Sheep
       objectReference: {fileID: 0}
     - target: {fileID: 1895727171881757280, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
+      propertyPath: AI
+      value: 
+      objectReference: {fileID: 1679039045}
+    - target: {fileID: 1895727171881757280, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
+      propertyPath: AiRb
+      value: 
+      objectReference: {fileID: 1679039044}
+    - target: {fileID: 1895727171881757280, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1310073817}
+    - target: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 2144910433799900559, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: m_RootOrder
       value: 1

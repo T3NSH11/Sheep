@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class wanderState : SheepState
 {
-    public float speed;
-    public float wanderStrength;                // basically the radius
-    public float wanderAngleDisplacement;       //going to be the thing that changes time to time
-    public bool isWandering;
-    public Transform AI;
+    public float speed = 0.7f;
+    public float wanderStrength = 0.60f;                // basically the radius
+    public float wanderAngleDisplacement = 0.09f;       //going to be the thing that changes time to time
     Rigidbody rb;
     private float wanderAngle;
 
