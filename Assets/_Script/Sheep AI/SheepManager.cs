@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SheepManager : MonoBehaviour
 {
-    SheepState currentState;
+    SheepState PrimaryState;
+    SheepState SecondaryState;
 
     public IdleTestScript idleTestScript = new IdleTestScript();
     public wanderState wanderState = new wanderState();
@@ -37,13 +38,18 @@ public class SheepManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         AiRb = this.gameObject.GetComponent<Rigidbody>();
 
-        currentState = wanderState;
+        PrimaryState = wanderState;
 
-        currentState.EnterState(this);
+        PrimaryState.EnterState(this);
+        SecondaryState.EnterState(this);
     }
     void Update()
     {
-        currentState.UpdateState(this);
+        PrimaryState.UpdateState(this);
+        if (SecondaryState != null)
+        {
+            SecondaryState.UpdateState(this);
+        }
         Flock();
         //OnDrawGizmos();
 
@@ -65,7 +71,7 @@ public class SheepManager : MonoBehaviour
 
     public void SwitchState(SheepState state)
     {
-        currentState = state;
+        PrimaryState = state;
         state.EnterState(this);
     }
 
