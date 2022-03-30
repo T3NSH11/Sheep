@@ -11,7 +11,7 @@ public class Bark : MonoBehaviour
     float triggertimer;
     void Start()
     {
-        BarkParticle = gameObject.GetComponent<ParticleSystem>();
+
     }
 
     void Update()
@@ -21,17 +21,16 @@ public class Bark : MonoBehaviour
             BarkParticle.Play();
             Barkinstance = Instantiate(BarkTrigger, transform.position, Quaternion.identity);
         }
-
+        
         if (triggertimer > 2.2f)
         {
             Destroy(Barkinstance);
             triggertimer = 0;
         }
-        else
+        if (GameObject.FindGameObjectWithTag("BarkTrigger") != null)
         {
-            triggertimer += Time.deltaTime;
+             Barkinstance.transform.position += transform.right * TriggerSpeed * Time.deltaTime;
+             triggertimer += Time.deltaTime;
         }
-
-        Barkinstance.transform.position += transform.right * TriggerSpeed * Time.deltaTime;
     }
 }
