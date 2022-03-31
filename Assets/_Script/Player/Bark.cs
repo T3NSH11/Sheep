@@ -18,7 +18,7 @@ public class Bark : MonoBehaviour
             Barkinstance = Instantiate(BarkTrigger, transform.position, Quaternion.identity);
         }
 
-        if (triggertimer > 2.2f)
+        if (triggertimer > 2.85f)
         {
             Destroy(Barkinstance);
             triggertimer = 0;
@@ -29,7 +29,7 @@ public class Bark : MonoBehaviour
         }
         if(Barkinstance != null) 
         {
-            Barkinstance.transform.position += transform.right * TriggerSpeed * Time.deltaTime;
+            Barkinstance.transform.position += new Vector3(0, 0, 1) * TriggerSpeed * Time.deltaTime;
         }
         
     }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SheepBarkAction : MonoBehaviour
 {
-    GameObject Sheep;
     float MoveSpeed = 5;
     Vector3 triggerpos;
     void Start()
@@ -21,12 +20,11 @@ public class SheepBarkAction : MonoBehaviour
     {
         if (collision.tag == "Sheep")
         {
-            Sheep = collision.gameObject;
-            Sheep.GetComponent<SheepManager>().BarkedAt = true;
-            Sheep.GetComponent<SheepManager>().movetimer = 2.1f;
+            collision.gameObject.GetComponent<SheepManager>().BarkedAt = true;
+            collision.gameObject.GetComponent<SheepManager>().movetimer = 2.2f;
             triggerpos = transform.position;
             Debug.Log("trigger");
-            Sheep.GetComponent<Rigidbody>().velocity += (triggerpos + Sheep.transform.position).normalized * MoveSpeed;
+            collision.gameObject.GetComponent<Rigidbody>().velocity += (triggerpos + collision.gameObject.transform.position).normalized * MoveSpeed;
             Debug.Log("moved");
         }
     }
