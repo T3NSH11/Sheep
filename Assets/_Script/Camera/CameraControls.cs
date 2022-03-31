@@ -6,37 +6,33 @@ public class CameraControls : MonoBehaviour
 {
     public float RotationSpeed;
     public GameObject Camera;
+    public GameObject Player;
 
     float xRotation = 0f;
     float yRotation = 0f;
 
     void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
         Cursor.lockState = CursorLockMode.Confined;
     }
 
     void Update()
     {
+        float mouseX = Input.GetAxis("Mouse X") * RotationSpeed * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * RotationSpeed * Time.deltaTime;
         if (Input.GetMouseButton(2))
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
-            float mouseX = Input.GetAxis("Mouse X") * RotationSpeed * Time.deltaTime;
-            float mouseY = Input.GetAxis("Mouse Y") * RotationSpeed * Time.deltaTime;
-
             xRotation -= mouseY;
 
-            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-            //transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-            //transform.Rotate(Vector3.right * mouseX);
+            xRotation = Mathf.Clamp(xRotation, 5.0f, 90f);
 
             yRotation -= mouseX;
 
-            //yRotation = Mathf.Clamp(yRotation, 0F, 180F);
             transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
-            //transform.Rotate(Vector3.up * mouseY);
-
         }
         else
         {
@@ -44,7 +40,19 @@ public class CameraControls : MonoBehaviour
             Cursor.visible = true;
         }
 
-        Camera.transform.position += new Vector3(0, -Input.mouseScrollDelta.y * 35 * Time.deltaTime, 0);
+        if (Input.GetMouseButton(1))
+        {
+            transform.rotation = Quaternion.Euler(90, 0, 0);
+            transform.position -= new Vector3(mouseX, 0, mouseY);
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            transform.position = Player.transform.position;
+        }
+
+
+        Camera.transform.position -= (Camera.transform.position - transform.position).normalized * Input.mouseScrollDelta.y;
 
     }
 }
