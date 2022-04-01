@@ -1,8 +1,26 @@
 fileFormatVersion: 2
-guid: f455ba59b4e103b4d85b1176182c093b
+guid: 3c5cc78bcd1c4b44c91cd5bb92ef5c01
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -5265281968348004378
+    second: metarig.001|still
+  - first:
+      74: -2670562240530059423
+    second: metarig.001|wave
+  - first:
+      74: -7361427651036151181
+    second: rig|Idle
+  - first:
+      74: -8042310355636072797
+    second: rig|still
+  - first:
+      74: 4214498260955039126
+    second: rig|wave
+  - first:
+      74: -2898408617129690035
+    second: rig|waveworking
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -94,7 +112,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
   userData: 
