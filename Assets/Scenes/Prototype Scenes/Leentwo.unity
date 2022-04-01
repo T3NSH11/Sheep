@@ -329,7 +329,7 @@ MonoBehaviour:
   StarsExtinguish: {x: 3, y: 30, z: 0}
   starsFadingIn: 7200
   starsFadeOut: 7200
-  starSpeed: 0.09
+  starSpeed: 0.03
 --- !u!4 &421933112
 Transform:
   m_ObjectHideFlags: 0
@@ -5422,7 +5422,6 @@ GameObject:
   - component: {fileID: 1923853958}
   - component: {fileID: 1923853957}
   - component: {fileID: 1923853956}
-  - component: {fileID: 1923853960}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -5507,40 +5506,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1923853960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1923853955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28feb3034c52a5f40b34c99fd82fa437, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeMultiplier: 0
-  startHour: 0
-  sunLight: {fileID: 0}
-  sunriseHour: 0
-  sunsetHour: 0
-  dayAmbientLight: {r: 0, g: 0, b: 0, a: 0}
-  nightAmbientLight: {r: 0, g: 0, b: 0, a: 0}
-  lightChangeCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  maxSunLightIntensity: 0
-  moonLight: {fileID: 0}
-  maxMoonLightIntensity: 0
-  starTransform: {fileID: 0}
-  StarsLight: {x: 19, y: 30, z: 0}
-  StarsExtinguish: {x: 3, y: 30, z: 0}
-  starsFadingIn: 7200
-  starsFadeOut: 7200
-  starSpeed: 0
 --- !u!1 &1930380759
 GameObject:
   m_ObjectHideFlags: 0
