@@ -36,6 +36,7 @@ public class Seek : MonoBehaviour
         {
             AvoidSteer(avoid);
         }
+
         //Debug.Log(avoid);
     }
 

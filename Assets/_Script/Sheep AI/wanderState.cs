@@ -26,7 +26,7 @@ public class wanderState : SheepState
 
         if (manager.BarkedAt)
         {
-            manager.SwitchState(new IdleTestScript());
+            manager.SwitchState(new BarkActionScript());
         }
     }
 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3018947322977741136}
   - component: {fileID: 3018947322977741142}
   - component: {fileID: 3018947322977741143}
-  - component: {fileID: 3018947322977741141}
+  - component: {fileID: 2084874782}
   m_Layer: 0
   m_Name: Bark
   m_TagString: Untagged
@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3018947322977741137}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.69, y: -0.25, z: 0.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4806,7 +4806,7 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &3018947322977741141
+--- !u!114 &2084874782
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4818,4 +4818,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea69b034e9bc764fb25b4163f3552c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BarkParticle: {fileID: 0}
+  BarkParticle: {fileID: 3018947322977741142}
+  Player: {fileID: 0}
+  BarkTrigger: {fileID: 75670588397130445, guid: 1482aeb634b52b24c97395b9ad8544c4, type: 3}
+  Barkinstance: {fileID: 0}
+  TriggerSpeed: 6

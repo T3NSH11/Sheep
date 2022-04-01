@@ -7,7 +7,7 @@ public class SheepManager : MonoBehaviour
     SheepState PrimaryState;
     SheepState SecondaryState;
 
-    public IdleTestScript idleTestScript = new IdleTestScript();
+    public BarkActionScript barkActionScript = new BarkActionScript();
     public wanderState wanderState = new wanderState();
     public JumpTowards jumpTowards = new JumpTowards();
     public Transform AI;
@@ -24,6 +24,8 @@ public class SheepManager : MonoBehaviour
     List<ParticleSystem.Particle> enter = new List<ParticleSystem.Particle>();
     Vector3 AiPos;
     float MoveSpeed = 5;
+    public bool barkMove;
+    public Vector3 triggerpos;
     #endregion
 
     void Start()
@@ -32,6 +34,10 @@ public class SheepManager : MonoBehaviour
         wanderState.wanderAngleDisplacement = 0.09f;
         wanderState.wanderStrength = 0.60f;
         wanderState.speed = 0.7f;
+        #endregion
+
+        #region BarkAction
+        barkActionScript.moveSpeed = 5f;
         #endregion
 
         AI = transform;
@@ -58,6 +64,7 @@ public class SheepManager : MonoBehaviour
         {
             if (BarkedAt == true)
             {
+                PrimaryState = barkActionScript;
                 movetimer -= Time.deltaTime;
 
                 if (movetimer <= 0)

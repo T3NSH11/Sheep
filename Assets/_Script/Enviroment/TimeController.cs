@@ -83,8 +83,6 @@ public class TimeController : MonoBehaviour
 
         starsFadingIn /= timeMultiplier;
         starsFadeOut /= timeMultiplier;
-
-
     }
 
 
@@ -94,7 +92,6 @@ public class TimeController : MonoBehaviour
         RotateSun();
         UpdateLightSettings();
         showStars();
-
     }
 
 

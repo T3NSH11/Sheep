@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 1895727171881757280}
   m_Layer: 6
   m_Name: White Sheep
-  m_TagString: Untagged
+  m_TagString: Sheep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -237,6 +237,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   FlockRadius: 1000
+  BarkedAt: 0
+  movetimer: 0
 --- !u!1 &1754112842373285316
 GameObject:
   m_ObjectHideFlags: 0
