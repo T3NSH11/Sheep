@@ -21,7 +21,12 @@ public class Flee : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        var dis = Vector3.Distance (AI.position, target.position);
+        StartFleeing();
+    }
+
+    private void StartFleeing()
+    {
+        var dis = Vector3.Distance(AI.position, target.position);
 
         //Debug.Log(dis);
 
@@ -30,7 +35,7 @@ public class Flee : MonoBehaviour
             Vector3 desiredVelocity = (transform.position - target.transform.position).normalized * speed;
             transform.rotation = Quaternion.LookRotation(transform.position - target.position);
             desiredVelocity.y = 0;
-            
+
             Vector3 currentVelocity = rb.velocity;
 
             Vector3 seekForce = (desiredVelocity - currentVelocity).normalized * seekStrength;

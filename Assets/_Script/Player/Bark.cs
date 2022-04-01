@@ -12,6 +12,12 @@ public class Bark : MonoBehaviour
 
     void Update()
     {
+        CheckBark();
+
+    }
+
+    private void CheckBark()
+    {
         if (Input.GetKeyDown(KeyCode.Space) && GameObject.FindGameObjectWithTag("BarkTrigger") == null)
         {
             BarkParticle.Play();
@@ -27,10 +33,9 @@ public class Bark : MonoBehaviour
         {
             triggertimer += Time.deltaTime;
         }
-        if(Barkinstance != null) 
+        if (Barkinstance != null)
         {
             Barkinstance.transform.position += new Vector3(0, 0, 1) * TriggerSpeed * Time.deltaTime;
         }
-        
     }
 }

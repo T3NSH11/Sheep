@@ -22,11 +22,16 @@ public class ClickToMove : MonoBehaviour
 
     void Update()
     {
-        //transform.position = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 5));
+        InputManager();
+    }
 
+    private void LateUpdate()
+    {
+        transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
+    }
+    private void InputManager()
+    {
         visualCue.gameObject.transform.position = targetPosition;
-
-
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -56,12 +61,5 @@ public class ClickToMove : MonoBehaviour
         }
 
         rb.velocity = (targetPosition - transform.position).normalized * speed * Time.deltaTime;
-        //this.gameObject.transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
-        //bruh
-    }
-
-    private void LateUpdate()
-    {
-        transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
     }
 }
