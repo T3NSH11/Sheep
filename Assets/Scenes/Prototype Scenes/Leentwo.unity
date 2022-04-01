@@ -394,7 +394,7 @@ MonoBehaviour:
   StarsExtinguish: {x: 3, y: 30, z: 0}
   starsFadingIn: 7200
   starsFadeOut: 7200
-  starSpeed: 0.09
+  starSpeed: 0.03
 --- !u!4 &421933112
 Transform:
   m_ObjectHideFlags: 0
@@ -5548,7 +5548,6 @@ GameObject:
   - component: {fileID: 1923853958}
   - component: {fileID: 1923853957}
   - component: {fileID: 1923853956}
-  - component: {fileID: 1923853960}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged

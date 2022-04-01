@@ -31,7 +31,7 @@ public class TimeController : MonoBehaviour
 
     private bool isNight;
 
-   
+
 
     #endregion
     #region ambient lighting variables
@@ -54,7 +54,7 @@ public class TimeController : MonoBehaviour
     private float maxMoonLightIntensity;
     #endregion
     #region stars
-    
+
     [SerializeField]
     private Transform starTransform;
 
@@ -62,7 +62,7 @@ public class TimeController : MonoBehaviour
     private Vector3 StarsLight = new Vector3(19f, 30f, 0f), StarsExtinguish = new Vector3(03f, 30f, 0f);
 
     [SerializeField]
-    private float starsFadingIn = 7200f, starsFadeOut =7200f;
+    private float starsFadingIn = 7200f, starsFadeOut = 7200f;
 
     [SerializeField]
     private float starSpeed;
@@ -84,17 +84,15 @@ public class TimeController : MonoBehaviour
 
         starsFadingIn /= timeMultiplier;
         starsFadeOut /= timeMultiplier;
-
     }
 
 
     void Update()
-    {
+    { 
         UpdateTimeOfDay();
         RotateSun();
         UpdateLightSettings();
         showStars();
-
     }
 
 
@@ -130,12 +128,12 @@ public class TimeController : MonoBehaviour
 
             double percentage = timeSinceSunset.TotalMinutes / sunsetToSunriseDuration.TotalMinutes;
 
-            starTransform.Rotate(new Vector3(15, 30, 45) * Time.deltaTime *starSpeed);
+            starTransform.Rotate(new Vector3(15, 30, 45) * starSpeed * Time.deltaTime);
 
             sunLightRotation = Mathf.Lerp(180, 360, (float)percentage); //rotates sun 180 to 360, causing night
         }
 
-        sunLight.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.right); 
+        sunLight.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.right);
     }
 
 
@@ -181,10 +179,10 @@ public class TimeController : MonoBehaviour
         rend.material.SetColor("_TintColor", tintColor);
 
     }
-    
-   
 
-     
+
+
+
 
 
 
