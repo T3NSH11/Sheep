@@ -26,13 +26,13 @@ public class CameraControls : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
-            xRotation -= mouseY;
+            xRotation += mouseY;
 
-            xRotation = Mathf.Clamp(xRotation, 5.0f, 90f);
+            //xRotation = Mathf.Clamp(xRotation, 5.0f, 90f);
 
-            yRotation -= mouseX;
+            yRotation += mouseX;
 
-            transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+            transform.localRotation = Quaternion.Euler(-40, yRotation, 0f);
         }
         else
         {
