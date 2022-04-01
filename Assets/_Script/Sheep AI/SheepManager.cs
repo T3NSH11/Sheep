@@ -52,6 +52,8 @@ public class SheepManager : MonoBehaviour
     void Update()
     {
         PrimaryState.UpdateState(this);
+
+        gameObject.transform.position += new Vector3(0, -0.001f, 0);
         if (SecondaryState != null)
         {
             SecondaryState.UpdateState(this);

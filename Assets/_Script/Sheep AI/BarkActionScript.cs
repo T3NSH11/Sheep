@@ -13,7 +13,6 @@ public class BarkActionScript : SheepState
 
     public override void EnterState(SheepManager manager)
     {
-        Debug.Log("test");
     }
     public override void UpdateState(SheepManager manager)
     {

@@ -39,7 +39,7 @@ public class wanderState : SheepState
 
         Vector3 newVelocity = (rb.velocity + displacementForce).normalized * speed;
         rb.velocity = newVelocity;
-
+        //newVelocity.y = 0;
 
         Quaternion desiredRotation = Quaternion.LookRotation(rb.velocity);
         AI.transform.rotation = Quaternion.Slerp(AI.transform.rotation, desiredRotation, Time.deltaTime);
