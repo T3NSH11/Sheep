@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SheepBarkAction : MonoBehaviour
+public class BarkTrigger : MonoBehaviour
 {
     float MoveSpeed = 5;
 
