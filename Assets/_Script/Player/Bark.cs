@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bark : MonoBehaviour
 {
     public ParticleSystem BarkParticle;
+    public GameObject Player;
     public GameObject BarkTrigger;
     public GameObject Barkinstance;
     public float TriggerSpeed;
@@ -12,16 +13,10 @@ public class Bark : MonoBehaviour
 
     void Update()
     {
-        CheckBark();
-
-    }
-
-    private void CheckBark()
-    {
         if (Input.GetKeyDown(KeyCode.Space) && GameObject.FindGameObjectWithTag("BarkTrigger") == null)
         {
             BarkParticle.Play();
-            Barkinstance = Instantiate(BarkTrigger, transform.position, Quaternion.identity);
+            Barkinstance = Instantiate(BarkTrigger, transform.position, Player.transform.rotation);
         }
 
         if (triggertimer > 2.85f)
@@ -33,9 +28,10 @@ public class Bark : MonoBehaviour
         {
             triggertimer += Time.deltaTime;
         }
-        if (Barkinstance != null)
+        if(Barkinstance != null) 
         {
-            Barkinstance.transform.position += new Vector3(0, 0, 1) * TriggerSpeed * Time.deltaTime;
+            Barkinstance.transform.position += Player.transform.forward * TriggerSpeed * Time.deltaTime;
         }
+        
     }
 }

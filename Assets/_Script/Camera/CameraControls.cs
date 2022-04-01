@@ -46,7 +46,7 @@ public class CameraControls : MonoBehaviour
             transform.position -= new Vector3(mouseX, 0, mouseY);
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             transform.position = Player.transform.position;
         }
