@@ -50,7 +50,7 @@ public class ClickToMove : MonoBehaviour
             }
         }
 
-        if (Vector3.Distance(targetPosition, transform.position) > 2)
+        if (Vector3.Distance(targetPosition, transform.position) > 3)
         {
             transform.LookAt(targetPosition);
             rb.velocity = (targetPosition - transform.position).normalized * speed * Time.deltaTime;
