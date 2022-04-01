@@ -72,6 +72,7 @@ public class TimeController : MonoBehaviour
     private Color tintColor = new Color(0.5f, 0.5f, 0.5f, 0.5f);
     private Renderer rend;
 
+    #endregion
     void Start()
     {
 
@@ -84,7 +85,6 @@ public class TimeController : MonoBehaviour
         starsFadingIn /= timeMultiplier;
         starsFadeOut /= timeMultiplier;
 
-        
     }
 
 
@@ -194,4 +194,3 @@ public class TimeController : MonoBehaviour
 
 }
 
-#endregion
