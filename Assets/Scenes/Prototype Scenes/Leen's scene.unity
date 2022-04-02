@@ -6099,7 +6099,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeMultiplier: 4000
   startHour: 0
-  timeText: {fileID: 0}
   sunLight: {fileID: 1822864238}
   sunriseHour: 0
   sunsetHour: 20.2
@@ -6141,6 +6140,12 @@ MonoBehaviour:
   maxSunLightIntensity: 0
   moonLight: {fileID: 357127647}
   maxMoonLightIntensity: 0
+  starTransform: {fileID: 0}
+  StarsLight: {x: 19, y: 30, z: 0}
+  StarsExtinguish: {x: 3, y: 30, z: 0}
+  starsFadingIn: 7200
+  starsFadeOut: 7200
+  starSpeed: 0
 --- !u!4 &1650093338
 Transform:
   m_ObjectHideFlags: 0
