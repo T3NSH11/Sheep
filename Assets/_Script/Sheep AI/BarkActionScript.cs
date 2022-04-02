@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class BarkActionScript : SheepState
 {
-    public WanderState wanderState;
     public Transform player;
     public Transform AI;
     bool switchState = false;
     float switchTimer = 0;
-    public float moveSpeed = 5f;
+    public float moveSpeed = 99999999999999999999999999999999999999f;
 
     public override void EnterState(SheepManager manager)
     {
+
     }
     public override void UpdateState(SheepManager manager)
     {
@@ -20,7 +20,8 @@ public class BarkActionScript : SheepState
 
         if (manager.barkMove == true)
         {
-            manager.gameObject.GetComponent<Rigidbody>().velocity += (manager.triggerpos + manager.gameObject.transform.position).normalized * moveSpeed;
+            manager.gameObject.GetComponent<Rigidbody>().AddForce(-(manager.triggerPos - manager.transform.position).normalized * moveSpeed, ForceMode.VelocityChange);
+            //manager.gameObject.GetComponent<Rigidbody>().velocity = manager.gameObject.GetComponent<Rigidbody>().velocity * moveSpeed;
             manager.barkMove=false;
         }
         if (switchState == false)

@@ -10,7 +10,7 @@ public class BasicAction : WolfState
     }
     public override void UpdateState(WolfManager manager)
     {
-
+        
     }
 
 }

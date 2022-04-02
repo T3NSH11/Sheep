@@ -17,7 +17,7 @@ public class SheepManager : MonoBehaviour
     public float FlockRadius = 10f;
     public bool BarkedAt;
     public float movetimer;
-
+    public GameObject Wolf;
 
     #region Bark Action
     ParticleSystem m_ParticleSystem;
@@ -25,8 +25,14 @@ public class SheepManager : MonoBehaviour
     Vector3 AiPos;
     float MoveSpeed = 5;
     public bool barkMove;
-    public Vector3 triggerpos;
+    public Vector3 triggerPos;
     #endregion
+
+    #region Scared
+    public int BarkNum;
+    public float ScareTimer;
+    #endregion
+
 
     void Start()
     {
@@ -43,8 +49,10 @@ public class SheepManager : MonoBehaviour
         AI = transform;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         AiRb = this.gameObject.GetComponent<Rigidbody>();
+        Wolf = GameObject.FindGameObjectWithTag("Wolf");
 
         PrimaryState = wanderState;
+        SecondaryState = new IdleSheepState();
 
         PrimaryState.EnterState(this);
         SecondaryState.EnterState(this);
@@ -58,7 +66,11 @@ public class SheepManager : MonoBehaviour
         {
             SecondaryState.UpdateState(this);
         }
-        Flock();
+
+        if (gameObject.layer == LayerMask.NameToLayer("Sheep"))
+        {
+            Flock();
+        }
         //OnDrawGizmos();
 
         #region movetimer
