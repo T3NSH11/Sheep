@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BarkActionScript : SheepState
 {
-    public WanderState wanderState;
     public Transform player;
     public Transform AI;
     bool switchState = false;
@@ -13,6 +12,7 @@ public class BarkActionScript : SheepState
 
     public override void EnterState(SheepManager manager)
     {
+
     }
     public override void UpdateState(SheepManager manager)
     {

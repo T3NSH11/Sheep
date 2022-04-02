@@ -2,17 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Injured_Scared : MonoBehaviour
+public class Injured_Scared : SheepState
 {
-    // Start is called before the first frame update
-    void Start()
+    int random;
+    float injuretimer;
+    public override void EnterState(SheepManager manager)
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void UpdateState(SheepManager manager)
     {
-        
+        if ((Vector3.Distance(manager.AI.position, manager.Wolf.transform.position) < 10 && random == 0) || (manager.BarkNum > 5 && random == 0))
+        {
+            random = Random.Range(1, 100);
+        }
+
+        if (random >= 1 && random <= 50)
+        {
+            if(injuretimer < 100)
+            {
+                injuretimer += Time.deltaTime;
+            }
+
+            if (injuretimer >= 100)
+            {
+                injuretimer = 0;
+            }
+        }
+
+        if (random >= 51 && random <= 100)
+        {
+            manager.SwitchState(new FleeState());
+        }
     }
 }
