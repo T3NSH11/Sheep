@@ -28,6 +28,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1588179793734004676}
+  - {fileID: 1596771858027995421}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -105,6 +106,50 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 20.047363, y: 1, z: 20.633865}
   m_Center: {x: 7.6831665, y: 0, z: -1.0468826}
+--- !u!1 &5525539419697342523
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1596771858027995421}
+  - component: {fileID: 1255042762969360110}
+  m_Layer: 7
+  m_Name: PenDoor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1596771858027995421
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5525539419697342523}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0.00030016853}
+  m_LocalPosition: {x: 582.7111, y: 99.2525, z: 139.7438}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_Children: []
+  m_Father: {fileID: 1449220940813630753}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1255042762969360110
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5525539419697342523}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.32470694, y: 2.4744637, z: 6.9425287}
+  m_Center: {x: -0.033314455, y: -0.14486603, z: -0.19388795}
 --- !u!1001 &104795545209891206
 PrefabInstance:
   m_ObjectHideFlags: 0

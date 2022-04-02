@@ -10,7 +10,7 @@ public class BarkTrigger : MonoBehaviour
     {
         if (collision.tag == "Sheep")
         {
-            collision.gameObject.GetComponent<SheepManager>().triggerpos = transform.position;
+            collision.gameObject.GetComponent<SheepManager>().triggerPos = gameObject.transform.position;
             collision.gameObject.GetComponent<SheepManager>().BarkedAt = true;
             collision.gameObject.GetComponent<SheepManager>().movetimer = 2.2f;
             Debug.Log("trigger");

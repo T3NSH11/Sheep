@@ -30,7 +30,7 @@ public class Bark : MonoBehaviour
         }
         if(Barkinstance != null) 
         {
-            Barkinstance.transform.position += Player.transform.forward * TriggerSpeed * Time.deltaTime;
+            Barkinstance.GetComponent<Rigidbody>().velocity = Player.transform.forward * TriggerSpeed * Time.deltaTime;
         }
         
     }

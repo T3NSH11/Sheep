@@ -11,8 +11,10 @@ public class ClickToMove : MonoBehaviour
     public GameObject visualCue;
     //public LayerMask groundLayer;
     public Collider GroundCollider;
-    public float speed;
+    public float SprintSpeed, speed, WalkSpeed;
     public float SteeringForce;
+    float Clicktimer;
+    bool StartTimer;
     Vector3 DesiredVelocity;
     Vector3 targetPosition;
     Vector3 Steering;
@@ -29,11 +31,28 @@ public class ClickToMove : MonoBehaviour
 
         visualCue.gameObject.transform.position = targetPosition;
 
+        if (StartTimer)
+        {
+            Clicktimer += Time.deltaTime;
+        }
+
+        if (Input.GetMouseButtonDown(0) && Clicktimer < 1 && Clicktimer > 0)
+        {
+            speed = SprintSpeed;
+            StartTimer = false;
+            Clicktimer = 0;
+        }
+
+        if (Clicktimer > 1)
+        {
+            Clicktimer = 0;
+            StartTimer = false;
+        }
 
 
         if (Input.GetMouseButtonDown(0))
         {
-
+            StartTimer = true;
             RaycastHit hit;
             Ray ray;
 
@@ -49,11 +68,11 @@ public class ClickToMove : MonoBehaviour
             if (visualCue.transform.position == targetPosition)
             {
 
-                visualCue.SetActive(false);
+                //visualCue.SetActive(false);
             }
         }
 
-        if (Vector3.Distance(targetPosition, transform.position) > 5)
+        if (Vector3.Distance(targetPosition, transform.position) > 2)
         {
             transform.rotation = Quaternion.LookRotation(rb.velocity.normalized, new Vector3(0, 0, 1));
             DesiredVelocity = (targetPosition - transform.position).normalized * speed * Time.deltaTime;
@@ -62,7 +81,11 @@ public class ClickToMove : MonoBehaviour
             Steering /= rb.mass;
             rb.velocity = Vector3.ClampMagnitude(rb.velocity + Steering, speed);
         }
-
+        else
+        {
+            visualCue.SetActive(false);
+            speed = WalkSpeed;
+        }
         
         //this.gameObject.transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
         //bruh

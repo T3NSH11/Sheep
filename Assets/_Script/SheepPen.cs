@@ -7,6 +7,7 @@ public class SheepPen : MonoBehaviour
     GameObject[] AllSheep;
     public List<GameObject> EnteredSheep;
     public int NumOfSheepLeft;
+    public LayerMask Inpen;
     void Start()
     {
         AllSheep = GameObject.FindGameObjectsWithTag("Sheep");
@@ -25,6 +26,7 @@ public class SheepPen : MonoBehaviour
     {
         if (other.gameObject.tag == "Sheep")
         {
+            other.gameObject.layer = LayerMask.NameToLayer("InPen"); 
             EnteredSheep.Add(other.gameObject);
             NumOfSheepLeft--;
         }

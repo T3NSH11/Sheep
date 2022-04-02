@@ -25,7 +25,7 @@ public class SheepManager : MonoBehaviour
     Vector3 AiPos;
     float MoveSpeed = 5;
     public bool barkMove;
-    public Vector3 triggerpos;
+    public Vector3 triggerPos;
     #endregion
 
     #region Scared
@@ -66,7 +66,11 @@ public class SheepManager : MonoBehaviour
         {
             SecondaryState.UpdateState(this);
         }
-        Flock();
+
+        if (gameObject.layer == LayerMask.NameToLayer("Sheep"))
+        {
+            Flock();
+        }
         //OnDrawGizmos();
 
         #region movetimer
