@@ -55,7 +55,7 @@ public class ClickToMove : MonoBehaviour
 
         if (Vector3.Distance(targetPosition, transform.position) > 5)
         {
-            transform.LookAt(targetPosition);
+            transform.rotation = Quaternion.LookRotation(rb.velocity.normalized, new Vector3(0, 0, 1));
             DesiredVelocity = (targetPosition - transform.position).normalized * speed * Time.deltaTime;
             Steering = DesiredVelocity - rb.velocity;
             Steering = Vector3.ClampMagnitude(Steering, SteeringForce);

@@ -6,6 +6,7 @@ public class CameraControls : MonoBehaviour
 {
     public float RotationSpeed;
     public float Smoothness;
+    public float MoveSpeed;
     public GameObject Camera;
     public GameObject Player;
     Vector3 offset;
@@ -23,9 +24,29 @@ public class CameraControls : MonoBehaviour
 
     void Update()
     {
+    }
+
+    private void FixedUpdate()
+    {
 
         float mouseX = Input.GetAxis("Mouse X") * RotationSpeed * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * RotationSpeed * Time.deltaTime;
+
+        float MovemouseX = Input.GetAxis("Mouse X") * MoveSpeed * Time.deltaTime;
+        float MovemouseY = Input.GetAxis("Mouse Y") * MoveSpeed * Time.deltaTime;
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            CamPosition = Player.transform.position + offset;
+            transform.position = Vector3.Lerp(transform.position, CamPosition, Smoothness * Time.fixedDeltaTime);
+        }
+
+        if (Input.GetMouseButton(1))
+        {
+            transform.rotation = Quaternion.Euler(-40, 0, 0);
+            transform.position -= new Vector3(MovemouseX, 0, MovemouseY);
+        }
+
         if (Input.GetMouseButton(2))
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -45,22 +66,6 @@ public class CameraControls : MonoBehaviour
             Cursor.visible = true;
         }
 
-        if (Input.GetMouseButton(1))
-        {
-            transform.rotation = Quaternion.Euler(-40, 0, 0);
-            transform.position -= new Vector3(mouseX, 0, mouseY);
-        }
-
-        Camera.transform.position -= (Camera.transform.position - transform.position).normalized * Input.mouseScrollDelta.y;
-    }
-
-    private void FixedUpdate()
-    {
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            CamPosition = Player.transform.position + offset;
-            transform.position = Vector3.Lerp(transform.position, CamPosition, Smoothness * Time.fixedDeltaTime);
-
-        }
+        Camera.transform.position -= (Camera.transform.position - transform.position).normalized * Input.mouseScrollDelta.y * 2;
     }
 }
