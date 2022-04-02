@@ -12,7 +12,10 @@ public class ClickToMove : MonoBehaviour
     //public LayerMask groundLayer;
     public Collider GroundCollider;
     public float speed;
+    public float SteeringForce;
+    Vector3 DesiredVelocity;
     Vector3 targetPosition;
+    Vector3 Steering;
 
     private void Start()
     {
@@ -50,10 +53,14 @@ public class ClickToMove : MonoBehaviour
             }
         }
 
-        if (Vector3.Distance(targetPosition, transform.position) > 3)
+        if (Vector3.Distance(targetPosition, transform.position) > 5)
         {
             transform.LookAt(targetPosition);
-            rb.velocity = (targetPosition - transform.position).normalized * speed * Time.deltaTime;
+            DesiredVelocity = (targetPosition - transform.position).normalized * speed * Time.deltaTime;
+            Steering = DesiredVelocity - rb.velocity;
+            Steering = Vector3.ClampMagnitude(Steering, SteeringForce);
+            Steering /= rb.mass;
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity + Steering, speed);
         }
 
         
