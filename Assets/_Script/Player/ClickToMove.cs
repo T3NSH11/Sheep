@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class ClickToMove : MonoBehaviour
 {
-    // Start is called before the first frame update
+   
     public Camera cam;
     Collider planecollider;
     public Rigidbody rb;
-    public GameObject visualCue;
-    //public LayerMask groundLayer;
+
+    public GameObject visualCue; //the center of the radius 
+    public GameObject slowingRadius; //the radius
+
     public Collider GroundCollider;
+
     public float SprintSpeed, speed, WalkSpeed;
     public float SteeringForce;
     float Clicktimer;
     bool StartTimer;
+
     Vector3 DesiredVelocity;
     Vector3 targetPosition;
     Vector3 Steering;
 
+ 
+   
     private void Start()
     {
         visualCue.SetActive(false);
@@ -30,6 +36,7 @@ public class ClickToMove : MonoBehaviour
         //transform.position = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 5));
 
         visualCue.gameObject.transform.position = targetPosition;
+        slowingRadius.gameObject.transform.position = targetPosition;
 
         if (StartTimer)
         {
@@ -86,9 +93,31 @@ public class ClickToMove : MonoBehaviour
             visualCue.SetActive(false);
             speed = WalkSpeed;
         }
-        
+
         //this.gameObject.transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
         //bruh
+
+
+        //DesiredVelocity = targetPosition - transform.position; 
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     private void LateUpdate()
