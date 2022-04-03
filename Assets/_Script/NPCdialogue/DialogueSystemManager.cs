@@ -6,7 +6,8 @@ using TMPro;
 
 public class DialogueSystemManager : MonoBehaviour
 {
-    private Queue<string> sentences;
+    public Queue<string> sentences;
+    
     
     [SerializeField]
     public TextMeshProUGUI nameText;
@@ -20,6 +21,7 @@ public class DialogueSystemManager : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel;
 
     private float nextCharTimer;
+    public bool InDialogue;
 
 
 
@@ -30,33 +32,26 @@ public class DialogueSystemManager : MonoBehaviour
     }
     public void StartDialogue (Dialogue dialogue)
     {
+        InDialogue = true;
         dialoguePanel.SetActive(true);
         //dialogueanimator.SetBool("IsOpen", true);
-
          nameText.text = dialogue.name;
 
          sentences.Clear();
 
-            foreach (string sentence in dialogue.sentences)
+            foreach (string String in dialogue.sentences)
             {
-                sentences.Enqueue(sentence);
+                sentences.Enqueue(String);
             }
-
-
-       
-
+        dialogueText.text = sentences.Peek();
+        sentences.Dequeue();
+        //ShowNextSentence();
     }
    
     public void ShowNextSentence()
   {
-        if (sentences.Count == 0)
-        {
-            EndDialogue();
-            return;
-            
-        }
-        string sentence = sentences.Dequeue();
-        dialogueText.text = sentence;
+        string sentance = sentences.Dequeue();
+        dialogueText.text = sentance;
 
 
       //  StopAllCoroutines();
@@ -81,6 +76,7 @@ public class DialogueSystemManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        InDialogue = false;
         dialoguePanel.SetActive(false);
         //dialogueanimator.SetBool("IsOpen", false);
     }

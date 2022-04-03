@@ -399,9 +399,10 @@ MonoBehaviour:
   playerIsNear: 0
   dialogue:
     sentences:
+    - text 1
     - text 2
     - text 3
-    - 
+    - text 3
     name: bruhguy
   objectWithDialogueManager: {fileID: 1703633730}
 --- !u!1001 &215181836
@@ -6224,6 +6225,7 @@ MonoBehaviour:
   nameText: {fileID: 73545276}
   dialogueText: {fileID: 891881237}
   dialoguePanel: {fileID: 2029897723}
+  InDialogue: 0
 --- !u!4 &1703633732
 Transform:
   m_ObjectHideFlags: 0

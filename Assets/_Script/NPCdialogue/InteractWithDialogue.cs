@@ -10,18 +10,20 @@ public class InteractWithDialogue : MonoBehaviour
 
     private void Update()
     {
-       
-
-        if (playerIsNear == true)
+        if(objectWithDialogueManager.GetComponent<DialogueSystemManager>().sentences.Count == 0)
         {
-
-           objectWithDialogueManager.GetComponent<DialogueSystemManager>().StartDialogue(dialogue);
-            Debug.Log("trigger dialogue line");
-
+            objectWithDialogueManager.GetComponent<DialogueSystemManager>().EndDialogue();
         }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
 
+       // if (playerIsNear == true && objectWithDialogueManager.GetComponent<DialogueSystemManager>().InDialogue == false)
+       // {
+       //     objectWithDialogueManager.GetComponent<DialogueSystemManager>().StartDialogue(dialogue);
+       //     Debug.Log("trigger dialogue line");
+       // }
+
+        if (Input.GetKeyDown(KeyCode.Space) && objectWithDialogueManager.GetComponent<DialogueSystemManager>().InDialogue == true)
+        {
+            Debug.Log(objectWithDialogueManager.GetComponent<DialogueSystemManager>().sentences.Peek());
             objectWithDialogueManager.GetComponent<DialogueSystemManager>().ShowNextSentence();
         }
 
@@ -33,15 +35,18 @@ public class InteractWithDialogue : MonoBehaviour
     {
         if (other.tag == "PlayerDog")
         {
+            objectWithDialogueManager.GetComponent<DialogueSystemManager>().StartDialogue(dialogue);
+            Debug.Log("trigger dialogue line");
             playerIsNear = true;
             Debug.Log("playerisnear true enabled");
         }
 
-        
+
     }
 
     public void OnTriggerExit(Collider other)
     {
+        objectWithDialogueManager.GetComponent<DialogueSystemManager>().InDialogue = false;
         if (other.tag == "PlayerDog")
         {
             objectWithDialogueManager.GetComponent<DialogueSystemManager>().EndDialogue();
