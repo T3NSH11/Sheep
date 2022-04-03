@@ -15,7 +15,7 @@ public class ClickToMove : MonoBehaviour
     public Collider GroundCollider;
 
     public float SprintSpeed, speed, WalkSpeed;
-    public float SteeringForce;
+    public float SteeringForce, ArriveSpeed;
     float Clicktimer;
     bool StartTimer;
 
@@ -75,23 +75,32 @@ public class ClickToMove : MonoBehaviour
         if (Vector3.Distance(targetPosition, transform.position) > 1)
         {
             transform.rotation = Quaternion.LookRotation(rb.velocity.normalized, new Vector3(0, 0, 1));
-            DesiredVelocity = (targetPosition - transform.position).normalized * speed * Time.deltaTime;
-            Steering = DesiredVelocity - rb.velocity;
+            if (Vector3.Distance(targetPosition, transform.position) > 5)
+            {
+                DesiredVelocity = (targetPosition - transform.position).normalized * speed * ((Vector3.Distance(targetPosition, transform.position) / 5) * Time.deltaTime);
+            }
+            else
+            {
+                DesiredVelocity = (targetPosition - transform.position).normalized * speed * Time.deltaTime;
+            }
+
+            Steering = DesiredVelocity - rb.velocity; 
             Steering = Vector3.ClampMagnitude(Steering, SteeringForce);
             Steering /= rb.mass;
             rb.velocity = Vector3.ClampMagnitude(rb.velocity + Steering, speed);
+
         }
-        else
+        
+        if (Vector3.Distance(targetPosition, transform.position) < 1)
         {
             visualCue.SetActive(false);
             speed = WalkSpeed;
         }
 
-        //this.gameObject.transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
-        //bruh
 
 
-        //DesiredVelocity = targetPosition - transform.position; 
+
+
     }
 
     private void LateUpdate()
