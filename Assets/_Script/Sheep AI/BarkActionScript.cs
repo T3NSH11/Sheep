@@ -8,7 +8,7 @@ public class BarkActionScript : SheepState
     public Transform AI;
     bool switchState = false;
     float switchTimer = 0;
-    public float moveSpeed = 100;
+    public float moveSpeed = 10000000000;
 
     public override void EnterState(SheepManager manager)
     {
@@ -21,7 +21,10 @@ public class BarkActionScript : SheepState
         if (manager.barkMove == true)
         {
             //manager.gameObject.GetComponent<Rigidbody>().AddForce(-(manager.triggerPos - manager.transform.position).normalized * moveSpeed, ForceMode.VelocityChange);
-            manager.gameObject.GetComponent<Rigidbody>().AddForce(manager.triggerPos * moveSpeed);
+            Debug.Log(manager.gameObject.transform.forward);
+            Debug.Log((manager.gameObject.transform.forward) * moveSpeed);
+            manager.gameObject.GetComponent<Rigidbody>().velocity += manager.gameObject.transform.forward;
+            manager.gameObject.GetComponent<Rigidbody>().velocity *= moveSpeed;
 
             //manager.gameObject.GetComponent<Rigidbody>().velocity = manager.gameObject.GetComponent<Rigidbody>().velocity * moveSpeed;
             manager.barkMove=false;

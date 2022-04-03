@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ClickToMove : MonoBehaviour
 {
-   
+
     public Camera cam;
     Collider planecollider;
     public Rigidbody rb;
@@ -23,8 +23,8 @@ public class ClickToMove : MonoBehaviour
     Vector3 targetPosition;
     Vector3 Steering;
 
- 
-   
+
+
     private void Start()
     {
         visualCue.SetActive(false);
@@ -70,16 +70,9 @@ public class ClickToMove : MonoBehaviour
                 targetPosition = hit.point;
 
             }
-
-
-            if (visualCue.transform.position == targetPosition)
-            {
-
-                //visualCue.SetActive(false);
-            }
         }
 
-        if (Vector3.Distance(targetPosition, transform.position) > 2)
+        if (Vector3.Distance(targetPosition, transform.position) > 1)
         {
             transform.rotation = Quaternion.LookRotation(rb.velocity.normalized, new Vector3(0, 0, 1));
             DesiredVelocity = (targetPosition - transform.position).normalized * speed * Time.deltaTime;
@@ -99,25 +92,6 @@ public class ClickToMove : MonoBehaviour
 
 
         //DesiredVelocity = targetPosition - transform.position; 
-
-       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
     private void LateUpdate()

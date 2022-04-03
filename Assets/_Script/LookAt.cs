@@ -9,7 +9,7 @@ public class LookAt : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        moveableObjects = GameObject.FindGameObjectsWithTag("Sheep");
+        //moveableObjects = GameObject.FindGameObjectsWithTag("Sheep");
         moveableObjects = GameObject.FindGameObjectsWithTag("Wolf");
         moveableObjects = GameObject.FindGameObjectsWithTag("Squirrel");
     }

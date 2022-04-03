@@ -11,7 +11,7 @@ public class SheepManager : MonoBehaviour
     public wanderState wanderState = new wanderState();
     public JumpTowards jumpTowards = new JumpTowards();
     public Transform AI;
-    public Transform player;
+    public GameObject player;
     public Rigidbody AiRb;
     public LayerMask SheepMask;
     public float FlockRadius = 10f;
@@ -47,7 +47,7 @@ public class SheepManager : MonoBehaviour
         #endregion
 
         AI = transform;
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player");
         AiRb = this.gameObject.GetComponent<Rigidbody>();
         Wolf = GameObject.FindGameObjectWithTag("Wolf");
 
@@ -93,6 +93,12 @@ public class SheepManager : MonoBehaviour
     public void SwitchState(SheepState state)
     {
         PrimaryState = state;
+        state.EnterState(this);
+    }
+
+    public void SwitchSecondaryState(SheepState state)
+    {
+        SecondaryState = state;
         state.EnterState(this);
     }
 
