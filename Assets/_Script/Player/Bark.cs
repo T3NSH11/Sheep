@@ -17,6 +17,7 @@ public class Bark : MonoBehaviour
         {
             BarkParticle.Play();
             Barkinstance = Instantiate(BarkTrigger, transform.position, Player.transform.rotation);
+            Barkinstance.GetComponent<Rigidbody>().velocity = Player.transform.forward * TriggerSpeed;
         }
 
         if (triggertimer > 2.85f)
@@ -27,11 +28,6 @@ public class Bark : MonoBehaviour
         else
         {
             triggertimer += Time.deltaTime;
-        }
-        if(Barkinstance != null) 
-        {
-            Barkinstance.GetComponent<Rigidbody>().velocity = Player.transform.forward * TriggerSpeed * Time.deltaTime;
-        }
-        
+        }  
     }
 }

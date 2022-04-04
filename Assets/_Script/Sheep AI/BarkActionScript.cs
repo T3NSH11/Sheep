@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class BarkActionScript : SheepState
 {
-    public Transform player;
-    public Transform AI;
     bool switchState = false;
     float switchTimer = 0;
-    public float moveSpeed = 10000000000;
+    Vector3 SheepOffsett;
 
     public override void EnterState(SheepManager manager)
     {
@@ -16,27 +14,7 @@ public class BarkActionScript : SheepState
     }
     public override void UpdateState(SheepManager manager)
     {
-        switchTimer++;
 
-        if (manager.barkMove == true)
-        {
-            //manager.gameObject.GetComponent<Rigidbody>().AddForce(-(manager.triggerPos - manager.transform.position).normalized * moveSpeed, ForceMode.VelocityChange);
-            Debug.Log(manager.gameObject.transform.forward);
-            Debug.Log((manager.gameObject.transform.forward) * moveSpeed);
-            manager.gameObject.GetComponent<Rigidbody>().velocity += manager.gameObject.transform.forward;
-            manager.gameObject.GetComponent<Rigidbody>().velocity *= moveSpeed;
-
-            //manager.gameObject.GetComponent<Rigidbody>().velocity = manager.gameObject.GetComponent<Rigidbody>().velocity * moveSpeed;
-            manager.barkMove=false;
-        }
-        if (switchState == false)
-        {
-            if (switchTimer > 3)
-            {
-                manager.SwitchState(manager.wanderState);
-            }
-
-        }
     }
 
 
@@ -55,4 +33,28 @@ public class BarkActionScript : SheepState
 
         }
         */
+
+    public override void FixedUpdateState(SheepManager manager)
+    {
+        SheepOffsett = manager.transform.position - new Vector3(0, 0, 2);
+        switchTimer++;
+
+        if (manager.barkMove == true)
+        {
+            //manager.gameObject.GetComponent<Rigidbody>().AddForce(-(manager.triggerPos - manager.transform.position).normalized * moveSpeed, ForceMode.VelocityChange);
+            manager.gameObject.GetComponent<Rigidbody>().AddForce(manager.transform.forward * manager.PushForce);
+            //manager.gameObject.GetComponent<Rigidbody>().velocity *= moveSpeed;
+
+            //manager.gameObject.GetComponent<Rigidbody>().velocity = manager.gameObject.GetComponent<Rigidbody>().velocity * moveSpeed;
+            manager.barkMove = false;
+        }
+        if (switchState == false)
+        {
+            if (switchTimer > 3)
+            {
+                manager.SwitchState(manager.wanderState);
+            }
+
+        }
+    }
 }

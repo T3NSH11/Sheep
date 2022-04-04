@@ -18,4 +18,9 @@ public class FleeState : SheepState
             manager.AiRb.AddForce(DirectionAway.normalized);
         }
     }
+
+    public override void FixedUpdateState(SheepManager manager)
+    {
+
+    }
 }

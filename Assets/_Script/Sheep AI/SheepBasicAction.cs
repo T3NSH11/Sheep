@@ -18,4 +18,9 @@ public class SheepBasicAction : SheepState
             manager.SwitchState(manager.wanderState);
         }
     }
+
+    public override void FixedUpdateState(SheepManager manager)
+    {
+
+    }
 }

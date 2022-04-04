@@ -33,6 +33,9 @@ public class SheepManager : MonoBehaviour
     public float ScareTimer;
     #endregion
 
+    #region BarkAction
+    public int PushForce;
+    #endregion
 
     void Start()
     {
@@ -40,10 +43,6 @@ public class SheepManager : MonoBehaviour
         wanderState.wanderAngleDisplacement = 0.09f;
         wanderState.wanderStrength = 0.60f;
         wanderState.speed = 0.7f;
-        #endregion
-
-        #region BarkAction
-        barkActionScript.moveSpeed = 5f;
         #endregion
 
         AI = transform;
@@ -123,4 +122,10 @@ public class SheepManager : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, FlockRadius);
     }
     */
+
+    private void FixedUpdate()
+    {
+        PrimaryState.FixedUpdateState(this);
+        SecondaryState.FixedUpdateState(this);
+    }
 }

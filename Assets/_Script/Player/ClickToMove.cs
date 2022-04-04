@@ -10,7 +10,6 @@ public class ClickToMove : MonoBehaviour
     public Rigidbody rb;
 
     public GameObject visualCue; //the center of the radius 
-    public GameObject slowingRadius; //the radius
 
     public Collider GroundCollider;
 
@@ -36,7 +35,6 @@ public class ClickToMove : MonoBehaviour
         //transform.position = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 5));
 
         visualCue.gameObject.transform.position = targetPosition;
-        slowingRadius.gameObject.transform.position = targetPosition;
 
         if (StartTimer)
         {

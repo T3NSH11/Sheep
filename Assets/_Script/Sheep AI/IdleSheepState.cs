@@ -13,4 +13,9 @@ public class IdleSheepState : SheepState
     {
         
     }
+
+    public override void FixedUpdateState(SheepManager manager)
+    {
+
+    }
 }
