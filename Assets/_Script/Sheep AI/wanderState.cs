@@ -47,7 +47,7 @@ public class wanderState : SheepState
         Vector3.ClampMagnitude(rb.velocity, speed); // fix with mazen
         //newVelocity.y = 0;
 
-        Quaternion desiredRotation = Quaternion.LookRotation(rb.velocity);
+        Quaternion desiredRotation = Quaternion.LookRotation(new Vector3(rb.velocity.x,0f , rb.velocity.z));
         AI.transform.rotation = Quaternion.Slerp(AI.transform.rotation, desiredRotation, Time.deltaTime);
     }
 
