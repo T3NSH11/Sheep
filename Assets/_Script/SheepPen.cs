@@ -11,7 +11,7 @@ public class SheepPen : MonoBehaviour
     void Start()
     {
         AllSheep = GameObject.FindGameObjectsWithTag("Sheep");
-        NumOfSheepLeft = AllSheep.Length;
+        NumOfSheepLeft = 5;
     }
 
     void Update()

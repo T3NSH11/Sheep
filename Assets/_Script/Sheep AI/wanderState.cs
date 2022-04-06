@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class wanderState : SheepState
 {
-    public float speed = 0.7f;
+    public float speed = 0.3f;
     public float wanderStrength = 0.60f;                // basically the radius
     public float wanderAngleDisplacement = 0.09f;       //going to be the thing that changes time to time
     Rigidbody rb;
@@ -43,7 +43,8 @@ public class wanderState : SheepState
         Vector3 displacementForce = new Vector3(Mathf.Cos(wanderAngle) * wanderStrength, 0, Mathf.Sin(wanderAngle) * wanderStrength);
 
         Vector3 newVelocity = (rb.velocity + displacementForce).normalized * speed;
-        rb.velocity = newVelocity; // fix with mazen
+        rb.velocity += displacementForce.normalized * speed * Time.deltaTime;
+        Vector3.ClampMagnitude(rb.velocity, speed); // fix with mazen
         //newVelocity.y = 0;
 
         Quaternion desiredRotation = Quaternion.LookRotation(rb.velocity);

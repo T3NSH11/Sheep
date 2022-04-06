@@ -34,7 +34,6 @@ public class SheepManager : MonoBehaviour
     public float ScareTimer;
     #endregion
 
-
     void Start()
     {
         #region Wander State
@@ -48,6 +47,7 @@ public class SheepManager : MonoBehaviour
         AiRb = this.gameObject.GetComponent<Rigidbody>();
         Wolf = GameObject.FindGameObjectWithTag("Wolf");
 
+        PrimaryState = wanderState;
         PrimaryState = new wanderState();
         SecondaryState = new IdleSheepState();
 
@@ -69,6 +69,22 @@ public class SheepManager : MonoBehaviour
             Flock();
         }
         //OnDrawGizmos();
+
+        #region movetimer
+        if (movetimer > 0)
+        {
+            if (BarkedAt == true)
+            {
+                PrimaryState = barkActionScript;
+                movetimer -= Time.deltaTime;
+
+                if (movetimer <= 0)
+                {
+                    BarkedAt = false;
+                }
+            }
+        }
+        #endregion
     }
 
     public void SwitchState(SheepState state)
@@ -88,12 +104,15 @@ public class SheepManager : MonoBehaviour
         Collider FollowingSheep;
         //Choosing what sheep to follow
         Collider[] NearbySheep = Physics.OverlapSphere(transform.position, FlockRadius, SheepMask);
+        Debug.Log(NearbySheep.Length);
         //Debug.Log(NearbySheep.Length);
         int random = Random.Range(0, NearbySheep.Length);
+
         if (NearbySheep.Length != 0)
         {
             FollowingSheep = NearbySheep[random];
             Vector3 DirectionToSheep = FollowingSheep.transform.position - AI.position;
+
             //Following sheep
             AiRb.AddForce(DirectionToSheep.normalized * 0.2f);
         }
