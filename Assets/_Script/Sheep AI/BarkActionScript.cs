@@ -10,7 +10,7 @@ public class BarkActionScript : SheepState
 
     public override void EnterState(SheepManager manager)
     {
-
+        switchTimer = 0;
     }
     public override void UpdateState(SheepManager manager)
     {
@@ -36,8 +36,7 @@ public class BarkActionScript : SheepState
 
     public override void FixedUpdateState(SheepManager manager)
     {
-        SheepOffsett = manager.transform.position - new Vector3(0, 0, 2);
-        switchTimer++;
+        switchTimer += Time.deltaTime;
 
         if (manager.barkMove == true)
         {
@@ -48,7 +47,7 @@ public class BarkActionScript : SheepState
             //manager.gameObject.GetComponent<Rigidbody>().velocity = manager.gameObject.GetComponent<Rigidbody>().velocity * moveSpeed;
             manager.barkMove = false;
         }
-        if (switchState == false)
+         if (switchState == false)
         {
             if (switchTimer > 3)
             {

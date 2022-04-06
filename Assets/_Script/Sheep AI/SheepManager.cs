@@ -26,6 +26,7 @@ public class SheepManager : MonoBehaviour
     float MoveSpeed = 5;
     public bool barkMove;
     public Vector3 triggerPos;
+    public int PushForce;
     #endregion
 
     #region Scared
@@ -33,9 +34,6 @@ public class SheepManager : MonoBehaviour
     public float ScareTimer;
     #endregion
 
-    #region BarkAction
-    public int PushForce;
-    #endregion
 
     void Start()
     {
@@ -50,7 +48,7 @@ public class SheepManager : MonoBehaviour
         AiRb = this.gameObject.GetComponent<Rigidbody>();
         Wolf = GameObject.FindGameObjectWithTag("Wolf");
 
-        PrimaryState = wanderState;
+        PrimaryState = new wanderState();
         SecondaryState = new IdleSheepState();
 
         PrimaryState.EnterState(this);
@@ -60,7 +58,7 @@ public class SheepManager : MonoBehaviour
     {
         PrimaryState.UpdateState(this);
 
-        gameObject.transform.position += new Vector3(0, -0.001f, 0);
+        //gameObject.transform.position += new Vector3(0, -0.001f, 0);
         if (SecondaryState != null)
         {
             SecondaryState.UpdateState(this);
@@ -71,22 +69,6 @@ public class SheepManager : MonoBehaviour
             Flock();
         }
         //OnDrawGizmos();
-
-        #region movetimer
-        if (movetimer > 0)
-        {
-            if (BarkedAt == true)
-            {
-                PrimaryState = barkActionScript;
-                movetimer -= Time.deltaTime;
-
-                if (movetimer <= 0)
-                {
-                    BarkedAt = false;
-                }
-            }
-        }
-        #endregion
     }
 
     public void SwitchState(SheepState state)
@@ -103,16 +85,18 @@ public class SheepManager : MonoBehaviour
 
     void Flock()
     {
+        Collider FollowingSheep;
         //Choosing what sheep to follow
         Collider[] NearbySheep = Physics.OverlapSphere(transform.position, FlockRadius, SheepMask);
-        Debug.Log(NearbySheep.Length);
+        //Debug.Log(NearbySheep.Length);
         int random = Random.Range(0, NearbySheep.Length);
-        Collider FollowingSheep = NearbySheep[random];
-
-        Vector3 DirectionToSheep = FollowingSheep.transform.position - AI.position;
-
-        //Following sheep
-        AiRb.AddForce(DirectionToSheep.normalized * 0.2f);
+        if (NearbySheep.Length != 0)
+        {
+            FollowingSheep = NearbySheep[random];
+            Vector3 DirectionToSheep = FollowingSheep.transform.position - AI.position;
+            //Following sheep
+            AiRb.AddForce(DirectionToSheep.normalized * 0.2f);
+        }
 
     }
     /*

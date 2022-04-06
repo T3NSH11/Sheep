@@ -146,15 +146,15 @@ MonoBehaviour:
   SheepMask:
     serializedVersion: 2
     m_Bits: 64
-  FlockRadius: 1000
+  FlockRadius: 0
   BarkedAt: 0
   movetimer: 0
   Wolf: {fileID: 0}
   barkMove: 0
   triggerPos: {x: 0, y: 0, z: 0}
+  PushForce: 100
   BarkNum: 0
   ScareTimer: 0
-  PushForce: 80
 --- !u!1001 &15143829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -260,15 +260,15 @@ MonoBehaviour:
   SheepMask:
     serializedVersion: 2
     m_Bits: 64
-  FlockRadius: 1000
+  FlockRadius: 0
   BarkedAt: 0
   movetimer: 0
   Wolf: {fileID: 0}
   barkMove: 0
   triggerPos: {x: 0, y: 0, z: 0}
+  PushForce: 100
   BarkNum: 0
   ScareTimer: 0
-  PushForce: 80
 --- !u!1 &105203948 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1625676322243893045, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
@@ -292,15 +292,15 @@ MonoBehaviour:
   SheepMask:
     serializedVersion: 2
     m_Bits: 64
-  FlockRadius: 1000
+  FlockRadius: 0
   BarkedAt: 0
   movetimer: 0
   Wolf: {fileID: 0}
   barkMove: 0
   triggerPos: {x: 0, y: 0, z: 0}
+  PushForce: 100
   BarkNum: 0
   ScareTimer: 0
-  PushForce: 80
 --- !u!1 &139635927
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,6 +385,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: m_Constraints
       value: 116
       objectReference: {fileID: 0}
@@ -459,6 +463,10 @@ PrefabInstance:
     - target: {fileID: 1625676322243893045, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
+      propertyPath: m_Drag
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: m_Constraints
@@ -550,7 +558,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1895727171881757280, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: PushForce
-      value: 300
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895727171881757280, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
+      propertyPath: FlockRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
+      propertyPath: m_Drag
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: m_Constraints
@@ -630,15 +646,15 @@ MonoBehaviour:
   SheepMask:
     serializedVersion: 2
     m_Bits: 64
-  FlockRadius: 1000
+  FlockRadius: 0
   BarkedAt: 0
   movetimer: 0
   Wolf: {fileID: 0}
   barkMove: 0
   triggerPos: {x: 0, y: 0, z: 0}
+  PushForce: 100
   BarkNum: 0
   ScareTimer: 0
-  PushForce: 80
 --- !u!4 &522686705 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2144910433799900559, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
@@ -663,6 +679,10 @@ PrefabInstance:
     - target: {fileID: 1625676322243893045, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
+      propertyPath: m_Drag
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: m_Constraints
@@ -731,6 +751,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: m_Constraints
       value: 116
       objectReference: {fileID: 0}
@@ -795,6 +819,10 @@ PrefabInstance:
     - target: {fileID: 1625676322243893045, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
+      propertyPath: m_Drag
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: m_Constraints
@@ -1066,15 +1094,15 @@ MonoBehaviour:
   SheepMask:
     serializedVersion: 2
     m_Bits: 64
-  FlockRadius: 1000
+  FlockRadius: 0
   BarkedAt: 0
   movetimer: 0
   Wolf: {fileID: 0}
   barkMove: 0
   triggerPos: {x: 0, y: 0, z: 0}
+  PushForce: 100
   BarkNum: 0
   ScareTimer: 0
-  PushForce: 80
 --- !u!1001 &934306842
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1089,6 +1117,10 @@ PrefabInstance:
     - target: {fileID: 1625676322243893045, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
+      propertyPath: m_Drag
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: m_Constraints
@@ -1197,6 +1229,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: m_Constraints
       value: 116
       objectReference: {fileID: 0}
@@ -1261,6 +1297,10 @@ PrefabInstance:
     - target: {fileID: 1625676322243893045, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
+      propertyPath: m_Drag
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: m_Constraints
@@ -1510,15 +1550,15 @@ MonoBehaviour:
   SheepMask:
     serializedVersion: 2
     m_Bits: 64
-  FlockRadius: 1000
+  FlockRadius: 0
   BarkedAt: 0
   movetimer: 0
   Wolf: {fileID: 0}
   barkMove: 0
   triggerPos: {x: 0, y: 0, z: 0}
+  PushForce: 100
   BarkNum: 0
   ScareTimer: 0
-  PushForce: 80
 --- !u!1 &1398857695
 GameObject:
   m_ObjectHideFlags: 0
@@ -1673,15 +1713,15 @@ MonoBehaviour:
   SheepMask:
     serializedVersion: 2
     m_Bits: 64
-  FlockRadius: 1000
+  FlockRadius: 0
   BarkedAt: 0
   movetimer: 0
   Wolf: {fileID: 0}
   barkMove: 0
   triggerPos: {x: 0, y: 0, z: 0}
+  PushForce: 100
   BarkNum: 0
   ScareTimer: 0
-  PushForce: 80
 --- !u!1 &1588819117
 GameObject:
   m_ObjectHideFlags: 0
@@ -1821,15 +1861,15 @@ MonoBehaviour:
   SheepMask:
     serializedVersion: 2
     m_Bits: 64
-  FlockRadius: 1000
+  FlockRadius: 0
   BarkedAt: 0
   movetimer: 0
   Wolf: {fileID: 0}
   barkMove: 0
   triggerPos: {x: 0, y: 0, z: 0}
+  PushForce: 100
   BarkNum: 0
   ScareTimer: 0
-  PushForce: 80
 --- !u!1001 &1706318620
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1844,6 +1884,10 @@ PrefabInstance:
     - target: {fileID: 1625676322243893045, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
+      propertyPath: m_Drag
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: m_Constraints
@@ -1910,6 +1954,10 @@ PrefabInstance:
     - target: {fileID: 1625676322243893045, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
+      propertyPath: m_Drag
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: m_Constraints
@@ -1985,15 +2033,15 @@ MonoBehaviour:
   SheepMask:
     serializedVersion: 2
     m_Bits: 64
-  FlockRadius: 1000
+  FlockRadius: 0
   BarkedAt: 0
   movetimer: 0
   Wolf: {fileID: 0}
   barkMove: 0
   triggerPos: {x: 0, y: 0, z: 0}
+  PushForce: 100
   BarkNum: 0
   ScareTimer: 0
-  PushForce: 80
 --- !u!1 &1808812886 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1625676322243893045, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
@@ -2017,15 +2065,15 @@ MonoBehaviour:
   SheepMask:
     serializedVersion: 2
     m_Bits: 64
-  FlockRadius: 1000
+  FlockRadius: 0
   BarkedAt: 0
   movetimer: 0
   Wolf: {fileID: 0}
   barkMove: 0
   triggerPos: {x: 0, y: 0, z: 0}
+  PushForce: 100
   BarkNum: 0
   ScareTimer: 0
-  PushForce: 80
 --- !u!1 &1822864237
 GameObject:
   m_ObjectHideFlags: 0
@@ -2133,6 +2181,10 @@ PrefabInstance:
     - target: {fileID: 1625676322243893045, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
+      propertyPath: m_Drag
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1895727171881757287, guid: 4b450f2a3fd64f44ea84da9bde30f47b, type: 3}
       propertyPath: m_Constraints
@@ -2368,15 +2420,15 @@ MonoBehaviour:
   SheepMask:
     serializedVersion: 2
     m_Bits: 64
-  FlockRadius: 1000
+  FlockRadius: 0
   BarkedAt: 0
   movetimer: 0
   Wolf: {fileID: 0}
   barkMove: 0
   triggerPos: {x: 0, y: 0, z: 0}
+  PushForce: 100
   BarkNum: 0
   ScareTimer: 0
-  PushForce: 80
 --- !u!1001 &8174354828590543137
 PrefabInstance:
   m_ObjectHideFlags: 0
