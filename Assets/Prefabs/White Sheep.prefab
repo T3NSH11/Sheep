@@ -182,7 +182,7 @@ Transform:
   m_GameObject: {fileID: 1625676322243893045}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 31.68, y: -3.87, z: 63.49}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 7022402637518069009}
   - {fileID: 5246409101106679209}
@@ -203,7 +203,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!65 &1895727171881757286
 BoxCollider:
@@ -239,6 +239,12 @@ MonoBehaviour:
   FlockRadius: 1000
   BarkedAt: 0
   movetimer: 0
+  Wolf: {fileID: 0}
+  barkMove: 0
+  triggerPos: {x: 0, y: 0, z: 0}
+  PushForce: 0
+  BarkNum: 0
+  ScareTimer: 0
 --- !u!1 &1754112842373285316
 GameObject:
   m_ObjectHideFlags: 0
