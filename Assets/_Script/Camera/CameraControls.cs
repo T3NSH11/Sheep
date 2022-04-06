@@ -32,20 +32,18 @@ public class CameraControls : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * RotationSpeed * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * RotationSpeed * Time.deltaTime;
 
-        float MovemouseX = Input.GetAxis("Mouse X") * MoveSpeed * Time.deltaTime;
-        float MovemouseY = Input.GetAxis("Mouse Y") * MoveSpeed * Time.deltaTime;
+      //  float MovemouseX = Input.GetAxis("Mouse X") * MoveSpeed * Time.deltaTime;
+      //  float MovemouseY = Input.GetAxis("Mouse Y") * MoveSpeed * Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
+
             CamPosition = Player.transform.position + offset;
             transform.position = Vector3.Lerp(transform.position, CamPosition, Smoothness * Time.fixedDeltaTime);
-        }
 
-        if (Input.GetMouseButton(1))
-        {
-            transform.rotation = Quaternion.Euler(-40, 0, 0);
-            transform.position -= new Vector3(MovemouseX, 0, MovemouseY);
-        }
+      // if (Input.GetMouseButton(1))
+      // {
+      //     transform.rotation = Quaternion.Euler(-40, 0, 0);
+      //     transform.position -= new Vector3(MovemouseX, 0, MovemouseY);
+      // }
 
         if (Input.GetMouseButton(2))
         {
@@ -58,7 +56,7 @@ public class CameraControls : MonoBehaviour
 
             yRotation += mouseX;
 
-            transform.localRotation = Quaternion.Euler(-40, yRotation, 0f);
+            transform.localRotation = Quaternion.Euler(40, yRotation, 0f);
         }
         else
         {
@@ -66,6 +64,6 @@ public class CameraControls : MonoBehaviour
             Cursor.visible = true;
         }
 
-        Camera.transform.position -= (Camera.transform.position - transform.position).normalized * Input.mouseScrollDelta.y * 2;
+        Camera.transform.position -= (Camera.transform.position - transform.position).normalized * Input.mouseScrollDelta.y * 4;
     }
 }

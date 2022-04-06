@@ -36,4 +36,9 @@ public class Injured_Scared : SheepState
             manager.SwitchState(new FleeState());
         }
     }
+
+    public override void FixedUpdateState(SheepManager manager)
+    {
+
+    }
 }

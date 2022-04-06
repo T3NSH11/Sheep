@@ -43,10 +43,15 @@ public class wanderState : SheepState
         Vector3 displacementForce = new Vector3(Mathf.Cos(wanderAngle) * wanderStrength, 0, Mathf.Sin(wanderAngle) * wanderStrength);
 
         Vector3 newVelocity = (rb.velocity + displacementForce).normalized * speed;
-        rb.velocity = newVelocity;
+        rb.velocity = newVelocity; // fix with mazen
         //newVelocity.y = 0;
 
         Quaternion desiredRotation = Quaternion.LookRotation(rb.velocity);
         AI.transform.rotation = Quaternion.Slerp(AI.transform.rotation, desiredRotation, Time.deltaTime);
+    }
+
+    public override void FixedUpdateState(SheepManager manager)
+    {
+
     }
 }

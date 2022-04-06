@@ -12,4 +12,9 @@ public class JumpTowards : SheepState
     {
 
     }
+
+    public override void FixedUpdateState(SheepManager manager)
+    {
+
+    }
 }
