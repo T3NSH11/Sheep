@@ -11,10 +11,9 @@ public class Seek : MonoBehaviour
     public float arrivalRadius;
     public float gravity = 30f;
 
-
     public float AvoidSpeed = 300;
     Sensor sensor;
-
+    public Vector3 rotationAxis;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +42,7 @@ public class Seek : MonoBehaviour
     public void AvoidSteer(float avoid)
     {
         transform.RotateAround(transform.position, transform.up, AvoidSpeed * Time.fixedDeltaTime * avoid ); 
+
     }
 
     void StandardSteer()
