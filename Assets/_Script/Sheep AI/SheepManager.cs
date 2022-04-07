@@ -18,6 +18,7 @@ public class SheepManager : MonoBehaviour
     public bool BarkedAt;
     public float movetimer;
     public GameObject Wolf;
+    float ypos;
 
     #region Bark Action
     ParticleSystem m_ParticleSystem;
@@ -46,6 +47,7 @@ public class SheepManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         AiRb = this.gameObject.GetComponent<Rigidbody>();
         Wolf = GameObject.FindGameObjectWithTag("Wolf");
+        ypos = transform.position.y;
 
         PrimaryState = wanderState;
         PrimaryState = new wanderState();
@@ -57,8 +59,8 @@ public class SheepManager : MonoBehaviour
     void Update()
     {
         PrimaryState.UpdateState(this);
-
-        //gameObject.transform.position += new Vector3(0, -0.001f, 0);
+       // transform.position = new Vector3(transform.position.x, ypos, transform.position.z);
+       // transform.localRotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f);
         if (SecondaryState != null)
         {
             SecondaryState.UpdateState(this);

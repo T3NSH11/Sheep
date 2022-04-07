@@ -75,8 +75,9 @@ public class TimeController : MonoBehaviour
     #endregion
     void Start()
     {
-
+       
         rend = starTransform.GetComponent<ParticleSystem>().GetComponent<Renderer>();
+
 
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(startHour); //sets starting hour
         sunriseTime = TimeSpan.FromHours(sunriseHour); //sunrise hour
