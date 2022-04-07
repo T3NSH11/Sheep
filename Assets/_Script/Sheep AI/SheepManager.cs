@@ -59,8 +59,8 @@ public class SheepManager : MonoBehaviour
     void Update()
     {
         PrimaryState.UpdateState(this);
-        transform.position = new Vector3(transform.position.x, ypos, transform.position.z);
-        transform.localRotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f);
+       // transform.position = new Vector3(transform.position.x, ypos, transform.position.z);
+       // transform.localRotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f);
         if (SecondaryState != null)
         {
             SecondaryState.UpdateState(this);
