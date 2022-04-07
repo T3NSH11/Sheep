@@ -1,14 +1,8 @@
 fileFormatVersion: 2
-guid: 61296392cf203cf41934730b17f1cef5
+guid: 868b08aa944777c488698e2e6fa39ba1
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable:
-  - first:
-      74: -5471773269506701562
-    second: Plane|float
-  - first:
-      74: -5187248419258813496
-    second: Plane|PlaneAction
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
     materialImportMode: 2
