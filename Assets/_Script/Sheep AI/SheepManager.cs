@@ -15,9 +15,8 @@ public class SheepManager : MonoBehaviour
     public Rigidbody AiRb;
     public LayerMask SheepMask;
     public float FlockRadius = 10f;
-    public bool BarkedAt;
-    public float movetimer;
     public GameObject Wolf;
+    float ypos;
 
     #region Bark Action
     ParticleSystem m_ParticleSystem;
@@ -25,6 +24,7 @@ public class SheepManager : MonoBehaviour
     Vector3 AiPos;
     float MoveSpeed = 5;
     public bool barkMove;
+    public bool BarkedAt;
     public Vector3 triggerPos;
     public int PushForce;
     #endregion
@@ -46,6 +46,7 @@ public class SheepManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         AiRb = this.gameObject.GetComponent<Rigidbody>();
         Wolf = GameObject.FindGameObjectWithTag("Wolf");
+        ypos = transform.position.y;
 
         PrimaryState = wanderState;
         PrimaryState = new wanderState();
@@ -57,6 +58,8 @@ public class SheepManager : MonoBehaviour
     void Update()
     {
         PrimaryState.UpdateState(this);
+       // transform.position = new Vector3(transform.position.x, ypos, transform.position.z);
+       // transform.localRotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f);
         if (SecondaryState != null)
         {
             SecondaryState.UpdateState(this);
@@ -66,23 +69,6 @@ public class SheepManager : MonoBehaviour
         {
             Flock();
         }
-        //OnDrawGizmos();
-
-        #region movetimer
-        if (movetimer > 0)
-        {
-            if (BarkedAt == true)
-            {
-                PrimaryState = barkActionScript;
-                movetimer -= Time.deltaTime;
-
-                if (movetimer <= 0)
-                {
-                    BarkedAt = false;
-                }
-            }
-        }
-        #endregion
     }
 
     public void SwitchState(SheepState state)

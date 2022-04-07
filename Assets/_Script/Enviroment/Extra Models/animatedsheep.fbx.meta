@@ -12,7 +12,12 @@ ModelImporter:
   - first:
       74: 1890351461871169342
     second: Plane|float (1)
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 65e86f01018b9d248b4808a4417ee208, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
