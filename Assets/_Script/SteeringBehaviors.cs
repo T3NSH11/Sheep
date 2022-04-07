@@ -14,7 +14,7 @@ public class SteeringBehaviors : MonoBehaviour
     #region obstacle avoidance
     public bool UseAvoidance;
     public float[] aheadAngles;
-    public float maxAhead = 5.0f;
+    public float maxAhead = 5.0f; 
     public LayerMask layersToAvoid;
     public float AvoidForce = 10.0f;
     #endregion
