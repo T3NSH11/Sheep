@@ -15,8 +15,6 @@ public class SheepManager : MonoBehaviour
     public Rigidbody AiRb;
     public LayerMask SheepMask;
     public float FlockRadius = 10f;
-    public bool BarkedAt;
-    public float movetimer;
     public GameObject Wolf;
     float ypos;
 
@@ -26,6 +24,7 @@ public class SheepManager : MonoBehaviour
     Vector3 AiPos;
     float MoveSpeed = 5;
     public bool barkMove;
+    public bool BarkedAt;
     public Vector3 triggerPos;
     public int PushForce;
     #endregion
@@ -70,23 +69,6 @@ public class SheepManager : MonoBehaviour
         {
             Flock();
         }
-        //OnDrawGizmos();
-
-        #region movetimer
-        if (movetimer > 0)
-        {
-            if (BarkedAt == true)
-            {
-                PrimaryState = barkActionScript;
-                movetimer -= Time.deltaTime;
-
-                if (movetimer <= 0)
-                {
-                    BarkedAt = false;
-                }
-            }
-        }
-        #endregion
     }
 
     public void SwitchState(SheepState state)
