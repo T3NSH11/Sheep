@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 8548747774317390353}
   - component: {fileID: 8548747774317391340}
   - component: {fileID: 8548747774317391343}
+  - component: {fileID: 1575199140}
   m_Layer: 0
   m_Name: sheep
   m_TagString: Sheep
@@ -157,6 +158,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1575199140
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8548747774317390355}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -462981019419857548, guid: fdd19c41ab945864aa2bf2a2a2b9c4c1, type: 3}
 --- !u!1001 &8548747773675957388
 PrefabInstance:
   m_ObjectHideFlags: 0
