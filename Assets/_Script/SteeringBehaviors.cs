@@ -14,16 +14,22 @@ public class SteeringBehaviors : MonoBehaviour
     #region obstacle avoidance
     public bool UseAvoidance;
     public float[] aheadAngles;
-    public float maxAhead = 5.0f; 
+    public float maxAhead = 5.0f;
     public LayerMask layersToAvoid;
     public float AvoidForce = 10.0f;
+    #endregion
+
+    #region Wander
+    public float wanderDis = 5.0f;
+    public float wanderRadius = 1.0f;
+    public float wanderRate = 0.2f;
     #endregion
 
     private Vector3 velocity;
     private Rigidbody rb;
 
     public SteerMode steerMode = SteerMode.Seek;
-    public enum SteerMode { None, Seek };
+    public enum SteerMode { None, Seek, Wander };
 
 
     // Start is called before the first frame update
@@ -64,6 +70,17 @@ public class SteeringBehaviors : MonoBehaviour
 
         return Vector3.zero;
     }
+    public Vector3 Wander()
+    {
+        Vector3 circleCenter = transform.forward.normalized * wanderDis;
+        Vector2 randomPoint = Random.insideUnitCircle;
+
+        Vector3 displacement = new Vector3(randomPoint.x, 0.0f, randomPoint.y) * wanderRadius;
+        displacement = Quaternion.LookRotation(transform.forward.normalized) * displacement;
+
+        Vector3 target = transform.position + circleCenter + displacement;
+        return Seek(target);
+    }
 
     public void ApplyForce(Vector3 steeringForce)
     {
@@ -96,6 +113,9 @@ public class SteeringBehaviors : MonoBehaviour
                 break;
             case SteerMode.Seek:
                 ApplyForce(Seek(target.position));
+                break;
+            case SteerMode.Wander:
+                ApplyForce(Wander());
                 break;
         }
     }
