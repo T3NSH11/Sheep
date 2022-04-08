@@ -138,7 +138,8 @@ public class SheepManager : MonoBehaviour
         if (Physics.Raycast(transform.position, dir, out hit, maxAhead, layersToAvoid))
         {
             Debug.DrawLine(transform.position, hit.point, Color.blue);
-            return hit.normal * (((1f - hit.distance) / maxAhead) * AvoidForce);
+            return hit.normal * ((1.0f - (hit.distance / maxAhead)) * AvoidForce);      //hit.normal is basically a reflective hit, so if it 
+                                                                                        //hits a flat surface it have arrows pointing up in perspective
            // float force = 1.0f - (hit.distance / maxAhead) * AvoidForce;
            // Vector3 directionForce = Vector3.Reflect(dir, hit.normal) * -1 * force;
            // directionForce.y = 0.0f;

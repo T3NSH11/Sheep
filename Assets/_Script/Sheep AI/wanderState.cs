@@ -8,8 +8,8 @@ public class wanderState : SheepState
     // public float wanderStrength = 0.60f;                // basically the radius
     // public float wanderAngleDisplacement = 0.09f;       //going to be the thing that changes time to time
     Rigidbody rb;
-    public float wanderAngle = 10;
-    public float circleDis = 10;
+    public float wanderAngle = 50;
+    public float circleDis = 50;
     public float angleRate = 10; //change rate
     //public SheepManager manager;
 
