@@ -11,6 +11,7 @@ public class SheepManager : MonoBehaviour
     public wanderState wanderState = new wanderState();
     public JumpTowards jumpTowards = new JumpTowards();
     public Transform AI;
+    public Vector3 velocity;
     public GameObject player;
     public Rigidbody AiRb;
     public LayerMask SheepMask;
@@ -25,21 +26,38 @@ public class SheepManager : MonoBehaviour
     float MoveSpeed = 5;
     public bool barkMove;
     public bool BarkedAt;
-    public Vector3 triggerPos;
+    // public Vector3 triggerPos;
     public int PushForce;
     #endregion
 
     #region Scared
     public int BarkNum;
-    public float ScareTimer;
+    //public float ScareTimer;
     #endregion
 
+    [Header("Wander and Obstacle Avoidance")]
+
+    public float MaxVelocity = 5.0f;
+    public float MaxForce = 15.0f;
+    public bool UseAvoidance;
+    public float[] avoidanceAngles;
+    public float maxAhead = 5.0f;
+    public LayerMask layersToAvoid;
+    public float AvoidForce = 10.0f;
+
+    /*
+        private float wanderAngle = 10;
+        public float circleDis = 10;
+        public float circleRadius = 10;
+        public float angleRate = 10; //change rate
+
+        */
     void Start()
     {
         #region Wander State
-        wanderState.wanderAngleDisplacement = 0.09f;
-        wanderState.wanderStrength = 0.60f;
-        wanderState.speed = 0.7f;
+        wanderState.wanderAngle = 10f;
+        wanderState.circleDis = 0.60f;
+        wanderState.angleRate = 3f;
         #endregion
 
         AI = transform;
@@ -58,8 +76,8 @@ public class SheepManager : MonoBehaviour
     void Update()
     {
         PrimaryState.UpdateState(this);
-       // transform.position = new Vector3(transform.position.x, ypos, transform.position.z);
-       // transform.localRotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f);
+        // transform.position = new Vector3(transform.position.x, ypos, transform.position.z);
+        // transform.localRotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, 0f);
         if (SecondaryState != null)
         {
             SecondaryState.UpdateState(this);
@@ -101,6 +119,54 @@ public class SheepManager : MonoBehaviour
             AiRb.AddForce(DirectionToSheep.normalized * 0.2f);
         }
 
+    }
+    public Vector3 Seek(Vector3 targetPosition)
+    {
+        Vector3 desiredVelocity = targetPosition - AiRb.position;
+        desiredVelocity = desiredVelocity.normalized * MaxVelocity;
+        Vector3 steeringForce = desiredVelocity - velocity;
+
+        Debug.DrawRay(AiRb.transform.position, desiredVelocity.normalized * 5.0f, Color.red);
+
+        return steeringForce;
+    }
+    public Vector3 CollisionAvoid(float angle)
+    {
+        Vector3 dir = Quaternion.AngleAxis(angle, transform.up) * transform.forward; //direction
+
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, dir, out hit, maxAhead, layersToAvoid))
+        {
+            float force = 1.0f - (hit.distance / maxAhead) * AvoidForce;
+            Vector3 directionForce = Vector3.Reflect(dir, hit.normal) * -1 * force;
+            directionForce.y = 0.0f;
+            return directionForce;
+        }
+
+        Debug.DrawLine(transform.position, transform.position + dir * maxAhead, Color.yellow);
+
+        return Vector3.zero;
+    }
+    public void ApplyForce(Vector3 steeringForce)
+    {
+        if (UseAvoidance)
+            for (int i = 0; i < avoidanceAngles.Length; i++)
+            {
+                steeringForce += CollisionAvoid(avoidanceAngles[i]);
+            }
+        steeringForce = Vector3.ClampMagnitude(steeringForce, MaxForce);
+        steeringForce /= AiRb.mass;
+
+        velocity = Vector3.ClampMagnitude(velocity + steeringForce, MaxVelocity);
+
+       // AiRb.MovePosition(AiRb.transform.position + velocity * Time.deltaTime);
+        AiRb.velocity += velocity * Time.deltaTime;
+        //Vector3.ClampMagnitude(AiRb.velocity, MaxVelocity);
+
+        if (velocity.magnitude != 0)
+        {
+            AiRb.MoveRotation(Quaternion.LookRotation(AiRb.velocity.normalized));
+        }
     }
     /*
     private void OnDrawGizmos()
