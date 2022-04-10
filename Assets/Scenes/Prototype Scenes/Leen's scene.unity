@@ -3076,7 +3076,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh22306
+  m_Name: pb_Mesh20164
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3384,7 +3384,7 @@ GameObject:
   - component: {fileID: 924179406}
   m_Layer: 0
   m_Name: plyr
-  m_TagString: PlayerDog
+  m_TagString: Sheep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3473,7 +3473,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 924179405}
   m_LocalRotation: {x: 0.006517321, y: 0.79244334, z: -0.0084686205, w: 0.609852}
-  m_LocalPosition: {x: -0.02, y: 13.52, z: 112.93}
+  m_LocalPosition: {x: 7.6, y: 20.8, z: 77.46}
   m_LocalScale: {x: 1, y: 0.82274973, z: 0.93531865}
   m_Children:
   - {fileID: 682204748}
@@ -6346,7 +6346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1691258fe91477641b7a3c15ca62eee3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.33
+      value: 3.97
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1691258fe91477641b7a3c15ca62eee3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6354,7 +6354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1691258fe91477641b7a3c15ca62eee3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 67.11
+      value: 67.49
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1691258fe91477641b7a3c15ca62eee3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6400,7 +6400,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh22400
+  m_Name: pb_Mesh20238
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

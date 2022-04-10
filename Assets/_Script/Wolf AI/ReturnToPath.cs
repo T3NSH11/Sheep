@@ -11,7 +11,6 @@ public class ReturnToPath : WolfState
     public override void UpdateState(WolfManager manager)
     {
         Vector3 direction = (manager.transform.position - manager.player.transform.position).normalized;
-
         manager.rb.velocity = direction * manager.speed;
     }
 }

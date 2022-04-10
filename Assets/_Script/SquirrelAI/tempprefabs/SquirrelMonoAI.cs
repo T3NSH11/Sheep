@@ -8,7 +8,6 @@ public class SquirrelMonoAI : MonoBehaviour
     public float stoppingDistance;
     public float scurryDistance;
 
-   
 
     private float coolDownTimer;
     public float startCoolDownTimer;
