@@ -13,16 +13,16 @@ public class SteeringBehaviors : MonoBehaviour
 
     #region obstacle avoidance
     public bool UseAvoidance;
-    public float[] aheadAngles;
+    public float[] avoidanceAngles;
     public float maxAhead = 5.0f;
     public LayerMask layersToAvoid;
     public float AvoidForce = 10.0f;
     #endregion
 
     #region Wander
-    public float wanderDis = 5.0f;
-    public float wanderRadius = 1.0f;
-    public float wanderRate = 0.2f;
+    public float circleDis;
+    private float wanderAngle;
+    public float angleRate; //change rate
     #endregion
 
     private Vector3 velocity;
@@ -55,39 +55,42 @@ public class SteeringBehaviors : MonoBehaviour
 
     public Vector3 CollisionAvoid(float angle)
     {
-        Vector3 direction = Quaternion.AngleAxis(angle, transform.up) * transform.forward;
+        Vector3 dir = Quaternion.AngleAxis(angle, transform.up) * transform.forward; //direction
 
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, direction, out hit, maxAhead, layersToAvoid))
+        if (Physics.Raycast(transform.position, dir, out hit, maxAhead, layersToAvoid))
         {
             float force = 1.0f - (hit.distance / maxAhead) * AvoidForce;
-            Vector3 directionForce = Vector3.Reflect(direction, hit.normal) * -1 * force;
+            Vector3 directionForce = Vector3.Reflect(dir, hit.normal) * -1 * force;
             directionForce.y = 0.0f;
             return directionForce;
         }
 
-        Debug.DrawLine(transform.position, transform.position + direction * maxAhead, Color.yellow);
+        Debug.DrawLine(transform.position, transform.position + dir * maxAhead, Color.yellow);
 
         return Vector3.zero;
     }
     public Vector3 Wander()
     {
-        Vector3 circleCenter = transform.forward.normalized * wanderDis;
-        Vector2 randomPoint = Random.insideUnitCircle;
+        Vector3 circleCenter = transform.position + velocity.normalized * circleDis;
 
-        Vector3 displacement = new Vector3(randomPoint.x, 0.0f, randomPoint.y) * wanderRadius;
-        displacement = Quaternion.LookRotation(transform.forward.normalized) * displacement;
+        wanderAngle += Random.Range(-angleRate, angleRate);
 
-        Vector3 target = transform.position + circleCenter + displacement;
-        return Seek(target);
+        Vector3 displacement = Vector3.forward;
+        displacement.x = circleDis * Mathf.Cos(wanderAngle * Mathf.Deg2Rad);
+        displacement.z = circleDis * Mathf.Sin(wanderAngle * Mathf.Deg2Rad);
+
+        Vector3 wanderTarget = circleCenter + displacement;
+
+        return Seek(wanderTarget);
     }
 
     public void ApplyForce(Vector3 steeringForce)
     {
         if (UseAvoidance)
-            for (int i = 0; i < aheadAngles.Length; i++)
+            for (int i = 0; i < avoidanceAngles.Length; i++)
             {
-                steeringForce += CollisionAvoid(aheadAngles[i]);
+                steeringForce += CollisionAvoid(avoidanceAngles[i]);
             }
         steeringForce = Vector3.ClampMagnitude(steeringForce, MaxForce);
         steeringForce /= Mass;
@@ -95,6 +98,8 @@ public class SteeringBehaviors : MonoBehaviour
         velocity = Vector3.ClampMagnitude(velocity + steeringForce, MaxVelocity);
 
         rb.MovePosition(rb.transform.position + velocity * Time.deltaTime);
+       // rb.velocity += velocity * Time.deltaTime;
+
         if (velocity.magnitude != 0)
         {
             rb.MoveRotation(Quaternion.LookRotation(velocity.normalized));
