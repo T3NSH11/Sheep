@@ -11,10 +11,12 @@ public class NPC : MonoBehaviour
     public Dialogue dialogue;
     public GameObject objectWithDialogueManager;
     public GameObject player;
+    public GameObject QuestSystem;
 
     public bool NPCisActive;
     public int sheepRequired;
     public float timeLimit;
+    public bool completed;
 
 
     private void Awake()
@@ -39,7 +41,7 @@ public class NPC : MonoBehaviour
         if (playerIsNear == true)
         {
             
-            if (Input.GetKeyDown(KeyCode.E) && objectWithDialogueManager.GetComponent<DialogueSystemManager>().InDialogue == false)
+            if (Input.GetKeyDown(KeyCode.E) && objectWithDialogueManager.GetComponent<DialogueSystemManager>().InDialogue == false && !completed)
             {
                 objectWithDialogueManager.GetComponent<DialogueSystemManager>().StartDialogue(dialogue);
             }

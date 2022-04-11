@@ -407,7 +407,11 @@ MonoBehaviour:
     name: bruhguy
   objectWithDialogueManager: {fileID: 1703633730}
   player: {fileID: 339842081}
+  QuestSystem: {fileID: 0}
   NPCisActive: 0
+  sheepRequired: 10
+  timeLimit: 5
+  completed: 0
 --- !u!1001 &215181836
 PrefabInstance:
   m_ObjectHideFlags: 0
