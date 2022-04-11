@@ -10,6 +10,7 @@ TagManager:
   - Acorn
   - BarkTrigger
   - Wolf
+  - Squirrel
   layers:
   - Default
   - TransparentFX
