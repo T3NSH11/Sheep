@@ -5,27 +5,30 @@ using UnityEngine;
 public class Acorn : MonoBehaviour
 {
     public float acornSpeed;
-    private Transform sheep;
+    private GameObject sheep;
     private Vector3 target;
     SquirrelMonoAI squirrelMonoAI;
+    public GameObject squirrel; 
     void Start()
     {
-        if (sheep != null)
-        {
-
-            sheep = GameObject.FindGameObjectWithTag("Sheep").transform;
-
-        }
-       
+        squirrel = GameObject.FindGameObjectWithTag("Squirrel");
         
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        sheep = squirrel.gameObject.GetComponent<SquirrelManager>().targetSheep;
+
         if (sheep != null)
         {
-            target = new Vector3(sheep.position.x, sheep.position.y, sheep.position.z);
+            sheep = squirrel.gameObject.GetComponent<SquirrelManager>().targetSheep;
+        }
+
+        if (sheep != null)
+        {
+            target = sheep.transform.position;
             transform.position = Vector3.MoveTowards(transform.position, target, acornSpeed * Time.deltaTime);
             if (transform.position.x == target.x && transform.position.y == target.y)
             {
@@ -36,9 +39,9 @@ public class Acorn : MonoBehaviour
        
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if (other.CompareTag("Sheep"))
+        if (other.gameObject.CompareTag("Sheep"))
         {
             DestroyAcorn();
 

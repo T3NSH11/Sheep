@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SquirrelReturnToPath : SquirrelBaseState
 {
+    
+    
     public override void EnterState(SquirrelManager squirrel)
     {
 

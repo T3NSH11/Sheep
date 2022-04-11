@@ -10,9 +10,6 @@ public class SquirrelFollowPath : SquirrelBaseState
     public float WayPointSize = 1f;
     float testtimer;
 
-
-
-
     public override void EnterState(SquirrelManager squirrel)
     {
 

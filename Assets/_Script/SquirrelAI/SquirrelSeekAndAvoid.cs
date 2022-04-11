@@ -4,39 +4,39 @@ using UnityEngine;
 
 public class SquirrelSeekAndAvoid : SquirrelBaseState
 {
-    public float speed = 10;
+    
     public float stoppingDistance = 5;
     public float scurryDistance = 4;
 
     private float coolDownTimer = 5;
-    private GameObject sheep;
-   
+    
+
 
 
     public override void EnterState(SquirrelManager squirrel)
     {
-        sheep = squirrel.NearbySheep[0].gameObject;
-
+        squirrel.targetSheep = squirrel.NearbySheep[0].gameObject;
+        squirrel.ReturnLocation = squirrel.transform.position; 
     }
 
     public override void UpdateState(SquirrelManager squirrel)
     {
 
-        if (sheep != null && Vector3.Distance(squirrel.transform.position, sheep.transform.position) > stoppingDistance) //will move closer to the target
+        if (squirrel.targetSheep != null && Vector3.Distance(squirrel.transform.position, squirrel.targetSheep.transform.position) > stoppingDistance) //will move closer to the target
         {
 
-            squirrel.transform.position = Vector3.MoveTowards(squirrel.transform.position, sheep.transform.position, speed * Time.deltaTime);
+            squirrel.transform.position = Vector3.MoveTowards(squirrel.transform.position, squirrel.targetSheep.transform.position, squirrel.speed * Time.deltaTime);
 
         }
-        else if (sheep != null && Vector3.Distance(squirrel.transform.position, sheep.transform.position) > stoppingDistance && Vector3.Distance(squirrel.transform.position, sheep.transform.position) > scurryDistance) //if near enough the stop distance it will stop moving
+        else if (squirrel.targetSheep != null && Vector3.Distance(squirrel.transform.position, squirrel.targetSheep.transform.position) > stoppingDistance && Vector3.Distance(squirrel.transform.position, squirrel.targetSheep.transform.position) > scurryDistance) //if near enough the stop distance it will stop moving
         {
 
             squirrel.transform.position = squirrel.transform.position; //resseting squirrel pos to make it stop moving at a certain distance 
         }
-        else if (sheep != null && Vector3.Distance(squirrel.transform.position, sheep.transform.position) < scurryDistance) //back away
+        else if (squirrel.targetSheep != null && Vector3.Distance(squirrel.transform.position, squirrel.targetSheep.transform.position) < scurryDistance) //back away
         {
 
-            squirrel.transform.position = Vector3.MoveTowards(squirrel.transform.position, sheep.transform.position, -speed * Time.deltaTime); //makes squirrel back away if too close
+            squirrel.transform.position = Vector3.MoveTowards(squirrel.transform.position, squirrel.targetSheep.transform.position, -squirrel.speed * Time.deltaTime); //makes squirrel back away if too close
 
         }
 

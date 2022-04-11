@@ -15,7 +15,6 @@ public class SquirrelManager : MonoBehaviour
     public Rigidbody rb;
     public float speed = 10f;
 
-
     private void Start()
     {
         currentState = new SquirrelFollowPath();
@@ -25,12 +24,14 @@ public class SquirrelManager : MonoBehaviour
     private void Update()
     {
         currentState.UpdateState(this);
-         NearbySheep = Physics.OverlapSphere(transform.position, DetectionRadius, SheepMask);
+        NearbySheep = Physics.OverlapSphere(transform.position, DetectionRadius, SheepMask);
+        Vector3.ClampMagnitude(gameObject.GetComponent<Rigidbody>().velocity, maxSpeed);
     }
 
     public void switchState(SquirrelBaseState newstate)
     {
         currentState = newstate;
+        currentState.EnterState(this);
     }
 
     public void instantiateAcorn()
