@@ -8,7 +8,7 @@ public class SquirrelFollowPath : SquirrelBaseState
     public int currentNodeID = 0;
     public float Speed = 5f;
     public float WayPointSize = 1f;
-    float testtimer;
+  
 
     public override void EnterState(SquirrelManager squirrel)
     {

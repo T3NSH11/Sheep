@@ -11,9 +11,11 @@ public class SquirrelManager : MonoBehaviour
     public SquirrelBaseState currentState;
     public SquirrelBaseState SeekAndAvoid = new SquirrelSeekAndAvoid();
     public GameObject AcornBullet;
+    public Vector3 ReturnLocation;
+    public float speed = 10;
+    float maxSpeed;
     public Transform player;
     public Rigidbody rb;
-    public float speed = 10f;
 
     private void Start()
     {
