@@ -15,9 +15,6 @@ public class DialogueSystemManager : MonoBehaviour
     [SerializeField]
     public TextMeshProUGUI dialogueText;
 
-    //[SerializeField]
-   // public Animator dialogueanimator;
-
     [SerializeField] private GameObject dialoguePanel;
 
     private float nextCharTimer;
@@ -34,7 +31,7 @@ public class DialogueSystemManager : MonoBehaviour
     {
         InDialogue = true;
         dialoguePanel.SetActive(true);
-        //dialogueanimator.SetBool("IsOpen", true);
+  
          nameText.text = dialogue.name;
 
          sentences.Clear();
@@ -45,7 +42,7 @@ public class DialogueSystemManager : MonoBehaviour
             }
         dialogueText.text = sentences.Peek();
         sentences.Dequeue();
-        //ShowNextSentence();
+        
     }
    
     public void ShowNextSentence()
@@ -53,32 +50,13 @@ public class DialogueSystemManager : MonoBehaviour
         string sentance = sentences.Dequeue();
         dialogueText.text = sentance;
 
-
-      //  StopAllCoroutines();
-      //  StartCoroutine(SentenceTypingAnimation(sentence));
-      //
-      // 
-      //
-      //  IEnumerator SentenceTypingAnimation (string sentence)
-      //  {
-      //
-      //      dialogueText.text = "";
-      //      foreach (char letter in sentence.ToCharArray())
-      //      {
-      //          dialogueText.text += letter;
-      //         
-      //      } 
-      //
-      //       yield return null;
-      //  }
-
     }
 
     public void EndDialogue()
     {
         InDialogue = false;
         dialoguePanel.SetActive(false);
-        //dialogueanimator.SetBool("IsOpen", false);
+        
     }
 
     

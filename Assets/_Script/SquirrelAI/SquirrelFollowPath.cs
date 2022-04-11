@@ -8,6 +8,7 @@ public class SquirrelFollowPath : SquirrelBaseState
     public int currentNodeID = 0;
     public float Speed = 5f;
     public float WayPointSize = 1f;
+    public float targetswitchTimer = 5f;
   
 
     public override void EnterState(SquirrelManager squirrel)
@@ -32,7 +33,13 @@ public class SquirrelFollowPath : SquirrelBaseState
 
         if (squirrel.NearbySheep.Length != 0)
         {
-            squirrel.switchState(squirrel.SeekAndAvoid);
+            if (targetswitchTimer <= 0)
+            {
+                targetswitchTimer = 5f;
+                squirrel.switchState(squirrel.SeekAndAvoid);
+            }
+
+            targetswitchTimer -= Time.deltaTime;
         }
     }
 

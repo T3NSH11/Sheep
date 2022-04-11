@@ -45,7 +45,7 @@ public class SquirrelSeekAndAvoid : SquirrelBaseState
         {
             squirrel.instantiateAcorn();
             coolDownTimer = 5;
-            squirrel.switchState(new SquirrelReturnToPath());
+            squirrel.switchState(new SquirrelFollowPath());
 
         }
         else

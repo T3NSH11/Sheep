@@ -12,13 +12,15 @@ public class SquirrelManager : MonoBehaviour
     public SquirrelBaseState SeekAndAvoid = new SquirrelSeekAndAvoid();
     public GameObject AcornBullet;
     public Vector3 ReturnLocation;
-    public float speed = 10;
-    float maxSpeed;
-    public Transform player;
-    public Rigidbody rb;
+    public float speed;
+    public float maxSpeed;
+    public GameObject player;
+    public float returnSpeed;
+
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         currentState = new SquirrelFollowPath();
         currentState.EnterState(this);
     }
@@ -26,6 +28,7 @@ public class SquirrelManager : MonoBehaviour
     private void Update()
     {
         currentState.UpdateState(this);
+        Debug.Log(currentState);
         NearbySheep = Physics.OverlapSphere(transform.position, DetectionRadius, SheepMask);
         Vector3.ClampMagnitude(gameObject.GetComponent<Rigidbody>().velocity, maxSpeed);
     }

@@ -14,8 +14,16 @@ public class SquirrelReturnToPath : SquirrelBaseState
 
     public override void UpdateState(SquirrelManager squirrel)
     {
-        Vector3 direction = (squirrel.transform.position - squirrel.player.transform.position).normalized;
-        squirrel.rb.velocity = direction * squirrel.speed;
+        if (Vector3.Distance(squirrel.transform.position, squirrel.ReturnLocation) > 1)
+        {
+            Vector3 desiredVelocity = (squirrel.ReturnLocation - squirrel.transform.position) * squirrel.returnSpeed;
+            squirrel.gameObject.GetComponent<Rigidbody>().velocity += desiredVelocity;
+            // :D ^_^ :P :O XD
+        }
+        else
+        {
+            squirrel.switchState(new SquirrelFollowPath());
+        }
     }
 
     public override void OncollisionEnter(SquirrelManager squirrel)

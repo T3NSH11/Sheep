@@ -12,6 +12,7 @@ TagManager:
   - Wolf
   - SquirrelPath
   - Squirrel
+  - NPC
   layers:
   - Default
   - TransparentFX
