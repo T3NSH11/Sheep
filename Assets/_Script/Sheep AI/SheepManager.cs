@@ -18,17 +18,10 @@ public class SheepManager : MonoBehaviour
     public float FlockRadius = 10f;
     public GameObject Wolf;
     float ypos;
-
-    #region Bark Action
-    ParticleSystem m_ParticleSystem;
-    List<ParticleSystem.Particle> enter = new List<ParticleSystem.Particle>();
-    Vector3 AiPos;
-    float MoveSpeed = 5;
     public bool barkMove;
     public bool BarkedAt;
     // public Vector3 triggerPos;
     public int PushForce;
-    #endregion
 
     #region Scared
     public int BarkNum;
@@ -43,7 +36,7 @@ public class SheepManager : MonoBehaviour
     public float[] avoidanceAngles;
     public float maxAhead = 5.0f;
     public LayerMask layersToAvoid;
-    public float AvoidForce = 10.0f;
+    public float AvoidForce = 100.0f;
 
     /*
         private float wanderAngle = 10;
@@ -170,13 +163,6 @@ public class SheepManager : MonoBehaviour
             AiRb.MoveRotation(Quaternion.LookRotation(AiRb.velocity.normalized));
         }
     }
-    /*
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, FlockRadius);
-    }
-    */
 
     private void FixedUpdate()
     {
