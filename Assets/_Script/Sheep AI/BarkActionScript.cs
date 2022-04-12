@@ -23,15 +23,13 @@ public class BarkActionScript : SheepState
 
         if (manager.barkMove == true)
         {
-            //manager.gameObject.GetComponent<Rigidbody>().AddForce(-(manager.triggerPos - manager.transform.position).normalized * moveSpeed, ForceMode.VelocityChange);
             manager.gameObject.GetComponent<Rigidbody>().AddForce(manager.transform.forward * manager.PushForce);
             Debug.Log("moved");
-            //manager.gameObject.GetComponent<Rigidbody>().velocity *= moveSpeed;
 
-            //manager.gameObject.GetComponent<Rigidbody>().velocity = manager.gameObject.GetComponent<Rigidbody>().velocity * moveSpeed;
             manager.barkMove = false;
         }
-         if (switchState == false)
+
+        if (switchState == false)
         {
             if (switchTimer > 3)
             {
@@ -40,4 +38,6 @@ public class BarkActionScript : SheepState
 
         }
     }
+
+
 }
