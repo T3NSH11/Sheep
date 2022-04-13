@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BarkActionScript : SheepState
 {
-    bool switchState = false;
     float switchTimer = 0;
     Vector3 SheepOffsett;
 
@@ -29,13 +28,10 @@ public class BarkActionScript : SheepState
             manager.barkMove = false;
         }
 
-        if (switchState == false)
+        if (switchTimer > 3)
         {
-            if (switchTimer > 3)
-            {
-                manager.SwitchState(manager.wanderState);
-            }
-
+            manager.BarkedAt = false;
+            manager.SwitchState(manager.wanderState);
         }
     }
 
