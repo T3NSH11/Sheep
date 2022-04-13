@@ -20,12 +20,11 @@ public class SheepManager : MonoBehaviour
     float ypos;
     public bool barkMove;
     public bool BarkedAt;
-    // public Vector3 triggerPos;
     public int PushForce;
 
     #region Scared
     public int BarkNum;
-    //public float ScareTimer;
+    public float Barktimer = 10;
     #endregion
 
     [Header("Wander and Obstacle Avoidance")]
@@ -77,6 +76,17 @@ public class SheepManager : MonoBehaviour
         if (gameObject.layer == LayerMask.NameToLayer("Sheep"))
         {
             Flock();
+        }
+
+        if (BarkNum > 0)
+        {
+            Barktimer -= Time.deltaTime;
+        }
+
+        if (Barktimer <= 0)
+        {
+            BarkNum = 0;
+            Barktimer = 10;
         }
     }
 

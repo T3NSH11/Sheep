@@ -27,6 +27,11 @@ public class SheepBasicAction : SheepState
         {
             manager.SwitchState(new BarkActionScript());
         }
+
+        if ((Vector3.Distance(manager.AI.position, manager.Wolf.transform.position) < 5) || (manager.BarkNum > 5))
+        {
+            manager.SwitchState(new Injured_Scared());
+        }
     }
 
     public override void FixedUpdateState(SheepManager manager)

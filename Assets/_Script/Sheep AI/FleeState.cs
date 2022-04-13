@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FleeState : SheepState
 {
+    float fleetimer;
     Vector3 DirectionAway;
     public override void EnterState(SheepManager manager)
     {
@@ -12,10 +13,18 @@ public class FleeState : SheepState
     public override void UpdateState(SheepManager manager)
     {
         DirectionAway = manager.AI.position - manager.player.transform.position;
+        DirectionAway.y = manager.transform.position.y;
 
-        if (Vector3.Distance(manager.AI.position, manager.player.transform.position) < 200)
+        if (fleetimer > 0)
         {
-            manager.AiRb.AddForce(DirectionAway.normalized);
+            manager.AiRb.AddForce(DirectionAway.normalized * manager.MaxForce);
+            Vector3.ClampMagnitude(manager.AiRb.velocity, manager.MaxVelocity);
+        }
+
+        if (fleetimer > 5)
+        {
+            manager.SwitchState(manager.wanderState);
+            fleetimer = 0;
         }
     }
 

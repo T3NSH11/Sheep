@@ -38,6 +38,11 @@ public class wanderState : SheepState
         {
             manager.SwitchState(new SheepBasicAction());
         }
+
+        if ((Vector3.Distance(manager.AI.position, manager.Wolf.transform.position) < 5) || (manager.BarkNum > 5))
+        {
+            manager.SwitchState(new Injured_Scared());
+        }
     }
 
     public Vector3 Wander(SheepManager manager)

@@ -22,6 +22,7 @@ public class BarkActionScript : SheepState
 
         if (manager.barkMove == true)
         {
+            manager.BarkNum++;
             manager.gameObject.GetComponent<Rigidbody>().AddForce(manager.transform.forward * manager.PushForce);
             Debug.Log("moved");
 
@@ -32,6 +33,11 @@ public class BarkActionScript : SheepState
         {
             manager.BarkedAt = false;
             manager.SwitchState(manager.wanderState);
+        }
+
+        if ((Vector3.Distance(manager.AI.position, manager.Wolf.transform.position) < 5) || (manager.BarkNum > 5))
+        {
+            manager.SwitchState(new Injured_Scared());
         }
     }
 
