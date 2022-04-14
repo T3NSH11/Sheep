@@ -13,10 +13,10 @@ public class NPC : MonoBehaviour
     public GameObject player;
     public GameObject QuestSystem;
 
-    public bool NPCisActive;
+    public bool NPCisActive = false;
     public int sheepRequired;
     public float timeLimit;
-    public bool completed;
+    public bool completed = false;
 
 
     private void Awake()
@@ -26,27 +26,37 @@ public class NPC : MonoBehaviour
 
     private void Update()
     {
-        if (objectWithDialogueManager.GetComponent<DialogueSystemManager>().sentences.Count == 0)
+        if (objectWithDialogueManager.GetComponent<DialogueSystemManager>().sentenceQueue.Count == 0 && objectWithDialogueManager.GetComponent<DialogueSystemManager>().InDialogue == true)
         {
             objectWithDialogueManager.GetComponent<DialogueSystemManager>().EndDialogue();
             player.GetComponent<ClickToMove>().enabled = true;
+
+            if (!NPCisActive && QuestSystem.GetComponent<Quest>().ActiveQuest == null)
+            {
+                NPCisActive = true;
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && objectWithDialogueManager.GetComponent<DialogueSystemManager>().InDialogue == true)
+        if (Input.GetKeyDown(KeyCode.F) && objectWithDialogueManager.GetComponent<DialogueSystemManager>().InDialogue == true)
         {
-            Debug.Log(objectWithDialogueManager.GetComponent<DialogueSystemManager>().sentences.Peek());
+            Debug.Log(objectWithDialogueManager.GetComponent<DialogueSystemManager>().sentenceQueue.Peek());    
             objectWithDialogueManager.GetComponent<DialogueSystemManager>().ShowNextSentence();
         }
 
         if (playerIsNear == true)
         {
-            
             if (Input.GetKeyDown(KeyCode.E) && objectWithDialogueManager.GetComponent<DialogueSystemManager>().InDialogue == false && !completed)
             {
                 objectWithDialogueManager.GetComponent<DialogueSystemManager>().StartDialogue(dialogue);
             }
         }
 
+        if (completed)
+        {
+            NPCisActive = false;
+        }
+
+        Debug.Log(objectWithDialogueManager.GetComponent<DialogueSystemManager>().sentenceQueue.Count);
     }
 
 

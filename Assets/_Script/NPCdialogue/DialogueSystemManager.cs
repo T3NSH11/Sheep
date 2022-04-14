@@ -6,7 +6,7 @@ using TMPro;
 
 public class DialogueSystemManager : MonoBehaviour
 {
-    public Queue<string> sentences;
+    public Queue<string> sentenceQueue;
     
     
     [SerializeField]
@@ -25,8 +25,15 @@ public class DialogueSystemManager : MonoBehaviour
     void Start()
     {
         dialoguePanel.SetActive(false);
-        sentences = new Queue<string>();
+        sentenceQueue = new Queue<string>();
     }
+
+    private void Update()
+    {
+        if (InDialogue)
+            dialogueText.text = sentenceQueue.Peek();
+    }
+
     public void StartDialogue (Dialogue dialogue)
     {
         InDialogue = true;
@@ -34,21 +41,21 @@ public class DialogueSystemManager : MonoBehaviour
   
          nameText.text = dialogue.name;
 
-         sentences.Clear();
+         //sentences.Clear();
 
             foreach (string String in dialogue.sentences)
             {
-                sentences.Enqueue(String);
+                sentenceQueue.Enqueue(String);
             }
-        dialogueText.text = sentences.Peek();
-        sentences.Dequeue();
+
+        //sentenceQueue.Dequeue();
         
     }
    
     public void ShowNextSentence()
-  {
-        string sentance = sentences.Dequeue();
-        dialogueText.text = sentance;
+    {
+        sentenceQueue.Dequeue();
+        //dialogueText.text = sentance;
 
     }
 
@@ -56,7 +63,7 @@ public class DialogueSystemManager : MonoBehaviour
     {
         InDialogue = false;
         dialoguePanel.SetActive(false);
-        
+        sentenceQueue.Clear();
     }
 
     

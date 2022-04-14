@@ -8,7 +8,7 @@ public class Quest : MonoBehaviour
     public GameObject ActiveQuest;
     public int SheepLeft;
     public float TimeLeft;
-    bool VariablesSet;
+    bool VariablesSet = false;
     
     void Start()
     {
@@ -18,13 +18,14 @@ public class Quest : MonoBehaviour
    
     void Update()
     {
-        if (VariablesSet == false)
+        CheckActive();
+        if (VariablesSet == false && ActiveQuest != null)
         {
             TimeLeft = ActiveQuest.GetComponent<NPC>().timeLimit;
             SheepLeft = ActiveQuest.GetComponent<NPC>().sheepRequired;
         }
 
-        if(SheepLeft <= 0)
+        if(SheepLeft <= 0 && ActiveQuest != null)
         {
             ActiveQuest.GetComponent<NPC>().completed = true;
             ActiveQuest = null;

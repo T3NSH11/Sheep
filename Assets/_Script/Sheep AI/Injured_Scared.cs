@@ -20,6 +20,7 @@ public class Injured_Scared : SheepState
 
         if (random >= 1 && random <= 50)
         {
+
             if(injuretimer < 20)
             {
                 injuretimer += Time.deltaTime;
