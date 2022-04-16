@@ -12,8 +12,8 @@ public class SheepPen : MonoBehaviour
     {
         if (other.gameObject.tag == "Sheep")
         {
+            QuestSystem.GetComponent<Quest>().SheepLeft = QuestSystem.GetComponent<Quest>().SheepLeft - 1;
             other.gameObject.layer = LayerMask.NameToLayer("InPen"); 
-            QuestSystem.GetComponent<Quest>().SheepLeft--;
         }
     }
 }

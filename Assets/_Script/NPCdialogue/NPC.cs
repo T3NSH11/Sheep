@@ -37,7 +37,7 @@ public class NPC : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.F) && objectWithDialogueManager.GetComponent<DialogueSystemManager>().InDialogue == true)
+        if (Input.GetKeyDown(KeyCode.E) && objectWithDialogueManager.GetComponent<DialogueSystemManager>().InDialogue == true && playerIsNear == true)
         {
             Debug.Log(objectWithDialogueManager.GetComponent<DialogueSystemManager>().sentenceQueue.Peek());    
             objectWithDialogueManager.GetComponent<DialogueSystemManager>().ShowNextSentence();
@@ -54,6 +54,11 @@ public class NPC : MonoBehaviour
         if (completed)
         {
             NPCisActive = false;
+        }
+
+        if(objectWithDialogueManager.GetComponent<DialogueSystemManager>().InDialogue)
+        {
+            StopMovement();
         }
 
         Debug.Log(objectWithDialogueManager.GetComponent<DialogueSystemManager>().sentenceQueue.Count);
@@ -77,5 +82,11 @@ public class NPC : MonoBehaviour
             objectWithDialogueManager.GetComponent<DialogueSystemManager>().EndDialogue();
             playerIsNear = false;
         }
+    }
+
+    void StopMovement()
+    {
+        player.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        player.transform.rotation = Quaternion.identity;
     }
 }

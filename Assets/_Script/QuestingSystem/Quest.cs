@@ -23,6 +23,7 @@ public class Quest : MonoBehaviour
         {
             TimeLeft = ActiveQuest.GetComponent<NPC>().timeLimit;
             SheepLeft = ActiveQuest.GetComponent<NPC>().sheepRequired;
+            VariablesSet = true;
         }
 
         if(SheepLeft <= 0 && ActiveQuest != null)

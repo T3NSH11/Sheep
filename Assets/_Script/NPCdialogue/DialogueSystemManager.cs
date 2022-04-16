@@ -30,7 +30,7 @@ public class DialogueSystemManager : MonoBehaviour
 
     private void Update()
     {
-        if (InDialogue)
+        if (InDialogue && sentenceQueue.Count != 0)
             dialogueText.text = sentenceQueue.Peek();
     }
 
