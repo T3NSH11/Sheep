@@ -37,6 +37,10 @@ public class SheepManager : MonoBehaviour
     public LayerMask layersToAvoid;
     public float AvoidForce = 100.0f;
 
+    [Header("Basic Action")]
+    public float RotationSpeed;
+    public float BasicActionSpeed;
+
     /*
         private float wanderAngle = 10;
         public float circleDis = 10;

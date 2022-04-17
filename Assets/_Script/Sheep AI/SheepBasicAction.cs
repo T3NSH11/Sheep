@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SheepBasicAction : SheepState
 {
-
     public override void EnterState(SheepManager manager)
     {
 
@@ -12,13 +11,12 @@ public class SheepBasicAction : SheepState
 
     public override void UpdateState(SheepManager manager)
     {
-        // make rotation gradual
-        Vector3 LookAwayPosition = (manager.transform.position - manager.player.transform.position) + manager.transform.position;
-        LookAwayPosition.y = manager.transform.position.y;
-        manager.transform.LookAt(LookAwayPosition);
-        manager.AiRb.velocity = (manager.AiRb.velocity / 5);
+        Vector3 LookAwayRotation = (manager.transform.position - manager.player.transform.position);
+        LookAwayRotation.y = 0f;
+        manager.transform.rotation = Quaternion.RotateTowards(manager.transform.rotation ,Quaternion.LookRotation(LookAwayRotation), Time.deltaTime * manager.RotationSpeed);
+        manager.AiRb.velocity = manager.transform.forward * manager.BasicActionSpeed;
 
-        if (Vector3.Distance(manager.player.transform.position, manager.transform.position) > 5)
+        if (Vector3.Distance(manager.player.transform.position, manager.transform.position) > 10)
         {
             manager.SwitchState(manager.wanderState);
         }

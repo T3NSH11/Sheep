@@ -15,7 +15,8 @@ public class DialogueSystemManager : MonoBehaviour
     [SerializeField]
     public TextMeshProUGUI dialogueText;
 
-    [SerializeField] private GameObject dialoguePanel;
+    [SerializeField] 
+    public GameObject dialoguePanel;
 
     private float nextCharTimer;
     public bool InDialogue;
@@ -31,7 +32,12 @@ public class DialogueSystemManager : MonoBehaviour
     private void Update()
     {
         if (InDialogue && sentenceQueue.Count != 0)
+        {
             dialogueText.text = sentenceQueue.Peek();
+            dialoguePanel.SetActive(true);
+        }
+        else
+            dialoguePanel.SetActive(false);
     }
 
     public void StartDialogue (Dialogue dialogue)

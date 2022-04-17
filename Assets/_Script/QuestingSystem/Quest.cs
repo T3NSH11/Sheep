@@ -6,8 +6,10 @@ public class Quest : MonoBehaviour
 {
     public GameObject[] NPCs;
     public GameObject ActiveQuest;
+    public GameObject LevelCompleteScreen;
+    public GameObject LevelFailedScreen;
     public int SheepLeft;
-    public float TimeLeft;
+    public float TimeLeft = 100;
     bool VariablesSet = false;
     
     void Start()
@@ -19,6 +21,14 @@ public class Quest : MonoBehaviour
     void Update()
     {
         CheckActive();
+        if (ActiveQuest != null)
+        {
+            if (ActiveQuest.GetComponent<NPC>().completed == false)
+            {
+                TimeLeft -= Time.deltaTime;
+            }
+        }
+
         if (VariablesSet == false && ActiveQuest != null)
         {
             TimeLeft = ActiveQuest.GetComponent<NPC>().timeLimit;
@@ -30,6 +40,14 @@ public class Quest : MonoBehaviour
         {
             ActiveQuest.GetComponent<NPC>().completed = true;
             ActiveQuest = null;
+            LevelCompleteScreen.SetActive(true);
+            Time.timeScale = 0;
+        }
+
+        if (TimeLeft <= 0)
+        {
+            LevelFailedScreen.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 

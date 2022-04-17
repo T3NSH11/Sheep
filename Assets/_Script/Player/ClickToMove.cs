@@ -13,7 +13,7 @@ public class ClickToMove : MonoBehaviour
 
     public Collider GroundCollider;
 
-    public float SprintSpeed, speed, WalkSpeed;
+    public float SprintSpeed, speed, WalkSpeed, RotationSpeed;
     public float SteeringForce, ArriveSpeed;
     float Clicktimer;
     bool StartTimer;
@@ -95,7 +95,20 @@ public class ClickToMove : MonoBehaviour
             speed = WalkSpeed;
         }
 
+        if (Input.GetMouseButton(1))
+        {
+            RaycastHit hit;
+            Ray ray;
+            ray = cam.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit) && hit.collider == GroundCollider)
+            {
+                 Vector3 LookAwayRotation = (transform.position - hit.point);
+                 LookAwayRotation.y = 0f;
+                 transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(LookAwayRotation), Time.deltaTime * RotationSpeed);
 
+            }
+
+        }
 
 
 

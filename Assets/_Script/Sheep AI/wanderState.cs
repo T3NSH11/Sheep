@@ -34,7 +34,7 @@ public class wanderState : SheepState
             manager.SwitchState(new BarkActionScript());
         }
 
-        if (Vector3.Distance(manager.player.transform.position, manager.transform.position) < 5)
+        if (Vector3.Distance(manager.player.transform.position, manager.transform.position) < 10)
         {
             manager.SwitchState(new SheepBasicAction());
         }
