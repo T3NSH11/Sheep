@@ -87,6 +87,6 @@ public class NPC : MonoBehaviour
     void StopMovement()
     {
         player.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        player.transform.rotation = Quaternion.identity;
+        player.transform.LookAt(transform.position);
     }
 }

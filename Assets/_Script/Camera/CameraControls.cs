@@ -64,6 +64,9 @@ public class CameraControls : MonoBehaviour
             Cursor.visible = true;
         }
 
-        Camera.transform.position -= (Camera.transform.position - transform.position).normalized * Input.mouseScrollDelta.y * 4;
+        if (Vector3.Distance(Player.transform.position, Camera.transform.position) !> 100 || Vector3.Distance(Player.transform.position, Camera.transform.position) !< 20)
+        {
+            Camera.transform.position -= (Camera.transform.position - transform.position).normalized * Input.mouseScrollDelta.y * 4;
+        }
     }
 }
