@@ -21,15 +21,9 @@ public class Injured_Scared : SheepState
         if (random >= 1 && random <= 50)
         {
 
-            if(injuretimer < 20)
+            if (injuretimer < 20)
             {
                 injuretimer += Time.deltaTime;
-            }
-
-            if (injuretimer >= 20)
-            {
-                manager.BarkNum = 0;
-                injuretimer = 0;
             }
         }
 
@@ -39,8 +33,10 @@ public class Injured_Scared : SheepState
             manager.SwitchState(new FleeState());
         }
 
-        if (injuretimer <= 0)
+        if (injuretimer >= 2)
         {
+            manager.BarkNum = 0;
+            injuretimer = 0;
             manager.SwitchState(manager.wanderState);
         }
     }

@@ -8,7 +8,7 @@ public class FollowPath : WolfState
     public int currentNodeID = 0;
     public float Speed = 5f;
     public float WayPointSize = 1f;
-    float testtimer;
+    float Timeouttimer;
 
     public override void EnterState(WolfManager manager)
     {
@@ -18,6 +18,9 @@ public class FollowPath : WolfState
     {
        float node_Distance = Vector3.Distance(currentPath.pathNodes[currentNodeID].position, manager.AI.position);
        manager.AI.position = Vector3.MoveTowards(manager.AI.position, currentPath.pathNodes[currentNodeID].position, Time.deltaTime * Speed);
+       Vector3 LookTowardsRotation = (currentPath.pathNodes[currentNodeID].transform.position - manager.transform.position).normalized;
+       LookTowardsRotation.y = 0f;
+       manager.transform.rotation = Quaternion.RotateTowards(manager.transform.rotation, Quaternion.LookRotation(LookTowardsRotation), Time.deltaTime * manager.RotationSpeed);
 
         if (node_Distance <= WayPointSize)
         {
@@ -29,10 +32,11 @@ public class FollowPath : WolfState
             currentNodeID = 0;
         }
 
-        testtimer += Time.deltaTime;
-        if (testtimer > 4)
+        Timeouttimer += Time.deltaTime;
+
+        if (manager.NearbySheep.Length != 0 && Timeouttimer >= 15)
         {
-           // manager._followpath = this;
+            Timeouttimer = 0;
             manager.SwitchState(new Injure());
         }
     }

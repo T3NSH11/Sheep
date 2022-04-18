@@ -8,7 +8,13 @@ public class WolfManager : MonoBehaviour
     public Rigidbody rb;
     public GameObject player;
     public Transform AI;
+    public LayerMask SheepMask;
     public float speed;
+    public float AttackRadius;
+    public float StalkSpeed;
+    public float RotationSpeed;
+    public Collider[] NearbySheep;
+    public Collider TargetSheep;
 
     #region ReturnToPath
     FollowPath _followpath;
@@ -25,6 +31,7 @@ public class WolfManager : MonoBehaviour
     }
     void Update()
     {
+        NearbySheep = Physics.OverlapSphere(transform.position, AttackRadius, SheepMask);
         currentState.UpdateState(this);
         Debug.Log(currentState);
     }

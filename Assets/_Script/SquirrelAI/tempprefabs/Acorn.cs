@@ -43,8 +43,8 @@ public class Acorn : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Sheep"))
         {
+            other.gameObject.GetComponent<SheepManager>().SwitchState(new Injured_Scared());
             DestroyAcorn();
-
         }
         /*if (other.CompareTag(" GreenSheep"))
         {

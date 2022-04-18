@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8825043043376506139}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -563.4048, y: -119.073006, z: -195.57669}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -93,7 +93,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 8825043043376506139}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -113,7 +113,14 @@ MonoBehaviour:
   rb: {fileID: 0}
   player: {fileID: 0}
   AI: {fileID: 8825043043376506132}
+  SheepMask:
+    serializedVersion: 2
+    m_Bits: 64
   speed: 0
+  AttackRadius: 20
+  StalkSpeed: 1
+  NearbySheep: []
+  TargetSheep: {fileID: 0}
 --- !u!54 &8825043043376506133
 Rigidbody:
   m_ObjectHideFlags: 0

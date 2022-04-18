@@ -21,22 +21,23 @@ public class SquirrelSeekAndAvoid : SquirrelBaseState
 
     public override void UpdateState(SquirrelManager squirrel)
     {
+        Vector3 SheepPos = new Vector3(squirrel.targetSheep.transform.position.x, squirrel.transform.position.y, squirrel.targetSheep.transform.position.z);
 
-        if (squirrel.targetSheep != null && Vector3.Distance(squirrel.transform.position, squirrel.targetSheep.transform.position) > stoppingDistance) //will move closer to the target
+        if (squirrel.targetSheep != null && Vector3.Distance(squirrel.transform.position, SheepPos) > stoppingDistance) //will move closer to the target
         {
 
-            squirrel.transform.position = Vector3.MoveTowards(squirrel.transform.position, squirrel.targetSheep.transform.position, squirrel.speed * Time.deltaTime);
+            squirrel.transform.position = Vector3.MoveTowards(squirrel.transform.position, SheepPos, squirrel.speed * Time.deltaTime);
 
         }
-        else if (squirrel.targetSheep != null && Vector3.Distance(squirrel.transform.position, squirrel.targetSheep.transform.position) > stoppingDistance && Vector3.Distance(squirrel.transform.position, squirrel.targetSheep.transform.position) > scurryDistance) //if near enough the stop distance it will stop moving
+        else if (squirrel.targetSheep != null && Vector3.Distance(squirrel.transform.position, SheepPos) > stoppingDistance && Vector3.Distance(squirrel.transform.position, SheepPos) > scurryDistance) //if near enough the stop distance it will stop moving
         {
 
             squirrel.transform.position = squirrel.transform.position; //resseting squirrel pos to make it stop moving at a certain distance 
         }
-        else if (squirrel.targetSheep != null && Vector3.Distance(squirrel.transform.position, squirrel.targetSheep.transform.position) < scurryDistance) //back away
+        else if (squirrel.targetSheep != null && Vector3.Distance(squirrel.transform.position, SheepPos) < scurryDistance) //back away
         {
 
-            squirrel.transform.position = Vector3.MoveTowards(squirrel.transform.position, squirrel.targetSheep.transform.position, -squirrel.speed * Time.deltaTime); //makes squirrel back away if too close
+            squirrel.transform.position = Vector3.MoveTowards(squirrel.transform.position, SheepPos, -squirrel.speed * Time.deltaTime); //makes squirrel back away if too close
 
         }
 
