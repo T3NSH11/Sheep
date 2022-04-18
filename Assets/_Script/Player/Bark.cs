@@ -19,6 +19,7 @@ public class Bark : MonoBehaviour
             BarkParticle.Play();
             BarkCheck();
         }
+        Debug.DrawRay(transform.position, transform.forward + new Vector3(40,0,0), Color.red);
     }
 
     private void BarkCheck()
@@ -36,7 +37,6 @@ public class Bark : MonoBehaviour
                     PushSheep(CollidersInRange[i].gameObject);
                 }
             }
-            
         }
     }
 

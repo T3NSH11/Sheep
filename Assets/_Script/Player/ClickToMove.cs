@@ -102,10 +102,9 @@ public class ClickToMove : MonoBehaviour
             ray = cam.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit) && hit.collider == GroundCollider)
             {
-                 Vector3 LookAwayRotation = (transform.position - hit.point);
+                 Vector3 LookAwayRotation = (hit.point - transform.position);
                  LookAwayRotation.y = 0f;
                  transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(LookAwayRotation), Time.deltaTime * RotationSpeed);
-
             }
 
         }

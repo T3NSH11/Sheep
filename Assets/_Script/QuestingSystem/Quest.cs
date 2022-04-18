@@ -8,6 +8,8 @@ public class Quest : MonoBehaviour
     public GameObject ActiveQuest;
     public GameObject LevelCompleteScreen;
     public GameObject LevelFailedScreen;
+    public GameObject SheepLeftText;
+    public GameObject TimeLeftText;
     public int SheepLeft;
     public float TimeLeft = 100;
     bool VariablesSet = false;
@@ -15,6 +17,8 @@ public class Quest : MonoBehaviour
     void Start()
     {
         NPCs = GameObject.FindGameObjectsWithTag("NPC");
+        TimeLeftText.SetActive(false);
+        SheepLeftText.SetActive(false);
     }
 
    
@@ -23,6 +27,10 @@ public class Quest : MonoBehaviour
         CheckActive();
         if (ActiveQuest != null)
         {
+            TimeLeftText.SetActive(true);
+            SheepLeftText.SetActive(true);
+            TimeLeftText.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = TimeLeft.ToString("0.0");
+            SheepLeftText.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = SheepLeft.ToString();
             if (ActiveQuest.GetComponent<NPC>().completed == false)
             {
                 TimeLeft -= Time.deltaTime;
