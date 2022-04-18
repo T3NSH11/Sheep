@@ -10,9 +10,11 @@ public class Quest : MonoBehaviour
     public GameObject LevelFailedScreen;
     public GameObject SheepLeftText;
     public GameObject TimeLeftText;
+    public int CurrentLevel;
     public int SheepLeft;
     public float TimeLeft = 100;
     bool VariablesSet = false;
+    bool UIOpen;
     
     void Start()
     {
@@ -49,13 +51,22 @@ public class Quest : MonoBehaviour
             ActiveQuest.GetComponent<NPC>().completed = true;
             ActiveQuest = null;
             LevelCompleteScreen.SetActive(true);
+            CurrentLevel++;
             Time.timeScale = 0;
         }
 
         if (TimeLeft <= 0)
         {
             LevelFailedScreen.SetActive(true);
+        }
+
+        if(LevelCompleteScreen.activeInHierarchy)
+        {
             Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
         }
     }
 

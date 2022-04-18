@@ -12,6 +12,7 @@ public class SheepManager : MonoBehaviour
     public JumpTowards jumpTowards = new JumpTowards();
     public Transform AI;
     public Vector3 velocity;
+    public Vector3 StartPos;
     public GameObject player;
     public Rigidbody AiRb;
     public LayerMask SheepMask;
@@ -56,6 +57,7 @@ public class SheepManager : MonoBehaviour
         wanderState.angleRate = 3f;
         #endregion
 
+        StartPos = transform.position;
         AI = transform;
         player = GameObject.FindGameObjectWithTag("Player");
         AiRb = this.gameObject.GetComponent<Rigidbody>();
