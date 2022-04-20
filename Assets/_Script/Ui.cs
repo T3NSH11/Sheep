@@ -1,58 +1,60 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
 using System.IO;
-
-public class QuestFinishButtons : MonoBehaviour
+public class Ui : MonoBehaviour
 {
-    GameObject player;
-    List<GameObject> PlayerSpawns = new List<GameObject>();
-    public GameObject Level1Spawn;
-    public GameObject Level2Spawn;
-    public GameObject Level3Spawn;
-    public GameObject Level4Spawn;
-    GameObject CurrentSpawn;
-    bool Restarted = false;
+
+
     public GameObject QuestSystem;
-   
+    GameObject player;
+    bool Restarted = false;
     
 
-    void Start()
+    public void StartGame()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        PlayerSpawns.Add (Level1Spawn);
-       
+        ResetSaveFile();
+        SceneManager.LoadScene("Main Scene");
+    }
 
+    public void ExitButton()
+    {
+        Application.Quit();
+    }
+
+    public void ContinueButton()
+    {
+        LoadGame();
+        SceneManager.LoadScene("Main Scene");
+    }
+
+   
+
+    public void TutorialButton()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
+
+    public void MainMenuButton()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+
+    public void ReturntoGame()
+    {
         
-
-        if(CurrentSpawn != null)
-        {
-            player.transform.position = CurrentSpawn.transform.position;
-        }
-
-       
     }
-
-    void Update()
-    {
-        if (QuestSystem.GetComponent<Quest>().CurrentLevel != 0)
-        {
-            CurrentSpawn = PlayerSpawns[(QuestSystem.GetComponent<Quest>().CurrentLevel) - 1];
-        }
-    }
-
     public void RestartLevel()
     {
         Restarted = true;
         QuestSystem.GetComponent<Quest>().CurrentLevel--;
         SaveGame();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("Main Scene");
 
-        
-        
     }
 
     public void ContinueLevel()
@@ -77,7 +79,7 @@ public class QuestFinishButtons : MonoBehaviour
             formatter.Serialize(Sf, playerLevel);
             formatter.Serialize(Rs, restarted);
         }
-        catch(SerializationException e)
+        catch (SerializationException e)
         {
             Debug.LogError("Failed to serialize. Reason: " + e.Message);
             throw;
@@ -143,3 +145,4 @@ public class QuestFinishButtons : MonoBehaviour
         }
     }
 }
+
