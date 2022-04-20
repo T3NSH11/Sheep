@@ -33,6 +33,7 @@ public class Quest : MonoBehaviour
             SheepLeftText.SetActive(true);
             TimeLeftText.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = TimeLeft.ToString("0.0");
             SheepLeftText.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = SheepLeft.ToString();
+
             if (ActiveQuest.GetComponent<NPC>().completed == false)
             {
                 TimeLeft -= Time.deltaTime;

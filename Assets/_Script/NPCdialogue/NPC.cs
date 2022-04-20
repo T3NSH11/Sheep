@@ -12,6 +12,10 @@ public class NPC : MonoBehaviour
     public GameObject objectWithDialogueManager;
     public GameObject player;
     public GameObject QuestSystem;
+    public GameObject Sheep1;
+    public GameObject Sheep2;
+    public GameObject Sheep3;
+    public GameObject Sheep4;
 
     public bool NPCisActive = false;
     public bool Talkedto = false;
@@ -21,14 +25,9 @@ public class NPC : MonoBehaviour
     public int LevelNum;
 
 
-    private void Awake()
-    {
-        
-    }
-
     private void Update()
     {
-        if (objectWithDialogueManager.GetComponent<DialogueSystemManager>().sentenceQueue.Count == 0 && objectWithDialogueManager.GetComponent<DialogueSystemManager>().InDialogue == true)
+        if (objectWithDialogueManager.GetComponent<DialogueSystemManager>().sentenceQueue.Count == 0 && objectWithDialogueManager.GetComponent<DialogueSystemManager>().InDialogue == true && Talkedto == true)
         {
             objectWithDialogueManager.GetComponent<DialogueSystemManager>().EndDialogue();
             Time.timeScale = 1;
@@ -36,6 +35,26 @@ public class NPC : MonoBehaviour
             if (!NPCisActive && QuestSystem.GetComponent<Quest>().ActiveQuest == null && sheepRequired != 0 && timeLimit != 0)
             {
                 NPCisActive = true;
+
+                if(LevelNum == 1)
+                {
+                    Sheep1.SetActive(true);
+                }
+
+                if (LevelNum == 2)
+                {
+                    Sheep1.SetActive(true);
+                }
+
+                if (LevelNum == 3)
+                {
+                    Sheep1.SetActive(true);
+                }
+
+                if (LevelNum == 4)
+                {
+                    Sheep1.SetActive(true);
+                }
             }
         }
 
@@ -47,7 +66,7 @@ public class NPC : MonoBehaviour
 
         if (playerIsNear == true)
         {
-            if (Input.GetKeyDown(KeyCode.E) && objectWithDialogueManager.GetComponent<DialogueSystemManager>().InDialogue == false && !completed && QuestSystem.GetComponent<Quest>().CurrentLevel + 1 == LevelNum || !completed && Talkedto == false)
+            if (Input.GetKeyDown(KeyCode.E) && objectWithDialogueManager.GetComponent<DialogueSystemManager>().InDialogue == false && !completed && QuestSystem.GetComponent<Quest>().CurrentLevel + 1 == LevelNum || !completed && Talkedto == false && Input.GetKeyDown(KeyCode.E) && objectWithDialogueManager.GetComponent<DialogueSystemManager>().InDialogue == false)
             {
                 objectWithDialogueManager.GetComponent<DialogueSystemManager>().StartDialogue(dialogue);
                 Talkedto = true;

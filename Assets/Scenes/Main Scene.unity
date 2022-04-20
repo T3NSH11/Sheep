@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.28048107, g: 0.54390657, b: 0.6517107, a: 1}
+  m_IndirectSpecularColor: {r: 0.28048018, g: 0.5439053, b: 0.6517099, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5476,6 +5476,10 @@ MonoBehaviour:
   objectWithDialogueManager: {fileID: 1611102055}
   player: {fileID: 1955160391}
   QuestSystem: {fileID: 1373856146}
+  Sheep1: {fileID: 1758245814}
+  Sheep2: {fileID: 1583954574}
+  Sheep3: {fileID: 1976292753}
+  Sheep4: {fileID: 0}
   NPCisActive: 0
   Talkedto: 0
   sheepRequired: 1
@@ -7520,12 +7524,16 @@ MonoBehaviour:
   objectWithDialogueManager: {fileID: 1611102055}
   player: {fileID: 1955160391}
   QuestSystem: {fileID: 1373856146}
+  Sheep1: {fileID: 1758245814}
+  Sheep2: {fileID: 1583954574}
+  Sheep3: {fileID: 1976292753}
+  Sheep4: {fileID: 0}
   NPCisActive: 0
   Talkedto: 0
   sheepRequired: 1
   timeLimit: 200
   completed: 0
-  LevelNum: 1
+  LevelNum: 3
 --- !u!95 &431502313
 Animator:
   serializedVersion: 3
@@ -7903,6 +7911,10 @@ MonoBehaviour:
   objectWithDialogueManager: {fileID: 1611102055}
   player: {fileID: 1955160391}
   QuestSystem: {fileID: 1373856146}
+  Sheep1: {fileID: 0}
+  Sheep2: {fileID: 0}
+  Sheep3: {fileID: 0}
+  Sheep4: {fileID: 0}
   NPCisActive: 0
   Talkedto: 0
   sheepRequired: 0
@@ -21059,7 +21071,7 @@ MonoBehaviour:
   TimeLeftText: {fileID: 1928663832}
   CurrentLevel: 0
   SheepLeft: 0
-  TimeLeft: 100
+  TimeLeft: 100000
 --- !u!4 &1373856148
 Transform:
   m_ObjectHideFlags: 0
@@ -23983,12 +23995,16 @@ MonoBehaviour:
   objectWithDialogueManager: {fileID: 1611102055}
   player: {fileID: 1955160391}
   QuestSystem: {fileID: 1373856146}
+  Sheep1: {fileID: 1758245814}
+  Sheep2: {fileID: 1583954574}
+  Sheep3: {fileID: 1976292753}
+  Sheep4: {fileID: 0}
   NPCisActive: 0
   Talkedto: 0
-  sheepRequired: 1
+  sheepRequired: 4
   timeLimit: 200
   completed: 0
-  LevelNum: 1
+  LevelNum: 4
 --- !u!95 &1573061286
 Animator:
   serializedVersion: 3
@@ -24131,7 +24147,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1583954575
 Transform:
   m_ObjectHideFlags: 0
@@ -32508,7 +32524,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1758245815
 Transform:
   m_ObjectHideFlags: 0
@@ -34697,12 +34713,16 @@ MonoBehaviour:
   objectWithDialogueManager: {fileID: 1611102055}
   player: {fileID: 1955160391}
   QuestSystem: {fileID: 1373856146}
+  Sheep1: {fileID: 1758245814}
+  Sheep2: {fileID: 1583954574}
+  Sheep3: {fileID: 1976292753}
+  Sheep4: {fileID: 0}
   NPCisActive: 0
   Talkedto: 0
   sheepRequired: 1
   timeLimit: 200
   completed: 0
-  LevelNum: 1
+  LevelNum: 2
 --- !u!95 &1803736045
 Animator:
   serializedVersion: 3
@@ -37106,15 +37126,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8142725290022507849, guid: a1de142abdfe6a74181ca9789e1c7391, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 229.87
+      value: 227.21
       objectReference: {fileID: 0}
     - target: {fileID: 8142725290022507849, guid: a1de142abdfe6a74181ca9789e1c7391, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.62
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 8142725290022507849, guid: a1de142abdfe6a74181ca9789e1c7391, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 200.17
+      value: 207.57
       objectReference: {fileID: 0}
     - target: {fileID: 8142725290022507849, guid: a1de142abdfe6a74181ca9789e1c7391, type: 3}
       propertyPath: m_LocalRotation.w
@@ -38700,7 +38720,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1976292754
 Transform:
   m_ObjectHideFlags: 0

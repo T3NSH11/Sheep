@@ -113,6 +113,15 @@ public class ClickToMove : MonoBehaviour
         {
             PauseScreen.SetActive(true);
         }
+
+        if (PauseScreen.activeSelf == true)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
     }
 
     private void LateUpdate()
