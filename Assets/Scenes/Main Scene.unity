@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.28048107, g: 0.54390657, b: 0.6517107, a: 1}
+  m_IndirectSpecularColor: {r: 0.28048018, g: 0.5439053, b: 0.6517099, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2145,13 +2145,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1373856149}
+        m_TargetAssemblyTypeName: QuestFinishButtons, Assembly-CSharp
+        m_MethodName: ContinueLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -16431,14 +16431,6 @@ MonoBehaviour:
   Level3Spawn: {fileID: 0}
   Level4Spawn: {fileID: 0}
   QuestSystem: {fileID: 1373856146}
-  Level1Sheep: {fileID: 1758245814}
-  Level2Sheep: {fileID: 1583954574}
-  Level3Sheep: {fileID: 1976292753}
-  Level4Sheep: {fileID: 0}
-  level1Sheep: []
-  level2Sheep: []
-  level3Sheep: []
-  level4Sheep: []
 --- !u!1 &1374304748
 GameObject:
   m_ObjectHideFlags: 0
@@ -29656,15 +29648,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8142725290022507849, guid: a1de142abdfe6a74181ca9789e1c7391, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 235.04
+      value: 250.56
       objectReference: {fileID: 0}
     - target: {fileID: 8142725290022507849, guid: a1de142abdfe6a74181ca9789e1c7391, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8142725290022507849, guid: a1de142abdfe6a74181ca9789e1c7391, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 185.34
+      value: 181.26
       objectReference: {fileID: 0}
     - target: {fileID: 8142725290022507849, guid: a1de142abdfe6a74181ca9789e1c7391, type: 3}
       propertyPath: m_LocalRotation.w
