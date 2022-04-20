@@ -13,8 +13,12 @@ public class Ui : MonoBehaviour
     public GameObject QuestSystem;
     GameObject player;
     bool Restarted = false;
-    
 
+
+    public void Awake()
+    {
+        ResetSaveFile();
+    }
     public void StartGame()
     {
         ResetSaveFile();

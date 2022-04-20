@@ -14,6 +14,7 @@ public class NPC : MonoBehaviour
     public GameObject QuestSystem;
 
     public bool NPCisActive = false;
+    public bool Talkedto = false;
     public int sheepRequired;
     public float timeLimit;
     public bool completed = false;
@@ -30,9 +31,9 @@ public class NPC : MonoBehaviour
         if (objectWithDialogueManager.GetComponent<DialogueSystemManager>().sentenceQueue.Count == 0 && objectWithDialogueManager.GetComponent<DialogueSystemManager>().InDialogue == true)
         {
             objectWithDialogueManager.GetComponent<DialogueSystemManager>().EndDialogue();
-            player.GetComponent<ClickToMove>().enabled = true;
+            Time.timeScale = 1;
 
-            if (!NPCisActive && QuestSystem.GetComponent<Quest>().ActiveQuest == null)
+            if (!NPCisActive && QuestSystem.GetComponent<Quest>().ActiveQuest == null && sheepRequired != 0 && timeLimit != 0)
             {
                 NPCisActive = true;
             }
@@ -46,9 +47,11 @@ public class NPC : MonoBehaviour
 
         if (playerIsNear == true)
         {
-            if (Input.GetKeyDown(KeyCode.E) && objectWithDialogueManager.GetComponent<DialogueSystemManager>().InDialogue == false && !completed && QuestSystem.GetComponent<Quest>().CurrentLevel + 1 == LevelNum)
+            if (Input.GetKeyDown(KeyCode.E) && objectWithDialogueManager.GetComponent<DialogueSystemManager>().InDialogue == false && !completed && QuestSystem.GetComponent<Quest>().CurrentLevel + 1 == LevelNum || !completed && Talkedto == false)
             {
                 objectWithDialogueManager.GetComponent<DialogueSystemManager>().StartDialogue(dialogue);
+                Talkedto = true;
+                Time.timeScale = 0;
             }
         }
 
@@ -77,11 +80,12 @@ public class NPC : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        objectWithDialogueManager.GetComponent<DialogueSystemManager>().InDialogue = false;
+        
         if (other.tag == "Player")
         {
             objectWithDialogueManager.GetComponent<DialogueSystemManager>().EndDialogue();
             playerIsNear = false;
+            objectWithDialogueManager.GetComponent<DialogueSystemManager>().InDialogue = false;
         }
     }
 
