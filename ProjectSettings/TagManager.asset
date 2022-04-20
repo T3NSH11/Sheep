@@ -13,6 +13,7 @@ TagManager:
   - SquirrelPath
   - Squirrel
   - NPC
+  - VisualCue
   layers:
   - Default
   - TransparentFX

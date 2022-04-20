@@ -19,7 +19,7 @@ public class ClickToMove : MonoBehaviour
     bool StartTimer;
 
     Vector3 DesiredVelocity;
-    Vector3 targetPosition;
+    public Vector3 targetPosition;
     Vector3 Steering;
 
 

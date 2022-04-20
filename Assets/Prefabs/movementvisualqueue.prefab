@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7443476539522789338}
   m_Layer: 0
   m_Name: movementvisualqueue
-  m_TagString: Untagged
+  m_TagString: VisualCue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 1
