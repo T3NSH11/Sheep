@@ -8,7 +8,7 @@ public class ClickToMove : MonoBehaviour
     public Camera cam;
     Collider planecollider;
     public Rigidbody rb;
-
+    public GameObject PauseScreen;
     public GameObject visualCue; //the center of the radius 
 
     public Collider GroundCollider;
@@ -107,6 +107,11 @@ public class ClickToMove : MonoBehaviour
                  transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(LookAwayRotation), Time.deltaTime * RotationSpeed);
             }
 
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseScreen.SetActive(true);
         }
     }
 

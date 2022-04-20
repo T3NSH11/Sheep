@@ -9,7 +9,7 @@ using System.IO;
 public class Ui : MonoBehaviour
 {
 
-
+    public GameObject PauseScreen;
     public GameObject QuestSystem;
     GameObject player;
     bool Restarted = false;
@@ -46,7 +46,7 @@ public class Ui : MonoBehaviour
 
     public void ReturntoGame()
     {
-        
+        PauseScreen.SetActive(false);
     }
     public void RestartLevel()
     {
