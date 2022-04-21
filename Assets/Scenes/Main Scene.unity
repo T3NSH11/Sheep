@@ -5391,6 +5391,7 @@ MonoBehaviour:
   timeLimit: 200
   completed: 0
   LevelNum: 1
+  pathMaker: {fileID: 0}
 --- !u!65 &266714787
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7344,6 +7345,7 @@ MonoBehaviour:
   timeLimit: 200
   completed: 0
   LevelNum: 3
+  pathMaker: {fileID: 0}
 --- !u!95 &431502313
 Animator:
   serializedVersion: 3
@@ -7826,6 +7828,7 @@ MonoBehaviour:
   timeLimit: 0
   completed: 0
   LevelNum: 0
+  pathMaker: {fileID: 0}
 --- !u!65 &460594663
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21830,6 +21833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseScreen: {fileID: 1334005928}
   QuestSystem: {fileID: 1373856146}
+  player: {fileID: 1955160391}
 --- !u!1 &1374304748
 GameObject:
   m_ObjectHideFlags: 0
@@ -25067,6 +25071,7 @@ MonoBehaviour:
   timeLimit: 200
   completed: 0
   LevelNum: 4
+  pathMaker: {fileID: 0}
 --- !u!95 &1573061286
 Animator:
   serializedVersion: 3
@@ -35500,6 +35505,7 @@ MonoBehaviour:
   timeLimit: 200
   completed: 0
   LevelNum: 2
+  pathMaker: {fileID: 0}
 --- !u!95 &1803736045
 Animator:
   serializedVersion: 3
@@ -38242,7 +38248,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 5
   pathMaker: {fileID: 1276524191}
-  goToLevel2: 0
+  goToLevel: 0
+  QuestSystem: {fileID: 1373856147}
+  Level2: {fileID: 1276524191}
+  Level3: {fileID: 1435892979}
+  Level4: {fileID: 963844461}
 --- !u!1 &1957221708
 GameObject:
   m_ObjectHideFlags: 0

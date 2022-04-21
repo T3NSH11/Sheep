@@ -23,6 +23,7 @@ public class NPC : MonoBehaviour
     public float timeLimit;
     public bool completed = false;
     public int LevelNum;
+    public PathMaker pathMaker;
 
 
     private void Update()
@@ -43,17 +44,17 @@ public class NPC : MonoBehaviour
 
                 if (LevelNum == 2)
                 {
-                    Sheep1.SetActive(true);
+                    Sheep2.SetActive(true);
                 }
 
                 if (LevelNum == 3)
                 {
-                    Sheep1.SetActive(true);
+                    Sheep3.SetActive(true);
                 }
 
                 if (LevelNum == 4)
                 {
-                    Sheep1.SetActive(true);
+                    Sheep4.SetActive(true);
                 }
             }
         }
