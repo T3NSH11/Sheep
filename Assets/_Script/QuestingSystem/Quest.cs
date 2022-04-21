@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Quest : MonoBehaviour
 {
@@ -19,8 +21,6 @@ public class Quest : MonoBehaviour
     void Start()
     {
         NPCs = GameObject.FindGameObjectsWithTag("NPC");
-        TimeLeftText.SetActive(false);
-        SheepLeftText.SetActive(false);
     }
 
    

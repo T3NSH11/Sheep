@@ -5478,7 +5478,7 @@ MonoBehaviour:
   objectWithDialogueManager: {fileID: 1611102055}
   player: {fileID: 1955160391}
   QuestSystem: {fileID: 1373856146}
-  QuestInfo: {fileID: 0}
+  QuestInfo: {fileID: 293156256}
   Sheep1: {fileID: 1758245814}
   Sheep2: {fileID: 1583954574}
   Sheep3: {fileID: 1976292753}
@@ -7540,7 +7540,7 @@ MonoBehaviour:
   objectWithDialogueManager: {fileID: 1611102055}
   player: {fileID: 1955160391}
   QuestSystem: {fileID: 1373856146}
-  QuestInfo: {fileID: 0}
+  QuestInfo: {fileID: 293156256}
   Sheep1: {fileID: 1758245814}
   Sheep2: {fileID: 1583954574}
   Sheep3: {fileID: 1976292753}
@@ -25857,7 +25857,7 @@ MonoBehaviour:
   objectWithDialogueManager: {fileID: 1611102055}
   player: {fileID: 1955160391}
   QuestSystem: {fileID: 1373856146}
-  QuestInfo: {fileID: 0}
+  QuestInfo: {fileID: 293156256}
   Sheep1: {fileID: 1758245814}
   Sheep2: {fileID: 1583954574}
   Sheep3: {fileID: 1976292753}
@@ -37079,7 +37079,7 @@ MonoBehaviour:
   objectWithDialogueManager: {fileID: 1611102055}
   player: {fileID: 1955160391}
   QuestSystem: {fileID: 1373856146}
-  QuestInfo: {fileID: 0}
+  QuestInfo: {fileID: 293156256}
   Sheep1: {fileID: 1758245814}
   Sheep2: {fileID: 1583954574}
   Sheep3: {fileID: 1976292753}
