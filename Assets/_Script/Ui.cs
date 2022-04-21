@@ -11,7 +11,7 @@ public class Ui : MonoBehaviour
 
     public GameObject PauseScreen;
     public GameObject QuestSystem;
-    GameObject player;
+    public GameObject player;
     bool Restarted = false;
 
 
@@ -36,7 +36,7 @@ public class Ui : MonoBehaviour
         SceneManager.LoadScene("Main Scene");
     }
 
-   
+
 
     public void TutorialButton()
     {
@@ -64,7 +64,7 @@ public class Ui : MonoBehaviour
     public void ContinueLevel()
     {
         QuestSystem.GetComponent<Quest>().LevelCompleteScreen.SetActive(false);
-        player.GetComponent<PlayerBehavior>().goToLevel2 = true;
+        player.GetComponent<PlayerBehavior>().goToLevel = true;
     }
 
     void SaveGame()

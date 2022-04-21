@@ -12,6 +12,7 @@ public class NPC : MonoBehaviour
     public GameObject objectWithDialogueManager;
     public GameObject player;
     public GameObject QuestSystem;
+    public GameObject QuestInfo;
     public GameObject Sheep1;
     public GameObject Sheep2;
     public GameObject Sheep3;
@@ -23,6 +24,7 @@ public class NPC : MonoBehaviour
     public float timeLimit;
     public bool completed = false;
     public int LevelNum;
+    public PathMaker pathMaker;
 
 
     private void Update()
@@ -35,6 +37,7 @@ public class NPC : MonoBehaviour
             if (!NPCisActive && QuestSystem.GetComponent<Quest>().ActiveQuest == null && sheepRequired != 0 && timeLimit != 0)
             {
                 NPCisActive = true;
+                QuestInfo.SetActive(true);
 
                 if(LevelNum == 1)
                 {
@@ -43,17 +46,17 @@ public class NPC : MonoBehaviour
 
                 if (LevelNum == 2)
                 {
-                    Sheep1.SetActive(true);
+                    Sheep2.SetActive(true);
                 }
 
                 if (LevelNum == 3)
                 {
-                    Sheep1.SetActive(true);
+                    Sheep3.SetActive(true);
                 }
 
                 if (LevelNum == 4)
                 {
-                    Sheep1.SetActive(true);
+                    Sheep4.SetActive(true);
                 }
             }
         }
@@ -77,6 +80,7 @@ public class NPC : MonoBehaviour
         if (completed)
         {
             NPCisActive = false;
+            QuestInfo.SetActive(false);
         }
 
         if(objectWithDialogueManager.GetComponent<DialogueSystemManager>().InDialogue)
