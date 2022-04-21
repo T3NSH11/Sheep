@@ -78,6 +78,7 @@ public class Quest : MonoBehaviour
             if (NPCs[i].GetComponent<NPC>().NPCisActive)
             {
                 ActiveQuest = NPCs[i];
+                //update check
             }
         }
     }
