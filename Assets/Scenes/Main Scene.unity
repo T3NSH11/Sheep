@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.28048107, g: 0.54390657, b: 0.6517107, a: 1}
+  m_IndirectSpecularColor: {r: 0.28048018, g: 0.5439053, b: 0.6517099, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -768,14 +768,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 44230710}
-  m_LocalRotation: {x: 0, y: 0.9396927, z: 0.3420201, w: 0}
-  m_LocalPosition: {x: 218.93, y: -0.074, z: 215.83998}
+  m_LocalRotation: {x: 0, y: 0.9063079, z: 0.42261827, w: 0}
+  m_LocalPosition: {x: 218.93, y: 0, z: 215.83998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 682204748}
   m_Father: {fileID: 1604343596}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: -40, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: -50, y: 180, z: 0}
 --- !u!114 &44230712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3532,7 +3532,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh59350
+  m_Name: pb_Mesh18716
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4482,7 +4482,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh58480
+  m_Name: pb_Mesh17826
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5272,7 +5272,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh59134
+  m_Name: pb_Mesh18500
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5478,6 +5478,7 @@ MonoBehaviour:
   objectWithDialogueManager: {fileID: 1611102055}
   player: {fileID: 1955160391}
   QuestSystem: {fileID: 1373856146}
+  QuestInfo: {fileID: 0}
   Sheep1: {fileID: 1758245814}
   Sheep2: {fileID: 1583954574}
   Sheep3: {fileID: 1976292753}
@@ -5730,12 +5731,12 @@ GameObject:
   - component: {fileID: 293156259}
   - component: {fileID: 293156258}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: QuestInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &293156257
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5746,9 +5747,11 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.7644708, y: 1.5765358, z: 1.81}
-  m_Children: []
+  m_Children:
+  - {fileID: 1928663833}
+  - {fileID: 1436558830}
   m_Father: {fileID: 2143255010}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5934,7 +5937,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh59106
+  m_Name: pb_Mesh18472
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7146,7 +7149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b62ccc6af23695449a2a1174c68e6285, type: 3}
       propertyPath: m_RootOrder
-      value: 39
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b62ccc6af23695449a2a1174c68e6285, type: 3}
       propertyPath: m_LocalScale.x
@@ -7537,6 +7540,7 @@ MonoBehaviour:
   objectWithDialogueManager: {fileID: 1611102055}
   player: {fileID: 1955160391}
   QuestSystem: {fileID: 1373856146}
+  QuestInfo: {fileID: 0}
   Sheep1: {fileID: 1758245814}
   Sheep2: {fileID: 1583954574}
   Sheep3: {fileID: 1976292753}
@@ -8020,6 +8024,7 @@ MonoBehaviour:
   objectWithDialogueManager: {fileID: 1611102055}
   player: {fileID: 1955160391}
   QuestSystem: {fileID: 1373856146}
+  QuestInfo: {fileID: 0}
   Sheep1: {fileID: 0}
   Sheep2: {fileID: 0}
   Sheep3: {fileID: 0}
@@ -8071,14 +8076,15 @@ RectTransform:
   m_GameObject: {fileID: 466044856}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.689746, y: 1.4670944, z: 1.9729002}
-  m_Children: []
+  m_LocalScale: {x: 5.8349814, y: 1.4670944, z: 1.9729}
+  m_Children:
+  - {fileID: 959923226}
   m_Father: {fileID: 2143255010}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 268.9, y: 228.7}
+  m_AnchoredPosition: {x: 207, y: 196}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &466044858
@@ -8326,6 +8332,7 @@ MonoBehaviour:
   objectWithDialogueManager: {fileID: 1611102055}
   player: {fileID: 1955160391}
   QuestSystem: {fileID: 1373856146}
+  QuestInfo: {fileID: 0}
   Sheep1: {fileID: 0}
   Sheep2: {fileID: 0}
   Sheep3: {fileID: 0}
@@ -8336,6 +8343,7 @@ MonoBehaviour:
   timeLimit: 0
   completed: 0
   LevelNum: 0
+  pathMaker: {fileID: 0}
 --- !u!65 &481593740
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8455,7 +8463,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh58638
+  m_Name: pb_Mesh17984
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8795,7 +8803,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh59076
+  m_Name: pb_Mesh18442
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12554,7 +12562,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 40
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -12580,7 +12588,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682204745}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.019996643, y: 10.28, z: 0.12}
+  m_LocalPosition: {x: 0.02, y: 10, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 44230711}
@@ -17180,14 +17188,14 @@ RectTransform:
   m_GameObject: {fileID: 959923225}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8812748, y: 0.5017977, z: 0.42372692}
+  m_LocalScale: {x: 0.151033, y: 0.34203503, z: 0.21477363}
   m_Children: []
-  m_Father: {fileID: 2143255010}
-  m_RootOrder: 4
+  m_Father: {fileID: 466044857}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 264.8423, y: 221.8814}
+  m_AnchoredPosition: {x: -5, y: -4.647629}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &959923227
@@ -17210,7 +17218,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Left Click= Move \nSpace = Bark\nE = Interact"
+  m_text: 'E = Interact
+
+    Scroll Wheel = Zoom
+
+    R Click (Hold) = rotate'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fbfb4982423f65a489bdad0433e3b913, type: 2}
   m_sharedMaterial: {fileID: 5627181595836966374, guid: fbfb4982423f65a489bdad0433e3b913, type: 2}
@@ -17273,7 +17285,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -42.855522, w: 0}
+  m_margin: {x: 0, y: 0, z: -114.78956, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -17476,7 +17488,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh58552
+  m_Name: pb_Mesh17898
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -20537,6 +20549,7 @@ MonoBehaviour:
   objectWithDialogueManager: {fileID: 1611102055}
   player: {fileID: 1955160391}
   QuestSystem: {fileID: 1373856146}
+  QuestInfo: {fileID: 0}
   Sheep1: {fileID: 0}
   Sheep2: {fileID: 0}
   Sheep3: {fileID: 0}
@@ -20547,6 +20560,7 @@ MonoBehaviour:
   timeLimit: 0
   completed: 0
   LevelNum: 0
+  pathMaker: {fileID: 0}
 --- !u!65 &1247089809
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22945,7 +22959,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh58588
+  m_Name: pb_Mesh17934
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -23109,7 +23123,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh60866
+  m_Name: pb_Mesh20294
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -23451,17 +23465,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1436558829}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.69445735, y: 0.69445735, z: 0.69445735}
+  m_LocalScale: {x: 0.18447678, y: 0.4404958, z: 0.38367817}
   m_Children:
   - {fileID: 1725720543}
-  m_Father: {fileID: 2143255010}
-  m_RootOrder: 2
+  m_Father: {fileID: 293156257}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -216, y: 158}
+  m_AnchoredPosition: {x: 18.3293, y: -28.289871}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1436558831
@@ -23927,7 +23941,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh60492
+  m_Name: pb_Mesh19898
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -24334,7 +24348,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh60536
+  m_Name: pb_Mesh19954
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -25183,7 +25197,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh61128
+  m_Name: pb_Mesh20556
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -25449,7 +25463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b62ccc6af23695449a2a1174c68e6285, type: 3}
       propertyPath: m_RootOrder
-      value: 40
+      value: 41
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b62ccc6af23695449a2a1174c68e6285, type: 3}
       propertyPath: m_LocalScale.x
@@ -25843,6 +25857,7 @@ MonoBehaviour:
   objectWithDialogueManager: {fileID: 1611102055}
   player: {fileID: 1955160391}
   QuestSystem: {fileID: 1373856146}
+  QuestInfo: {fileID: 0}
   Sheep1: {fileID: 1758245814}
   Sheep2: {fileID: 1583954574}
   Sheep3: {fileID: 1976292753}
@@ -32972,6 +32987,7 @@ MonoBehaviour:
   objectWithDialogueManager: {fileID: 1611102055}
   player: {fileID: 1955160391}
   QuestSystem: {fileID: 1373856146}
+  QuestInfo: {fileID: 0}
   Sheep1: {fileID: 0}
   Sheep2: {fileID: 0}
   Sheep3: {fileID: 0}
@@ -32982,6 +32998,7 @@ MonoBehaviour:
   timeLimit: 0
   completed: 0
   LevelNum: 0
+  pathMaker: {fileID: 0}
 --- !u!65 &1699265868
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36667,7 +36684,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b62ccc6af23695449a2a1174c68e6285, type: 3}
       propertyPath: m_RootOrder
-      value: 38
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b62ccc6af23695449a2a1174c68e6285, type: 3}
       propertyPath: m_LocalScale.x
@@ -37062,6 +37079,7 @@ MonoBehaviour:
   objectWithDialogueManager: {fileID: 1611102055}
   player: {fileID: 1955160391}
   QuestSystem: {fileID: 1373856146}
+  QuestInfo: {fileID: 0}
   Sheep1: {fileID: 1758245814}
   Sheep2: {fileID: 1583954574}
   Sheep3: {fileID: 1976292753}
@@ -37234,6 +37252,7 @@ MonoBehaviour:
   objectWithDialogueManager: {fileID: 1611102055}
   player: {fileID: 1955160391}
   QuestSystem: {fileID: 1373856146}
+  QuestInfo: {fileID: 0}
   Sheep1: {fileID: 0}
   Sheep2: {fileID: 0}
   Sheep3: {fileID: 0}
@@ -37244,6 +37263,7 @@ MonoBehaviour:
   timeLimit: 0
   completed: 0
   LevelNum: 0
+  pathMaker: {fileID: 0}
 --- !u!65 &1805588200
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38349,6 +38369,7 @@ MonoBehaviour:
   objectWithDialogueManager: {fileID: 1611102055}
   player: {fileID: 1955160391}
   QuestSystem: {fileID: 1373856146}
+  QuestInfo: {fileID: 0}
   Sheep1: {fileID: 0}
   Sheep2: {fileID: 0}
   Sheep3: {fileID: 0}
@@ -38359,6 +38380,7 @@ MonoBehaviour:
   timeLimit: 0
   completed: 0
   LevelNum: 0
+  pathMaker: {fileID: 0}
 --- !u!65 &1809071525
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39619,7 +39641,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh61106
+  m_Name: pb_Mesh20534
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -40325,17 +40347,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928663832}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6944573, y: 0.6944573, z: 0.6944573}
+  m_LocalScale: {x: 0.18447676, y: 0.44049576, z: 0.38367814}
   m_Children:
   - {fileID: 1496903822}
-  m_Father: {fileID: 2143255010}
-  m_RootOrder: 1
+  m_Father: {fileID: 293156257}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -221, y: 187}
+  m_AnchoredPosition: {x: 17.001068, y: -9.895081}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1928663834
@@ -43013,7 +43035,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh59442
+  m_Name: pb_Mesh18808
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -46813,11 +46835,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 293156257}
-  - {fileID: 1928663833}
-  - {fileID: 1436558830}
   - {fileID: 466044857}
-  - {fileID: 959923226}
+  - {fileID: 293156257}
   m_Father: {fileID: 1604343596}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -8,6 +8,7 @@ public class CameraControls : MonoBehaviour
     public float Smoothness;
     public GameObject Camera;
     public GameObject Player;
+    int ZoomCount;
     Vector3 offset;
     Vector3 CamPosition;
 
@@ -64,9 +65,9 @@ public class CameraControls : MonoBehaviour
             Cursor.visible = true;
         }
 
-        if (Vector3.Distance(Player.transform.position, Camera.transform.position) !> 100 || Vector3.Distance(Player.transform.position, Camera.transform.position) !< 20)
-        {
-            Camera.transform.position -= (Camera.transform.position - transform.position).normalized * Input.mouseScrollDelta.y * 4;
-        }
+        float Scroll = Input.GetAxis("Mouse ScrollWheel");
+
+        Camera.GetComponent<Camera>().fieldOfView -= Scroll * Time.deltaTime * 500;
+        Camera.GetComponent<Camera>().fieldOfView = Mathf.Clamp(Camera.GetComponent<Camera>().fieldOfView, 40, 90);
     }
 }
