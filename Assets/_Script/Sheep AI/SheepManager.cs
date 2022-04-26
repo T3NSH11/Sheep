@@ -9,7 +9,6 @@ public class SheepManager : MonoBehaviour
 
     public BarkActionScript barkActionScript = new BarkActionScript();
     public wanderState wanderState = new wanderState();
-    public JumpTowards jumpTowards = new JumpTowards();
     public Transform AI;
     public Vector3 velocity;
     public Vector3 StartPos;
