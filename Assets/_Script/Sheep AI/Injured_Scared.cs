@@ -41,8 +41,4 @@ public class Injured_Scared : SheepState
         }
     }
 
-    public override void FixedUpdateState(SheepManager manager)
-    {
-
-    }
 }

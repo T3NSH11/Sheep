@@ -59,10 +59,6 @@ public class wanderState : SheepState
 
         return manager.Seek(wanderTarget);
     }
-    public override void FixedUpdateState(SheepManager manager)
-    {
-
-    }
 }
 
 

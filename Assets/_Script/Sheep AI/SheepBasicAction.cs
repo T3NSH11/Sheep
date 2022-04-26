@@ -13,7 +13,7 @@ public class SheepBasicAction : SheepState
     {
         Vector3 LookAwayRotation = (manager.transform.position - manager.player.transform.position);
         LookAwayRotation.y = 0f;
-        manager.transform.rotation = Quaternion.RotateTowards(manager.transform.rotation ,Quaternion.LookRotation(LookAwayRotation), Time.deltaTime * manager.RotationSpeed);
+        manager.transform.rotation = Quaternion.RotateTowards(manager.transform.rotation, Quaternion.LookRotation(LookAwayRotation), Time.deltaTime * manager.RotationSpeed);
         manager.AiRb.velocity = manager.transform.forward * manager.BasicActionSpeed;
 
         if (Vector3.Distance(manager.player.transform.position, manager.transform.position) > 10)
@@ -32,8 +32,4 @@ public class SheepBasicAction : SheepState
         }
     }
 
-    public override void FixedUpdateState(SheepManager manager)
-    {
-
-    }
 }

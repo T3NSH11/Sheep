@@ -5,7 +5,6 @@ using UnityEngine;
 public class SheepManager : MonoBehaviour
 {
     SheepState PrimaryState;
-    //SheepState SecondaryState;
 
     public BarkActionScript barkActionScript = new BarkActionScript();
     public wanderState wanderState = new wanderState();
@@ -64,19 +63,13 @@ public class SheepManager : MonoBehaviour
         ypos = transform.position.y;
 
         PrimaryState = wanderState;
-        //SecondaryState = new IdleSheepState();
 
         PrimaryState.EnterState(this);
-        //SecondaryState.EnterState(this);
     }
     void Update()
     {
         PrimaryState.UpdateState(this);
 
-        //if (SecondaryState != null)
-        //{
-        //    SecondaryState.UpdateState(this);
-        //}
 
         if (gameObject.layer == LayerMask.NameToLayer("Sheep"))
         {
@@ -98,12 +91,6 @@ public class SheepManager : MonoBehaviour
     public void SwitchState(SheepState state)
     {
         PrimaryState = state;
-        state.EnterState(this);
-    }
-
-    public void SwitchSecondaryState(SheepState state)
-    {
-        //SecondaryState = state;
         state.EnterState(this);
     }
 
@@ -177,9 +164,4 @@ public class SheepManager : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        PrimaryState.FixedUpdateState(this);
-        //SecondaryState.FixedUpdateState(this);
-    }
 }
