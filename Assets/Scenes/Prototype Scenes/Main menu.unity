@@ -11903,6 +11903,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseScreen: {fileID: 0}
   QuestSystem: {fileID: 0}
+  player: {fileID: 0}
 --- !u!4 &1472995650
 Transform:
   m_ObjectHideFlags: 0
@@ -19447,7 +19448,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cloud Racnher
+  m_text: Cloud Rancher
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fbfb4982423f65a489bdad0433e3b913, type: 2}
   m_sharedMaterial: {fileID: 5627181595836966374, guid: fbfb4982423f65a489bdad0433e3b913, type: 2}

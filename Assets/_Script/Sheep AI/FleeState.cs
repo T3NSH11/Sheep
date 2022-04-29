@@ -28,8 +28,4 @@ public class FleeState : SheepState
         }
     }
 
-    public override void FixedUpdateState(SheepManager manager)
-    {
-
-    }
 }
