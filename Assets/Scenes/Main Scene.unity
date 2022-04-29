@@ -8183,7 +8183,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 207, y: 196}
+  m_AnchoredPosition: {x: 252.7, y: 219.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &466044858
@@ -17193,14 +17193,14 @@ RectTransform:
   m_GameObject: {fileID: 959923225}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.151033, y: 0.34203503, z: 0.21477363}
+  m_LocalScale: {x: 0.11924358, y: 0.31084144, z: 0.21477363}
   m_Children: []
   m_Father: {fileID: 466044857}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5, y: -4.647629}
+  m_AnchoredPosition: {x: -3, y: -4.647629}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &959923227
@@ -17227,7 +17227,10 @@ MonoBehaviour:
 
     Scroll Wheel = Zoom
 
-    R Click (Hold) = rotate'
+    Scroll Wheel (Hold)= rotate
+
+    L
+    Click = Move'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fbfb4982423f65a489bdad0433e3b913, type: 2}
   m_sharedMaterial: {fileID: 5627181595836966374, guid: fbfb4982423f65a489bdad0433e3b913, type: 2}
@@ -17254,8 +17257,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 34
+  m_fontSizeBase: 34
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -17290,7 +17293,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -114.78956, w: 0}
+  m_margin: {x: -39.52511, y: 0, z: -135.14227, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -44312,7 +44315,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.45008817, g: 0.1779548, b: 0.8773585, a: 0.83137256}
+  m_Color: {r: 0.57980627, g: 0.41901034, b: 0.8301887, a: 0.83137256}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -46272,7 +46275,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 2
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
