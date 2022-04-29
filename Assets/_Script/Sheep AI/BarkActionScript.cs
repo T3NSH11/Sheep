@@ -13,11 +13,6 @@ public class BarkActionScript : SheepState
     }
     public override void UpdateState(SheepManager manager)
     {
-
-    }
-
-    public override void FixedUpdateState(SheepManager manager)
-    {
         switchTimer += Time.deltaTime;
 
         if (manager.barkMove == true)
@@ -40,6 +35,7 @@ public class BarkActionScript : SheepState
             manager.SwitchState(new Injured_Scared());
         }
     }
-
-
 }
+
+
+
