@@ -42,21 +42,29 @@ public class NPC : MonoBehaviour
                 if(LevelNum == 1)
                 {
                     Sheep1.SetActive(true);
+                    LevelNum++;
+                    Debug.Log(gameObject.GetComponent<NPC>().LevelNum);
                 }
 
                 if (LevelNum == 2)
                 {
                     Sheep2.SetActive(true);
+                    LevelNum++;
+                    Debug.Log(gameObject.GetComponent<NPC>().LevelNum);
                 }
 
                 if (LevelNum == 3)
                 {
                     Sheep3.SetActive(true);
+                    LevelNum++;
+                    Debug.Log(gameObject.GetComponent<NPC>().LevelNum);
                 }
 
                 if (LevelNum == 4)
                 {
                     Sheep4.SetActive(true);
+                    LevelNum++;
+                    Debug.Log(gameObject.GetComponent<NPC>().LevelNum);
                 }
             }
         }

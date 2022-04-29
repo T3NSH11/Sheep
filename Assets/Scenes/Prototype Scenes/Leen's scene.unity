@@ -331,10 +331,18 @@ MonoBehaviour:
   objectWithDialogueManager: {fileID: 1703633730}
   player: {fileID: 339842081}
   QuestSystem: {fileID: 0}
+  QuestInfo: {fileID: 0}
+  Sheep1: {fileID: 0}
+  Sheep2: {fileID: 0}
+  Sheep3: {fileID: 0}
+  Sheep4: {fileID: 0}
   NPCisActive: 0
+  Talkedto: 0
   sheepRequired: 10
   timeLimit: 5
   completed: 0
+  LevelNum: 0
+  pathMaker: {fileID: 0}
 --- !u!1001 &215181836
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -409,6 +417,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3935586385378754323, guid: 555f187c9d65a8b479db5f47957eba9b, type: 3}
   m_PrefabInstance: {fileID: 646296260}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &339842086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339842081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef4a47997dd3b14195f3e39bbaf5f45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canMove: 0
+  movementSpeed: 10
 --- !u!1 &357127646
 GameObject:
   m_ObjectHideFlags: 0
@@ -2959,21 +2981,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3935586385378754323, guid: 555f187c9d65a8b479db5f47957eba9b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3935586385378754323, guid: 555f187c9d65a8b479db5f47957eba9b, type: 3}
+      propertyPath: m_TagString
+      value: Sheep
+      objectReference: {fileID: 0}
     - target: {fileID: 4455698698293044649, guid: 555f187c9d65a8b479db5f47957eba9b, type: 3}
       propertyPath: m_RootOrder
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 4455698698293044649, guid: 555f187c9d65a8b479db5f47957eba9b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.45
+      value: -37
       objectReference: {fileID: 0}
     - target: {fileID: 4455698698293044649, guid: 555f187c9d65a8b479db5f47957eba9b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.6
+      value: 20.7
       objectReference: {fileID: 0}
     - target: {fileID: 4455698698293044649, guid: 555f187c9d65a8b479db5f47957eba9b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 121.68
+      value: -41.5
       objectReference: {fileID: 0}
     - target: {fileID: 4455698698293044649, guid: 555f187c9d65a8b479db5f47957eba9b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3009,7 +3039,7 @@ PrefabInstance:
       objectReference: {fileID: 682204747}
     - target: {fileID: 5536357539954618605, guid: 555f187c9d65a8b479db5f47957eba9b, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5536357539954618605, guid: 555f187c9d65a8b479db5f47957eba9b, type: 3}
       propertyPath: visualCue
@@ -3021,7 +3051,7 @@ PrefabInstance:
       objectReference: {fileID: 540748293}
     - target: {fileID: 5536357539954618607, guid: 555f187c9d65a8b479db5f47957eba9b, type: 3}
       propertyPath: m_Constraints
-      value: 4
+      value: 84
       objectReference: {fileID: 0}
     - target: {fileID: 5536357541794245591, guid: 555f187c9d65a8b479db5f47957eba9b, type: 3}
       propertyPath: TriggerSpeed
@@ -3123,7 +3153,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682204745}
   m_LocalRotation: {x: 0.22056419, y: 0.73884875, z: -0.2866016, w: 0.5686066}
-  m_LocalPosition: {x: -11.74, y: 31.12, z: 127.87}
+  m_LocalPosition: {x: -48.5, y: 37.2, z: -32.8}
   m_LocalScale: {x: 1.4453008, y: 1.395652, z: 1.706477}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3195,7 +3225,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh89676
+  m_Name: pb_Mesh22220
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6460,7 +6490,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh89750
+  m_Name: pb_Mesh22296
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

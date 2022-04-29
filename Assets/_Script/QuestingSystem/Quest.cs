@@ -15,6 +15,7 @@ public class Quest : MonoBehaviour
     public int CurrentLevel;
     public int SheepLeft;
     public float TimeLeft = 100;
+    public float totalScore;
     bool VariablesSet = false;
     bool UIOpen;
     
@@ -27,6 +28,7 @@ public class Quest : MonoBehaviour
     void Update()
     {
         CheckActive();
+
         if (ActiveQuest != null)
         {
             TimeLeftText.SetActive(true);
@@ -49,11 +51,16 @@ public class Quest : MonoBehaviour
 
         if(SheepLeft <= 0 && ActiveQuest != null)
         {
+            totalScore += gameObject.GetComponent<ScoringSytem>().currentScore;
+            gameObject.GetComponent<ScoringSytem>().saveHighScores();
             ActiveQuest.GetComponent<NPC>().completed = true;
             ActiveQuest = null;
             LevelCompleteScreen.SetActive(true);
             CurrentLevel++;
+            gameObject.GetComponent<NPC>().LevelNum++;
+            Debug.Log(gameObject.GetComponent<NPC>().LevelNum++);
             Time.timeScale = 0;
+            SheepLeft = 1000;
         }
 
         if (TimeLeft <= 0)
